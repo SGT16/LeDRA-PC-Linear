@@ -1,0 +1,703 @@
+{
+  "source_manuscript_sha256": "54a5df81b0c1a1eb01fdb5e02e4c218652b1349cc662e85afee59e1444c89db6",
+  "tables": [
+    {
+      "number": 1,
+      "caption": "Retained cohort populations and original scoring units",
+      "file": "table_01.csv",
+      "rows": 7,
+      "columns": [
+        "Cohort",
+        "Images",
+        "Scoring unit",
+        "Units",
+        "Positive",
+        "Negative",
+        "Dependencygroups"
+      ],
+      "notes": "Positive endpoint: source severity ≥moderate NPDR (ICDR ≥2); Paraguay original classes 3–7. Counts describe the retained development cohorts, not the full source datasets. mBRSET retains 50 unknown individual image labels, excluded only from classification loss. Patient/examination scores use the maximum available image probability. Examination IDs do not establish unique-person identity. Patient IDs were unavailable for image cohorts. Dependency groups remain disjoint across FIT/INNER/OUTER. Source provenance and specific exclusions are detailed in Methods.",
+      "bold_cells": []
+    },
+    {
+      "number": 2,
+      "caption": "Benchmark phase model family and comparator configurations",
+      "file": "table_02.csv",
+      "rows": 15,
+      "columns": [
+        "Model",
+        "Task-specific configuration",
+        "Trainableparameters",
+        "Lesionsupervision"
+      ],
+      "notes": "r denotes bottleneck width. Every arm starts from the same RETFound-Green weights and binary endpoint. Houlsby-type and AdapterDrop train task-local LayerNorm copies in addition to their adapters/head; original shared encoder weights are frozen. Teacher-only supervision trains four independent readers; reader probabilities are detached from the classification gradient. Shuffled is a Single-branch alignment control, not an exact Bi ablation. Base removes the lesion branch and auxiliary supervision. All arms have 105 fits (7 cohorts ×5 seeds ×3 folds). Published topologies are translated to the common retinal recipe; original-paper benchmark protocols are not reproduced exactly. The Base arm labelled matched belongs to the benchmark phase and denotes its cache-matched recipe; it is not the fresh reference of the separate six-configuration mechanism phase.",
+      "bold_cells": []
+    },
+    {
+      "number": 3,
+      "caption": "Benchmark phase positive-class F1 at the locked INNER-selected threshold",
+      "file": "table_03.csv",
+      "rows": 15,
+      "columns": [
+        "Model",
+        "BRSET",
+        "DeepDRiD",
+        "mBRSET",
+        "Messidor-2",
+        "SUSTech-SYSU",
+        "Paraguay",
+        "APTOS"
+      ],
+      "notes": "Percentages are mean ± sample SD of five seed means; each seed equally averages three fixed folds. All 15 fits per model/cohort are retained. Bold marks the highest unrounded cohort mean, including ties (tolerance 1e-12). F1 and accuracy use each fit’s own INNER-selected F1 threshold, frozen before DEVELOPMENT_OUTER scoring. Previously seen DEVELOPMENT_OUTER results are descriptive internal tests. Historical and matched Base remain distinct. Proposed denotes PC-Linear; variants and controls are separately identified.",
+      "bold_cells": [
+        [
+          2,
+          2
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          9,
+          1
+        ],
+        [
+          12,
+          4
+        ],
+        [
+          12,
+          6
+        ],
+        [
+          12,
+          7
+        ],
+        [
+          13,
+          5
+        ]
+      ]
+    },
+    {
+      "number": 4,
+      "caption": "Benchmark phase accuracy at the locked INNER-selected F1 threshold",
+      "file": "table_04.csv",
+      "rows": 15,
+      "columns": [
+        "Model",
+        "BRSET",
+        "DeepDRiD",
+        "mBRSET",
+        "Messidor-2",
+        "SUSTech-SYSU",
+        "Paraguay",
+        "APTOS"
+      ],
+      "notes": "Percentages are mean ± sample SD of five seed means; each seed equally averages three fixed folds. All 15 fits per model/cohort are retained. Bold marks the highest unrounded cohort mean, including ties (tolerance 1e-12). F1 and accuracy use each fit’s own INNER-selected F1 threshold, frozen before DEVELOPMENT_OUTER scoring. Previously seen DEVELOPMENT_OUTER results are descriptive internal tests. Historical and matched Base remain distinct. Proposed denotes PC-Linear; variants and controls are separately identified.",
+      "bold_cells": [
+        [
+          3,
+          3
+        ],
+        [
+          4,
+          2
+        ],
+        [
+          9,
+          1
+        ],
+        [
+          12,
+          4
+        ],
+        [
+          12,
+          6
+        ],
+        [
+          12,
+          7
+        ],
+        [
+          13,
+          5
+        ]
+      ]
+    },
+    {
+      "number": 5,
+      "caption": "Benchmark phase retrospective sensitivity at specificity of at least 95%",
+      "file": "table_05.csv",
+      "rows": 15,
+      "columns": [
+        "Model",
+        "BRSET",
+        "DeepDRiD",
+        "mBRSET",
+        "Messidor-2",
+        "SUSTech-SYSU",
+        "Paraguay",
+        "APTOS"
+      ],
+      "notes": "Percentages are mean ± sample SD of five seed means; each seed equally averages three fixed folds. All 15 fits per model/cohort are retained. Bold marks the highest unrounded cohort mean, including ties (tolerance 1e-12). Empirical ROC operating points include all original labeled scoring units, with indivisible tied-score groups and no interpolation. These are retrospective summaries, not locked clinical thresholds. Previously seen DEVELOPMENT_OUTER results are descriptive internal tests. Historical and matched Base remain distinct. Proposed denotes PC-Linear; variants and controls are separately identified.",
+      "bold_cells": [
+        [
+          3,
+          3
+        ],
+        [
+          9,
+          1
+        ],
+        [
+          12,
+          4
+        ],
+        [
+          12,
+          5
+        ],
+        [
+          12,
+          6
+        ],
+        [
+          12,
+          7
+        ],
+        [
+          13,
+          2
+        ],
+        [
+          13,
+          5
+        ]
+      ]
+    },
+    {
+      "number": 6,
+      "caption": "Benchmark phase retrospective specificity at sensitivity of at least 95%",
+      "file": "table_06.csv",
+      "rows": 15,
+      "columns": [
+        "Model",
+        "BRSET",
+        "DeepDRiD",
+        "mBRSET",
+        "Messidor-2",
+        "SUSTech-SYSU",
+        "Paraguay",
+        "APTOS"
+      ],
+      "notes": "Percentages are mean ± sample SD of five seed means; each seed equally averages three fixed folds. All 15 fits per model/cohort are retained. Bold marks the highest unrounded cohort mean, including ties (tolerance 1e-12). Empirical ROC operating points include all original labeled scoring units, with indivisible tied-score groups and no interpolation. These are retrospective summaries, not locked clinical thresholds. Previously seen DEVELOPMENT_OUTER results are descriptive internal tests. Historical and matched Base remain distinct. Proposed denotes PC-Linear; variants and controls are separately identified.",
+      "bold_cells": [
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          4,
+          1
+        ],
+        [
+          4,
+          2
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          5,
+          5
+        ],
+        [
+          6,
+          5
+        ],
+        [
+          9,
+          5
+        ],
+        [
+          12,
+          6
+        ],
+        [
+          12,
+          7
+        ]
+      ]
+    },
+    {
+      "number": 7,
+      "caption": "Benchmark phase ranking performance across all cohorts",
+      "file": "table_07.csv",
+      "rows": 15,
+      "columns": [
+        "Model",
+        "BRSET",
+        "DeepDRiD",
+        "mBRSET",
+        "Messidor-2",
+        "SUSTech-SYSU",
+        "Paraguay",
+        "APTOS"
+      ],
+      "notes": "Each cell reports AUROC / AP on the [0,1] scale, with the second value on a separate line. Values equally average three original OUTER fold scores within each training seed and then five seed means; all 15 fits are included. The highest unrounded AUROC and AP in each cohort are bold independently (absolute tie tolerance 10⁻¹²). AP is the original exact stepwise ranking metric, not the area under the interpolated mean precision–recall trace. Areas under the displayed interpolated mean traces need not equal mean fold AUROC/AP. Primary-metric seed SD is reported in Tables 3–5.",
+      "bold_cells": []
+    },
+    {
+      "number": 8,
+      "caption": "Observed training duration and stopping coverage in the matched six-configuration phase",
+      "file": "table_08.csv",
+      "rows": 6,
+      "columns": [
+        "Model",
+        "BRSET",
+        "DeepDRiD",
+        "mBRSET",
+        "Messidor-2",
+        "SUSTech-SYSU",
+        "Paraguay",
+        "APTOS"
+      ],
+      "notes": "E: pooled saved epoch seconds = total recorded training/INNER seconds divided by total completed epochs. T: mean fit duration (minutes); n: mean completed epochs; best: mean selected epoch. Each cell retains all 15 fits. Epoch durations include FIT, INNER evaluation and selected-state CPU copy; cache preparation, final scoring, checkpoint serialization, unsaved interruptions and downtime are excluded. Totals differ with early stopping. The exact-recipe Base was evaluated on the same assigned source/seed/fold hosts. Observed time differences are not controlled architecture-independent speed effects. The training code was not replaced by the later linear-time inference implementation.",
+      "bold_cells": []
+    },
+    {
+      "number": 9,
+      "caption": "Benchmark phase adaptation budget, full-forward dense arithmetic and measured computational cost",
+      "file": "table_09.csv",
+      "rows": 15,
+      "columns": [
+        "Model",
+        "Trainableparameters",
+        "Totalparameters(M)",
+        "DenseGFLOPs/image",
+        "Inferencewall time(ms)",
+        "Peakallocated(MiB)",
+        "Recordedtraining(h)"
+      ],
+      "notes": "Lower values are bold. Inference: resident synthetic batch1, 3×392×392, full FOV, common BF16 autocast, 10 warm-ups and 40 synchronized repetitions; mean ± repetition sample SD. The full uncached 12-block encoder and actual task head are included; teacher supervision, image IO, resizing/normalization, FOV extraction, host/device transfers and patient aggregation are excluded. Dense GFLOPs count convolution, matrix products, attention QK/AV and supported pair einsums with one MAC=2 FLOPs; they are not exact all-operator totals. LayerNorm, nonlinearities, softmax/scaling, elementwise pair differences/normalization/reductions and data movement are excluded. Peak is PyTorch allocator memory including resident model/input and forward buffers, excluding CUDA context/driver and external allocations; it is not training memory. Training hours sum recorded epoch durations across 105 fits/model; they exclude shared preparation and downtime. Historical/matched Base are the same topology but separate trained checkpoints and execution provenance.",
+      "bold_cells": [
+        [
+          2,
+          6
+        ],
+        [
+          10,
+          1
+        ],
+        [
+          10,
+          2
+        ],
+        [
+          10,
+          3
+        ],
+        [
+          10,
+          4
+        ],
+        [
+          10,
+          5
+        ]
+      ]
+    },
+    {
+      "number": 10,
+      "caption": "Benchmark phase descriptive external-transfer performance and first-place counts across all 42 directions",
+      "file": "table_10.csv",
+      "rows": 15,
+      "columns": [
+        "Model",
+        "MeanF1 (%)",
+        "MeanSe@Sp95 (%)",
+        "MeanSp@Se95 (%)",
+        "F1firsts",
+        "Se@Sp95firsts",
+        "Sp@Se95firsts"
+      ],
+      "notes": "Means give equal weight to the 42 directed source–target cells; each cell first averages three source folds within each of five training seeds. They are not pooled-patient performance or ensembles. Firsts are strict point-estimate leads over every other one of the 15 arms (tolerance 1e-12); ties are not counted as strict firsts. Bold means the highest value within a column. No significance test is implied. Every source and target, including unfavorable transfers, is retained; the complete archival matrix is retained in the analysis archive. Figs. 5 and 7 show the separate fresh matched phase.",
+      "bold_cells": [
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          9,
+          1
+        ],
+        [
+          12,
+          3
+        ],
+        [
+          12,
+          4
+        ],
+        [
+          12,
+          5
+        ],
+        [
+          12,
+          6
+        ]
+      ]
+    },
+    {
+      "number": 11,
+      "caption": "Matched DeepDRiD-source results on all six target cohorts",
+      "file": "table_11.csv",
+      "rows": 36,
+      "columns": [
+        "Target",
+        "Model",
+        "F1 (%)",
+        "Sensitivityfixed cut (%)",
+        "Specificityfixed cut (%)",
+        "Se@Sp95(%)",
+        "Sp@Se95(%)"
+      ],
+      "notes": "Matched six-configuration phase. Mean ± sample SD across five seed means, each averaging three source-fold fits on the entire original target population. The fixed cut is each fit’s source-INNER F1 threshold, unchanged on the target. Se@Sp95 and Sp@Se95 use target labels retrospectively; they are not fixed-cut sensitivity/specificity. Bold is the highest of the six displayed configurations per target/metric, without a significance implication. This source-focused view is exploratory; all 42 directions are retained in Figs. 5 and 7 and the complete analysis archive.",
+      "bold_cells": [
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          4,
+          3
+        ],
+        [
+          6,
+          2
+        ],
+        [
+          6,
+          6
+        ],
+        [
+          7,
+          4
+        ],
+        [
+          7,
+          5
+        ],
+        [
+          10,
+          3
+        ],
+        [
+          14,
+          4
+        ],
+        [
+          14,
+          5
+        ],
+        [
+          15,
+          2
+        ],
+        [
+          17,
+          3
+        ],
+        [
+          17,
+          6
+        ],
+        [
+          18,
+          2
+        ],
+        [
+          20,
+          4
+        ],
+        [
+          22,
+          3
+        ],
+        [
+          23,
+          5
+        ],
+        [
+          23,
+          6
+        ],
+        [
+          26,
+          4
+        ],
+        [
+          28,
+          2
+        ],
+        [
+          28,
+          3
+        ],
+        [
+          28,
+          5
+        ],
+        [
+          28,
+          6
+        ],
+        [
+          30,
+          2
+        ],
+        [
+          31,
+          4
+        ],
+        [
+          31,
+          5
+        ],
+        [
+          31,
+          6
+        ],
+        [
+          34,
+          3
+        ]
+      ]
+    },
+    {
+      "number": 12,
+      "caption": "Matched within-cohort F1 and accuracy across all seven cohorts",
+      "file": "table_12.csv",
+      "rows": 6,
+      "columns": [
+        "Model",
+        "BRSET",
+        "DeepDRiD",
+        "mBRSET",
+        "Messidor-2",
+        "SUSTech-SYSU",
+        "Paraguay",
+        "APTOS"
+      ],
+      "notes": "Matched six-configuration phase only: 15 fresh fits per arm/cohort. Each cell gives positive-class F1 then accuracy on separate lines; percentages are mean ± sample SD across five seed means, after equal averaging of three fixed folds. Bold identifies the highest unrounded value for each metric within this six-configuration panel, including ties (1e-12). F1/accuracy use each fit’s source-INNER F1 threshold. ROC95 quantities are retrospective. Archived models and the fresh reference are not pooled. NOAUX has fixed initialized data-dependent readers, 36,229 nominal parameters and 34,689 objective-connected parameters. Exact-recipe Base removes the whole lesion branch and auxiliary objective and has 25,377 trainable parameters; it is not an equal-capacity semantic control.",
+      "bold_cells": []
+    },
+    {
+      "number": 13,
+      "caption": "Matched within-cohort high-specificity and high-sensitivity operating points",
+      "file": "table_13.csv",
+      "rows": 6,
+      "columns": [
+        "Model",
+        "BRSET",
+        "DeepDRiD",
+        "mBRSET",
+        "Messidor-2",
+        "SUSTech-SYSU",
+        "Paraguay",
+        "APTOS"
+      ],
+      "notes": "Matched six-configuration phase only: 15 fresh fits per arm/cohort. Each cell gives Se@Sp95 then Sp@Se95 on separate lines; percentages are mean ± sample SD across five seed means, after equal averaging of three fixed folds. Bold identifies the highest unrounded value for each metric within this six-configuration panel, including ties (1e-12). F1/accuracy use each fit’s source-INNER F1 threshold. ROC95 quantities are retrospective. Archived models and the fresh reference are not pooled. NOAUX has fixed initialized data-dependent readers, 36,229 nominal parameters and 34,689 objective-connected parameters. Exact-recipe Base removes the whole lesion branch and auxiliary objective and has 25,377 trainable parameters; it is not an equal-capacity semantic control.",
+      "bold_cells": []
+    },
+    {
+      "number": 14,
+      "caption": "Conditional paired within-cohort differences: matched reference minus each control",
+      "file": "table_14.csv",
+      "rows": 7,
+      "columns": [
+        "Cohort",
+        "Shuffled gates",
+        "Uniform reference",
+        "No auxiliary",
+        "Pooling only",
+        "Base (exact recipe)"
+      ],
+      "notes": "Each cell gives F1, accuracy (Ac), Se@Sp95 and Sp@Se95 differences in percentage points, followed by conditional95%percentile intervals. Two thousand paired unstratified draws of original dependency groups; shared cohort draws across all arms, seeds, folds and evaluated sources. The fitted models, original training seeds/folds and source-INNER cuts remain fixed. Thus seed SD and these population-resampling intervals describe different uncertainty. ROC95 points are recomputed within each weighted sample. Intervals are post-selection, pointwise and unadjusted; no p-values, hypothesis tests, multiplicity/FWER guarantee or independent confirmation are claimed. All seven reference-minus-pooling-only F1 intervals include zero.",
+      "bold_cells": []
+    },
+    {
+      "number": 15,
+      "caption": "Separate inference-implementation profile using the same trained reference checkpoint",
+      "file": "table_15.csv",
+      "rows": 4,
+      "columns": [
+        "Batch",
+        "Implementation",
+        "Wall time(ms/batch)",
+        "CUDA event(ms/batch)",
+        "Images/s",
+        "Peak allocated(MiB)"
+      ],
+      "notes": "Full uncached 12-block encoder plus task logit at 392×392; all 784 patches in the synthetic FOV. One existing DeepDRiD reference checkpoint (seed823/fold1), resident standard-normal synthetic FP32 images and CUDA BF16 autocast; reader/projection/evidence FP32. Ten warm-ups per method, 40 paired alternating-order repetitions; mean ± repetition sample SD. Images/s is batch size divided by mean synchronized wall time. Image IO, resizing/normalization, FOV extraction, transfers, patient aggregation, loading and training are excluded. Same checkpoint and no retraining; official patient predictions were not modified. Base and final BF16 logits were bit-exact only on these two tested synthetic batches; maximum FP32 residual differences were 4.94e-8 and 1.70e-7. Equal measured allocated peaks do not support a VRAM gain. PyTorch allocator excludes context/driver. No new GFLOPs total or real-patient accuracy/equivalence result is claimed.",
+      "bold_cells": []
+    },
+    {
+      "number": 16,
+      "caption": "Matched within-cohort calibration point summaries",
+      "file": "table_16.csv",
+      "rows": 6,
+      "columns": [
+        "Model",
+        "BRSET",
+        "DeepDRiD",
+        "mBRSET",
+        "Messidor-2",
+        "SUSTech-SYSU",
+        "Paraguay",
+        "APTOS"
+      ],
+      "notes": "B: Brier score; E: expected calibration error with10fixed equal-width probability bins, both on0–1scale and lower is better. Values average the three fixed folds within seed and then five seed means. These are point summaries, not calibration guarantees. No target recalibration was performed. Empty reliability bins are unavailable, not zero-filled. Cross-cohort prevalences and scoring units differ, so values are not used as a universal cohort ranking. Bold marks the lowest unrounded value per metric within the matched panel.",
+      "bold_cells": []
+    },
+    {
+      "number": 17,
+      "caption": "Directional coverage of conditional external paired intervals",
+      "file": "table_17.csv",
+      "rows": 5,
+      "columns": [
+        "Comparator",
+        "F1",
+        "Accuracy",
+        "Se@Sp95",
+        "Sp@Se95"
+      ],
+      "notes": "Cells count intervals wholly above zero / wholly below zero / including zero among all 42 reference-minus-control directions. Positive favors the reference for these four metrics. These are descriptive counts of pointwise conditional 95% intervals, not FWER-controlled discoveries, independent validation successes or a binomial test. Directions share the seven original cohorts. All positive and negative intervals are retained; full numerical intervals remain in the reproducibility archive.",
+      "bold_cells": []
+    },
+    {
+      "number": 18,
+      "caption": "Source specific F1 leaders and operating point profiles in the benchmark phase",
+      "file": "table_18.csv",
+      "rows": 9,
+      "columns": [
+        "Source → target",
+        "Tier",
+        "F1 (%)",
+        "F1 margin(pp)",
+        "Se@Sp95(%)",
+        "Se margin(pp)",
+        "Sp@Se95(%)",
+        "Sp margin(pp)"
+      ],
+      "notes": "Benchmark phase only; all nine of the 42 directions in which PC-Linear has the highest F1 mean among 15 arms are shown. Tier A: all three means also exceed the metric-specific best of five published comparators; Tier B: additional F1 leaders with at least one ROC95 loss. Values are mean ± sample SD across five seed means, each averaging three fixed source folds. Bold marks a highest unrounded metric mean among all 15 arms, including ties (1e-12); a positive published-comparator margin alone is not bolded. Margins (percentage points) use the strongest published comparator for that metric, named below each margin: linear probing, Houlsby-type adapter, AdaptFormer, Adapter+ or AdapterDrop. Negative margins are retained. None of the nine profiles ranks first among all 15 arms on all three metrics. F1 uses unchanged source-INNER cuts; ROC95 is retrospective. Profiles were identified after outcome exposure; no hypothesis test or independent-confirmation claim follows. The remaining 33 directions are retained in the full benchmark. Matched-phase values and conditional intervals are not pooled with this table.",
+      "bold_cells": [
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          4,
+          2
+        ],
+        [
+          5,
+          2
+        ],
+        [
+          5,
+          4
+        ],
+        [
+          6,
+          2
+        ],
+        [
+          6,
+          6
+        ],
+        [
+          7,
+          2
+        ],
+        [
+          7,
+          6
+        ],
+        [
+          8,
+          2
+        ]
+      ]
+    },
+    {
+      "number": 19,
+      "caption": "All 42 external contrasts between PC-Linear and the exact-recipe Base",
+      "file": "table_19.csv",
+      "rows": 42,
+      "columns": [
+        "Source",
+        "Target",
+        "F1 difference(pp; 95% CI)",
+        "Accuracy difference(pp; 95% CI)",
+        "Se@Sp95 difference(pp; 95% CI)",
+        "Sp@Se95 difference(pp; 95% CI)"
+      ],
+      "notes": "Matched six-configuration phase; every directed source–target pair is retained. Cells give PC-Linear reference minus the independently trained exact-recipe Base in percentage points, with conditional pointwise 95% percentile intervals below. All five seed means equally average the same three source folds. Two thousand original shared dependency-group draws are reused; models, training seeds/folds and each model’s own source-INNER threshold are fixed. Positive favors PC-Linear and negative favors Base; no zero-crossing cell is removed. F1/accuracy use their model-specific source cut; ROC95 is retrospective target-label analysis. Base removes the entire lesion branch and auxiliary objective (25,377 vs 36,229 parameters), so this is a combined branch/supervision and capacity contrast, not equal-capacity lesion-semantics isolation. These exploratory intervals do not provide multiplicity/FWER control or independent clinical confirmation. The column header repeats automatically on continuation pages.",
+      "bold_cells": []
+    }
+  ],
+  "table_cells": "Exact final Word table text exported to CSV; newline-separated entries retain within-cell grouping; no Word authoring code included"
+}

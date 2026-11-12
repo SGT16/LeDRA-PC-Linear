@@ -1,0 +1,10 @@
+Source → target,Tier,F1 (%),F1 margin(pp),Se@Sp95(%),Se margin(pp),Sp@Se95(%),Sp margin(pp)
+DeepDRiD →SUSTech-SYSU,A,95.86 ± 0.90,+0.98AdapterDrop,97.71 ± 0.51,+1.04Houlsby adapter,98.69 ± 0.47,+1.10Houlsby adapter
+BRSET →DeepDRiD,A,89.09 ± 1.21,+3.70AdaptFormer,86.86 ± 2.15,+1.86AdaptFormer,80.57 ± 2.73,+0.48AdaptFormer
+Messidor-2 →Paraguay,A,88.97 ± 1.61,+4.46AdaptFormer,87.54 ± 1.35,+3.20AdaptFormer,82.81 ± 5.77,+2.99AdaptFormer
+DeepDRiD →Messidor-2,A,65.09 ± 2.81,+4.24Houlsby adapter,56.82 ± 2.77,+1.44Adapter+,27.65 ± 1.37,+1.84AdaptFormer
+APTOS →Messidor-2,A,52.91 ± 2.55,+0.35AdaptFormer,44.40 ± 1.24,+1.97AdaptFormer,25.87 ± 1.33,+2.35AdaptFormer
+SUSTech-SYSU →BRSET,A,33.27 ± 2.79,+2.50AdaptFormer,68.55 ± 1.63,+2.36AdaptFormer,64.79 ± 2.07,+1.23AdaptFormer
+SUSTech-SYSU →APTOS,B,82.01 ± 1.64,+2.69AdaptFormer,72.93 ± 1.96,-1.86Linear probing,82.97 ± 1.50,+3.17Linear probing
+DeepDRiD →mBRSET,B,70.87 ± 0.50,+1.65Houlsby adapter,60.13 ± 1.74,-3.09Houlsby adapter,44.69 ± 1.36,+1.77Adapter+
+BRSET →Messidor-2,B,60.34 ± 2.64,+9.46AdapterDrop,57.61 ± 0.59,+0.92AdaptFormer,23.44 ± 2.28,-6.94AdaptFormer

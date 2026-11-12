@@ -1,0 +1,16 @@
+Model,Task-specific configuration,Trainableparameters,Lesionsupervision
+LeDRA-PC-Linear(Proposed; benchmark),Base plus four readers and signed linear pair difference,"36,229",Teacher only
+LeDRA-Base(matched),One patch-only r32 residual adapter after block 10; common new cache recipe,"25,377",None
+LeDRA-Base(historical),Same architecture; historical FP16 block-10 cache and microbatch recipe,"25,377",None
+LeDRA-Base-r46,One patch-only r46 residual adapter after block 10; capacity control,"36,143",None
+LeDRA-PC-Single(variant),Base plus four readers and one rectified pair-evidence channel,"36,229",Teacher only
+LeDRA-PC-Bi(variant),Base plus four readers; separate rectified positive/negative difference readouts,"36,325",Teacher only
+PC-Single-Shuffled(alignment control),Single branch with fixed within-FOV gate permutation,"36,229",Teacher only
+LeDRA-Base-Early,One patch-only r32 residual adapter after block 2,"25,377",None
+LeDRA-Base-Mid,One patch-only r32 residual adapter after block 6,"25,377",None
+LeDRA-Base-AllTokens,One r32 residual adapter after block 10; all 789 tokens,"25,377",None
+Linear probing,Frozen encoder; linear 384→1 classifier only,385,None
+Houlsby-type adapter,Two serial r64 adapters per block; 12 blocks and task-local norms,"1,209,985",None
+AdaptFormer,One parallel r64 FFN adapter per block; 12 blocks,"595,585",None
+Adapter+,One post-block r32 adapter per block; learned channel scale; 12 blocks,"304,897",None
+AdapterDrop,Two serial r16 adapters in final block and task-local final norms,"28,065",None

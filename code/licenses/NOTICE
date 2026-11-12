@@ -1,0 +1,30 @@
+Mamba-1 attribution for lesion_mamba/model.py
+
+Copyright (c) 2023, Tri Dao and Albert Gu.
+
+The MambaCore projection layout and special initialization in model.py are
+adapted from the official state-spaces/mamba implementation:
+  https://github.com/state-spaces/mamba
+  revision e9594ce1c732d97440f0332fdc43170a2294dbfa
+  mamba_ssm/modules/mamba_simple.py
+  source SHA-256 a17e4c51b582dc0d4d690a649eba521cd0c1ee3dc8f0473a0967cdc9ec0874e3
+
+The upstream code is distributed under the Apache License, Version 2.0.
+The accompanying MAMBA_LICENSE preserves the upstream license text.
+
+This experiment modifies the implementation as follows:
+  - independent teacher-supervised lesion readers with detached decision gates;
+  - lesion-conditioned SSM write increments, preserving dt and D*u skip;
+  - explicit RGB-FOV masking and identity transitions at invalid positions;
+  - one shared core across four raster routes;
+  - a decision branch after the frozen RETFound suffix, with one zero-start
+    scalar readout and the historical B0 generic branch retained;
+  - a pure-PyTorch Conv1d and FP32 associative affine-prefix backend;
+  - spatial, constant-mass, generic and valid-site state-reset controls.
+
+The affine-prefix recurrence is adapted from this project's prior V24 local
+reference (retina/scripts/v24_mamba_adapter/recurrence.py). No upstream CUDA
+kernel or fused inference implementation is copied into this new module.
+
+These notices describe the relevant third-party origin and modifications.
+They do not change licenses applicable to unrelated repository components.

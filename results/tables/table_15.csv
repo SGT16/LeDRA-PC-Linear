@@ -1,0 +1,5 @@
+Batch,Implementation,Wall time(ms/batch),CUDA event(ms/batch),Images/s,Peak allocated(MiB)
+1,Original pair sum,44.560 ± 6.622,44.483 ± 6.643,22.4,127.6
+1,Linear-time equivalent,12.858 ± 2.817,12.797 ± 2.797,77.8,127.6
+8,Original pair sum,47.896 ± 7.842,47.833 ± 7.827,167.0,203.8
+8,Linear-time equivalent,14.836 ± 1.229,14.777 ± 1.214,539.2,203.8

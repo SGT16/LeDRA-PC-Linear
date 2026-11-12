@@ -1,0 +1,8 @@
+Cohort,Images,Scoring unit,Units,Positive,Negative,Dependencygroups
+BRSET,"7,282",Patient,"3,638",226,"3,412","3,638"
+DeepDRiD,"1,120",Patient,280,140,140,280
+mBRSET,"4,536",Patient,"1,134",298,836,"1,134"
+Messidor-2,"1,740",Examination,870,268,602,857
+SUSTech-SYSU,"1,219",Image,"1,219",564,655,"1,219"
+Paraguay,"1,437",Image,"1,437",720,717,"1,410"
+APTOS,"3,662",Image,"3,662","1,487","2,175","3,534"

@@ -1,0 +1,461 @@
+{
+  "generated_at_utc": "2026-11-12T19:25:57.122202+00:00",
+  "bindings": [
+    {
+      "source": "outputs/ledra_manuscript_20261018/analysis.json",
+      "source_sha256": "f535a2d82cf92ab548a520729062242939b189d828c7378e84e9c0d05715dc19",
+      "released_artifacts": [
+        "benchmark15/internal_fit_metrics.csv",
+        "benchmark15/internal_summary.csv",
+        "benchmark15/internal_seed_means.csv",
+        "benchmark15/training_timing_summary.csv"
+      ],
+      "transformation": "Aggregate fit/seed/summary export; original standard ROC95 joined by dataset/model/seed/fold/role; local paths removed"
+    },
+    {
+      "source": "outputs/standard_operating_points_20261023/fold_records.csv",
+      "source_sha256": "4547b29699c22f2d01f43ab9dd1b9a34738b04af9f232d71aff4504a34eeb63f",
+      "released_artifacts": [
+        "benchmark15/internal_fit_metrics.csv",
+        "benchmark15/internal_summary.csv",
+        "benchmark15/internal_seed_means.csv",
+        "benchmark15/training_timing_summary.csv"
+      ],
+      "transformation": "Aggregate fit/seed/summary export; original standard ROC95 joined by dataset/model/seed/fold/role; local paths removed"
+    },
+    {
+      "source": "outputs/standard_operating_points_20261023/summary_results.csv",
+      "source_sha256": "698cfed8b8a7c57c15b2a9c7da7dc3566d167f6e2f98e772096be7ac519bcc25",
+      "released_artifacts": [
+        "benchmark15/internal_fit_metrics.csv",
+        "benchmark15/internal_summary.csv",
+        "benchmark15/internal_seed_means.csv",
+        "benchmark15/training_timing_summary.csv"
+      ],
+      "transformation": "Aggregate fit/seed/summary export; original standard ROC95 joined by dataset/model/seed/fold/role; local paths removed"
+    },
+    {
+      "source": "LeDRA-CrossDataset-20261109/results/transfer_metrics.csv",
+      "source_sha256": "d2a47d6182087108813e6b44bd70224a466a6ab612ca4338a97936873bdbf71f",
+      "released_artifacts": [
+        "benchmark15/external_fit_metrics.csv",
+        "benchmark15/external_seed_means.csv"
+      ],
+      "transformation": "Concatenate disjoint original4 and extension11 registered arms; source_fold aliased to fold; node routing removed"
+    },
+    {
+      "source": "LeDRA-CrossDataset-20261109/results/seed_results.csv",
+      "source_sha256": "7eee297fa0003c7bba9727890650ccc7889c94ad0121e47c15e025bbaaf89e9b",
+      "released_artifacts": [
+        "benchmark15/external_fit_metrics.csv",
+        "benchmark15/external_seed_means.csv"
+      ],
+      "transformation": "Concatenate disjoint original4 and extension11 registered arms; source_fold aliased to fold; node routing removed"
+    },
+    {
+      "source": "LeDRA-CrossDataset-Extension11-20261109/results_rebalanced_20261110/transfer_metrics.csv",
+      "source_sha256": "da578527dd91529059059ba4f53a74d4398cd6aa32e1c9f465e7aeb6be5ab3c3",
+      "released_artifacts": [
+        "benchmark15/external_fit_metrics.csv",
+        "benchmark15/external_seed_means.csv"
+      ],
+      "transformation": "Concatenate disjoint original4 and extension11 registered arms; source_fold aliased to fold; node routing removed"
+    },
+    {
+      "source": "LeDRA-CrossDataset-Extension11-20261109/results_rebalanced_20261110/seed_results.csv",
+      "source_sha256": "651cf702723b272a5b65db52fb502ceb4056d8b281e25321a8e4f19aeb8cfa22",
+      "released_artifacts": [
+        "benchmark15/external_fit_metrics.csv",
+        "benchmark15/external_seed_means.csv"
+      ],
+      "transformation": "Concatenate disjoint original4 and extension11 registered arms; source_fold aliased to fold; node routing removed"
+    },
+    {
+      "source": "outputs/ledra_pc_linear_manuscript_20261111/external_final_all15.csv",
+      "source_sha256": "f79954fee4d06f79537fc0f3ea81037d2d98a2bc8e5d14c710d534442ad0f379",
+      "released_artifacts": [
+        "benchmark15/external_summary.csv"
+      ],
+      "transformation": "Byte-for-byte completed all15-arm external summaries"
+    },
+    {
+      "source": "LeDRA-PCLinear-Ablations-20261110/results/fit_metrics.csv",
+      "source_sha256": "fcf17a8c7db7c423bcbcc9404315e416c972fee0dd943efb35ac39a3856bd853",
+      "released_artifacts": [
+        "matched6/internal_fit_metrics.csv"
+      ],
+      "transformation": "Concatenate disjoint matched4+pooling1+freshBase1 arms; remove machine routing only"
+    },
+    {
+      "source": "LeDRA-PCLinear-Pooling-20261111/results/fit_metrics.csv",
+      "source_sha256": "ea2113ab883fb25d56b93e10ed4f8c35c974e1b286d7ce547096bcc690156ffe",
+      "released_artifacts": [
+        "matched6/internal_fit_metrics.csv"
+      ],
+      "transformation": "Concatenate disjoint matched4+pooling1+freshBase1 arms; remove machine routing only"
+    },
+    {
+      "source": "LeDRA-Base-Matched-20261112/results/fit_metrics.csv",
+      "source_sha256": "b58dd75c811c4aa658676a9e4106b0d4ccbb7ae4d2e5903e44dda2cdd2dc7b27",
+      "released_artifacts": [
+        "matched6/internal_fit_metrics.csv"
+      ],
+      "transformation": "Concatenate disjoint matched4+pooling1+freshBase1 arms; remove machine routing only"
+    },
+    {
+      "source": "LeDRA-PCLinear-Ablations-20261110/results/internal_seed_results.csv",
+      "source_sha256": "4eee54f0bfa12ab7edd7354a288919f2e607250ea7b8282bb2ff153c4e5d41ab",
+      "released_artifacts": [
+        "matched6/internal_seed_means.csv"
+      ],
+      "transformation": "Concatenate disjoint matched4+pooling1+freshBase1 arms; remove machine routing only"
+    },
+    {
+      "source": "LeDRA-PCLinear-Pooling-20261111/results/internal_seed_results.csv",
+      "source_sha256": "a169921fe81f85ff1d936a92738128e8c55d7380ebba96535e317968edbeeca7",
+      "released_artifacts": [
+        "matched6/internal_seed_means.csv"
+      ],
+      "transformation": "Concatenate disjoint matched4+pooling1+freshBase1 arms; remove machine routing only"
+    },
+    {
+      "source": "LeDRA-Base-Matched-20261112/results/internal_seed_results.csv",
+      "source_sha256": "1f500e84433078258e7e1e6b9f94982e585f49f7c0a3426f71a16afd51966b8d",
+      "released_artifacts": [
+        "matched6/internal_seed_means.csv"
+      ],
+      "transformation": "Concatenate disjoint matched4+pooling1+freshBase1 arms; remove machine routing only"
+    },
+    {
+      "source": "LeDRA-PCLinear-Ablations-20261110/results/internal_summary_results.csv",
+      "source_sha256": "a5b08a94338954b5e9fdd30f2245fb85b9d686be356f14c0a43247b68755cc43",
+      "released_artifacts": [
+        "matched6/internal_summary.csv"
+      ],
+      "transformation": "Concatenate disjoint matched4+pooling1+freshBase1 arms; remove machine routing only"
+    },
+    {
+      "source": "LeDRA-PCLinear-Pooling-20261111/results/internal_summary_results.csv",
+      "source_sha256": "9c701525d1a4d970004265de4c0dc2c66698496c6cf4de558f10154912af25a1",
+      "released_artifacts": [
+        "matched6/internal_summary.csv"
+      ],
+      "transformation": "Concatenate disjoint matched4+pooling1+freshBase1 arms; remove machine routing only"
+    },
+    {
+      "source": "LeDRA-Base-Matched-20261112/results/internal_summary_results.csv",
+      "source_sha256": "479f4b0ce5ea9b8db3f08ad41201a78d736491f43fbe33bdc454fc095f46e745",
+      "released_artifacts": [
+        "matched6/internal_summary.csv"
+      ],
+      "transformation": "Concatenate disjoint matched4+pooling1+freshBase1 arms; remove machine routing only"
+    },
+    {
+      "source": "LeDRA-PCLinear-Ablations-20261110/results/external_metrics.csv",
+      "source_sha256": "627fe5f73aec74f2b1a966a40d3a1e6aed25af8f4ce4b316c53346af150ab198",
+      "released_artifacts": [
+        "matched6/external_fit_metrics.csv"
+      ],
+      "transformation": "Concatenate disjoint matched4+pooling1+freshBase1 arms; remove machine routing only"
+    },
+    {
+      "source": "LeDRA-PCLinear-Pooling-20261111/results/external_metrics.csv",
+      "source_sha256": "d7c86e707e35e4437a168bc5c15be899b549528f18ec66e978e35e81abc10965",
+      "released_artifacts": [
+        "matched6/external_fit_metrics.csv"
+      ],
+      "transformation": "Concatenate disjoint matched4+pooling1+freshBase1 arms; remove machine routing only"
+    },
+    {
+      "source": "LeDRA-Base-Matched-20261112/results/external_metrics.csv",
+      "source_sha256": "4c9404f27aa21cb13d090256a53c1b39f0801d4f1e121344da86740d20f27d8f",
+      "released_artifacts": [
+        "matched6/external_fit_metrics.csv"
+      ],
+      "transformation": "Concatenate disjoint matched4+pooling1+freshBase1 arms; remove machine routing only"
+    },
+    {
+      "source": "LeDRA-PCLinear-Ablations-20261110/results/external_seed_results.csv",
+      "source_sha256": "5898bfa783a6406c4d9d41055728cf12c06f83982bef5f0280590a2bcb323773",
+      "released_artifacts": [
+        "matched6/external_seed_means.csv"
+      ],
+      "transformation": "Concatenate disjoint matched4+pooling1+freshBase1 arms; remove machine routing only"
+    },
+    {
+      "source": "LeDRA-PCLinear-Pooling-20261111/results/external_seed_results.csv",
+      "source_sha256": "0ae325cbda43ed0e4ecbfe60beb04ccefc4e7960af7a1edbc8b4c5c71fc792e4",
+      "released_artifacts": [
+        "matched6/external_seed_means.csv"
+      ],
+      "transformation": "Concatenate disjoint matched4+pooling1+freshBase1 arms; remove machine routing only"
+    },
+    {
+      "source": "LeDRA-Base-Matched-20261112/results/external_seed_results.csv",
+      "source_sha256": "6744d73f17589c546369ef584951cefe0cd1e19690bd599d042870ddef17d755",
+      "released_artifacts": [
+        "matched6/external_seed_means.csv"
+      ],
+      "transformation": "Concatenate disjoint matched4+pooling1+freshBase1 arms; remove machine routing only"
+    },
+    {
+      "source": "LeDRA-PCLinear-Ablations-20261110/results/external_summary_results.csv",
+      "source_sha256": "c2b8289ee1c5ab257d72781ca9eb6ab6423e617b156d4c4d6e94386b62df03ae",
+      "released_artifacts": [
+        "matched6/external_summary.csv"
+      ],
+      "transformation": "Concatenate disjoint matched4+pooling1+freshBase1 arms; remove machine routing only"
+    },
+    {
+      "source": "LeDRA-PCLinear-Pooling-20261111/results/external_summary_results.csv",
+      "source_sha256": "fcad7e7c9c14c42bd9fba8c8a2e91d6a006846a8ff7a33c6dc5e060ce0778b33",
+      "released_artifacts": [
+        "matched6/external_summary.csv"
+      ],
+      "transformation": "Concatenate disjoint matched4+pooling1+freshBase1 arms; remove machine routing only"
+    },
+    {
+      "source": "LeDRA-Base-Matched-20261112/results/external_summary_results.csv",
+      "source_sha256": "6334d87d7763d8434abbf8f5cf37ba8905b0fffd54d29b04bdcfd3f80163e3b9",
+      "released_artifacts": [
+        "matched6/external_summary.csv"
+      ],
+      "transformation": "Concatenate disjoint matched4+pooling1+freshBase1 arms; remove machine routing only"
+    },
+    {
+      "source": "outputs/ledra_pc_linear_manuscript_20261111/conditional_analysis/model_intervals.csv",
+      "source_sha256": "d79d3e18ff473f9e7577517236478b5561cba57c32b4bf22ac1f4e48c823b269",
+      "released_artifacts": [
+        "conditional_intervals/model_intervals.csv"
+      ],
+      "transformation": "Merge by scientific identity; equal duplicate originalREF rows appear once; no interval recalculation"
+    },
+    {
+      "source": "outputs/ledra_base_comparison_20261112/conditional_analysis/model_intervals.csv",
+      "source_sha256": "0c8ad1d6c8248aa923546989eac15df25dba264fc5da8107e648de555da9f1ec",
+      "released_artifacts": [
+        "conditional_intervals/model_intervals.csv"
+      ],
+      "transformation": "Merge by scientific identity; equal duplicate originalREF rows appear once; no interval recalculation"
+    },
+    {
+      "source": "outputs/ledra_pc_linear_manuscript_20261111/conditional_analysis/paired_intervals.csv",
+      "source_sha256": "5d58a2872623f6a088165ca6ec0dc3708ef71fb2be877e7c52ede0ca56ddb0b5",
+      "released_artifacts": [
+        "conditional_intervals/paired_intervals.csv"
+      ],
+      "transformation": "Merge by scientific identity; equal duplicate originalREF rows appear once; no interval recalculation"
+    },
+    {
+      "source": "outputs/ledra_base_comparison_20261112/conditional_analysis/paired_intervals.csv",
+      "source_sha256": "4d504a0eb2011e297b2fb39ce82ee64e7f9269adaa6fc6d60ce1a7278d2dd5c1",
+      "released_artifacts": [
+        "conditional_intervals/paired_intervals.csv"
+      ],
+      "transformation": "Merge by scientific identity; equal duplicate originalREF rows appear once; no interval recalculation"
+    },
+    {
+      "source": "outputs/ledra_pc_linear_manuscript_20261111/conditional_analysis/calibration_runs.csv",
+      "source_sha256": "02aeef01440a4143dd82f94ad62d9795e10120316e16088c1a63d12954af4985",
+      "released_artifacts": [
+        "conditional_intervals/calibration_runs.csv"
+      ],
+      "transformation": "Merge by scientific identity; equal duplicate originalREF rows appear once; no interval recalculation"
+    },
+    {
+      "source": "outputs/ledra_base_comparison_20261112/conditional_analysis/calibration_runs.csv",
+      "source_sha256": "922f321ebfbfce78a37c38e7209dd35a333488cbca64ffbb22a9d84d3805033d",
+      "released_artifacts": [
+        "conditional_intervals/calibration_runs.csv"
+      ],
+      "transformation": "Merge by scientific identity; equal duplicate originalREF rows appear once; no interval recalculation"
+    },
+    {
+      "source": "outputs/ledra_pc_linear_manuscript_20261111/conditional_analysis/fixed_source_confusion_runs.csv",
+      "source_sha256": "c5e2a715c08ed5b4db5b850d5fb3cd68a62669e51612fd812e9ee1a44fb2b2a2",
+      "released_artifacts": [
+        "conditional_intervals/fixed_source_confusion_runs.csv"
+      ],
+      "transformation": "Merge by scientific identity; equal duplicate originalREF rows appear once; no interval recalculation"
+    },
+    {
+      "source": "outputs/ledra_base_comparison_20261112/conditional_analysis/fixed_source_confusion_runs.csv",
+      "source_sha256": "d79bc23d991eb37cb8a01921157f31fe5d3d5704eaa8a2064b210e69c90b6427",
+      "released_artifacts": [
+        "conditional_intervals/fixed_source_confusion_runs.csv"
+      ],
+      "transformation": "Merge by scientific identity; equal duplicate originalREF rows appear once; no interval recalculation"
+    },
+    {
+      "source": "outputs/ledra_pc_linear_manuscript_20261111/conditional_analysis/reliability_runs.csv",
+      "source_sha256": "7e6171191e0e6869d3f1686ae0dd48a4f258e6ca01516183476138f937e15e19",
+      "released_artifacts": [
+        "conditional_intervals/reliability_runs.csv"
+      ],
+      "transformation": "Byte-for-byte original five-arm descriptive reliability bin summaries; freshBase not present"
+    },
+    {
+      "source": "outputs/ledra_pc_linear_manuscript_20261111/conditional_analysis/reliability_summary.csv",
+      "source_sha256": "6f7ba4dfc1f2007de6486172066e79076e8610f0c3d26804eed4b8d0252bd3eb",
+      "released_artifacts": [
+        "conditional_intervals/reliability_summary.csv"
+      ],
+      "transformation": "Byte-for-byte original five-arm descriptive reliability bin summaries; freshBase not present"
+    },
+    {
+      "source": "outputs/ledra_pc_linear_manuscript_20261111/conditional_analysis/execution_lock.json",
+      "source_sha256": "3de801cccd091a885ea83d46b5ed214213692be6b254873f1ec28b0363a324cb",
+      "released_artifacts": [
+        "conditional_intervals/original_five_arm_protocol.json"
+      ],
+      "transformation": "Protocol section only; operational binding paths excluded"
+    },
+    {
+      "source": "outputs/ledra_base_comparison_20261112/conditional_analysis/execution_lock.json",
+      "source_sha256": "407c7ac8483976b1ccf7c5732d1a74a6b9ded495f86542b37489bf19cb4ef1af",
+      "released_artifacts": [
+        "conditional_intervals/new_Base_amendment_protocol.json"
+      ],
+      "transformation": "Protocol section only; operational binding paths excluded"
+    },
+    {
+      "source": "outputs/ledra_base_comparison_20261112/comparison_all49.csv",
+      "source_sha256": "f9d8c5087e104fe1e506ba9efc98681ca28dd021d2b273ee9fe36379816aa136",
+      "released_artifacts": [
+        "exact_base_comparison/comparison_all49.csv"
+      ],
+      "transformation": "Byte-for-byte numerical comparison rows without individual IDs"
+    },
+    {
+      "source": "outputs/ledra_base_comparison_20261112/paired_seed_means.csv",
+      "source_sha256": "c93ac59e99871f6f8692b22f34d2fcc46d16f77c6f2b507f548014e75bf4ea50",
+      "released_artifacts": [
+        "exact_base_comparison/paired_seed_means.csv"
+      ],
+      "transformation": "Byte-for-byte numerical comparison rows without individual IDs"
+    },
+    {
+      "source": "outputs/ledra_base_comparison_20261112/paired_seedfold_metrics.csv",
+      "source_sha256": "21105fbfa8eebb067a33f8da241871c37f8e8812e0e83aec188f46fc48d7e673",
+      "released_artifacts": [
+        "exact_base_comparison/paired_seedfold_metrics.csv"
+      ],
+      "transformation": "Byte-for-byte numerical comparison rows without individual IDs"
+    },
+    {
+      "source": "outputs/ledra_base_comparison_20261112/comparison_data.json",
+      "source_sha256": "e9a70369bee64a0878d03a7a7b30556e75f5f029e57010723622a08b0d3aa41d",
+      "released_artifacts": [
+        "exact_base_comparison/comparison_summary.json"
+      ],
+      "transformation": "Public aggregate summary subset; source filesystem paths excluded"
+    },
+    {
+      "source": "outputs/ledra_base_comparison_20261112/LeDRA_PCLinear_vs_ExactBase_AllResults_20261112.xlsx",
+      "source_sha256": "657fad0b91bea3813dd164f3be675f12c32eba439e1c21f19d8bd350aefc64ff",
+      "released_artifacts": [
+        "LeDRA_PCLinear_vs_ExactBase_AllResults_20261112.xlsx"
+      ],
+      "transformation": "ZIP theme/scheme display-name attributes neutralized only; all worksheet, formula, cached value, style and color bytes preserved; all other ZIP members byte-identical",
+      "released_sha256": "b520bffb485d9850da7a26d1fa46749fa361455a25e151fd4f65170366257c53"
+    },
+    {
+      "source": "outputs/ledra_base_comparison_20261112/manuscript/LeDRA_PC_Linear_Base_Control_TR.docx",
+      "source_sha256": "54a5df81b0c1a1eb01fdb5e02e4c218652b1349cc662e85afee59e1444c89db6",
+      "released_artifacts": [
+        "tables/table_01.csv through tables/table_19.csv",
+        "tables/tables_manifest.json"
+      ],
+      "transformation": "Final Word table cells only; document and embedded case images not redistributed"
+    },
+    {
+      "source": "outputs/ledra_manuscript_20261018/profiling.json",
+      "source_sha256": "88da1f9e6836a03faaf7e802570bf1b81caf99678980073adb0505bc74f3a594",
+      "released_artifacts": [
+        "computational_cost/benchmark_full_forward_profiles.json"
+      ],
+      "transformation": "Recorded numeric profiles and hardware/protocol; checkpoint filesystem location removed"
+    },
+    {
+      "source": "outputs/ledra_base_comparison_20261112/manuscript/efficiency_profile/profile.json",
+      "source_sha256": "ce36b331c2f56d40be730087af28bb3153f5e9a43a92e022326175e9c0b262d3",
+      "released_artifacts": [
+        "computational_cost/same_checkpoint_linear_time_profile.json"
+      ],
+      "transformation": "Original resident-synthetic full-forward same-checkpoint profile; no clinical input data"
+    },
+    {
+      "source": "outputs/ledra_base_comparison_20261112/base_timing_summary.csv",
+      "source_sha256": "8f7b338a8c06e07cae7dab3c371c230c1486bfedc4b776ef132df081c5b6e9ad",
+      "released_artifacts": [
+        "computational_cost/exact_base_training_timing.csv"
+      ],
+      "transformation": "Byte-for-byte observed training/INNER timing summaries; no causal architecture speed interpretation"
+    },
+    {
+      "source": "outputs/ledra_pc_linear_manuscript_20261111/timing_convergence_all5.csv",
+      "source_sha256": "8adbb5bfbda388bc31ab5b257689195d91fd4ae3be390d9a64225aacf0279b1f",
+      "released_artifacts": [
+        "computational_cost/prior_matched_five_arm_training_timing.csv"
+      ],
+      "transformation": "Byte-for-byte observed training/INNER timing summaries; no causal architecture speed interpretation"
+    }
+  ],
+  "absolute_local_paths_removed": true,
+  "source_images_or_individual_prediction_rows_included": false,
+  "original_scientific_sources_modified": false,
+  "released_artifact_sha256": {
+    "benchmark15/external_fit_metrics.csv": "7d690e0e41cbb38e32f5c53ae68e7f9c3c0f6ff6dd36c5d807f5e613e2dc49d5",
+    "benchmark15/external_seed_means.csv": "0defd8a89d9a3a268add5aef866a8a815bec601b4b8aeaa52d63682b02e0dac9",
+    "benchmark15/external_summary.csv": "f79954fee4d06f79537fc0f3ea81037d2d98a2bc8e5d14c710d534442ad0f379",
+    "benchmark15/internal_fit_metrics.csv": "bf10b89f1d6aac8f9625694b6001fc7295e8dae8a4f27c26d2bbd11f6c065782",
+    "benchmark15/internal_seed_means.csv": "16cd8b369c9be8e4ce1876d3878884404d3ccbf245746dda5f91ffd980424d85",
+    "benchmark15/internal_summary.csv": "647d409485c9548ee1396d20a8e5476b186830121dcdd99d947ef4d2e5f7f47f",
+    "benchmark15/training_timing_summary.csv": "af2528baba4675c72ae5e91188beb505b0bbc6315583d4f734fbddbedd851733",
+    "computational_cost/benchmark_full_forward_profiles.json": "bf2a55851f52ce32004fb40dbe7cddf4dd949e37c7ebb6ceefcc30d924851cb7",
+    "computational_cost/exact_base_training_timing.csv": "8f7b338a8c06e07cae7dab3c371c230c1486bfedc4b776ef132df081c5b6e9ad",
+    "computational_cost/prior_matched_five_arm_training_timing.csv": "8adbb5bfbda388bc31ab5b257689195d91fd4ae3be390d9a64225aacf0279b1f",
+    "computational_cost/same_checkpoint_linear_time_profile.json": "0bead858354805eb58ab590f9265e8191dba350212f57d139c956dfc02d9c313",
+    "conditional_intervals/calibration_runs.csv": "091ff58629532a078306ba7492d9b4685a528c6d1c08f87cc092430460d1cb8d",
+    "conditional_intervals/fixed_source_confusion_runs.csv": "ede8dcf910ebe91a7a6173edec034204dc43bbf433747ac6d64199fff5cf4229",
+    "conditional_intervals/model_intervals.csv": "35aa411dda53e2b78744672ab116bf00330aac580a59d1f6c990c991eb3a69e6",
+    "conditional_intervals/new_Base_amendment_protocol.json": "74b07071cbaeae2c9ec79dcc2b3742a35e7cc69912b44cc91ae470a2e74b1cab",
+    "conditional_intervals/original_five_arm_protocol.json": "b4adb447776ffce4b0e0f9c3fa482cbe6ffc399dd5440ea488269e7971bb8528",
+    "conditional_intervals/paired_intervals.csv": "d7a45cc4881abfc5b89892d2a83ee5af1b46cfe43c231085d4af103afa49f478",
+    "conditional_intervals/reliability_runs.csv": "7e6171191e0e6869d3f1686ae0dd48a4f258e6ca01516183476138f937e15e19",
+    "conditional_intervals/reliability_summary.csv": "6f7ba4dfc1f2007de6486172066e79076e8610f0c3d26804eed4b8d0252bd3eb",
+    "exact_base_comparison/comparison_all49.csv": "f9d8c5087e104fe1e506ba9efc98681ca28dd021d2b273ee9fe36379816aa136",
+    "exact_base_comparison/comparison_summary.json": "28d275df600b9d7017fd13e03ec249b2440f4187bd04bc2f5a33f65715e589df",
+    "exact_base_comparison/paired_seed_means.csv": "c93ac59e99871f6f8692b22f34d2fcc46d16f77c6f2b507f548014e75bf4ea50",
+    "exact_base_comparison/paired_seedfold_metrics.csv": "21105fbfa8eebb067a33f8da241871c37f8e8812e0e83aec188f46fc48d7e673",
+    "LeDRA_PCLinear_vs_ExactBase_AllResults_20261112.xlsx": "b520bffb485d9850da7a26d1fa46749fa361455a25e151fd4f65170366257c53",
+    "matched6/external_fit_metrics.csv": "b30da764f52c709cea9ae1832fa8a6322c49d61ff9434eafed81b9817e01d764",
+    "matched6/external_seed_means.csv": "ae894e9624ac6fe3c3a8197248d30a061e9312ec832d0eb5d8387c9d76bf6d3d",
+    "matched6/external_summary.csv": "25fa2d58397fea83e353dd6c313a344046aebc73ef6823b1eb3c2ee985f7a984",
+    "matched6/internal_fit_metrics.csv": "296a2efbaba8c84d18f0dacfab208316a0b09a44a124654a908a9e6ad6030449",
+    "matched6/internal_seed_means.csv": "f4bf83de4f123341ed14e9126f17adf732ea324cced39df2157dbaca86c67c0c",
+    "matched6/internal_summary.csv": "54d6a7e380d5167981bbdd888aeebda9021c1a76b12d8b4d2d4d68c6811dcaa9",
+    "README.md": "b18d52f5624048c0d7a409e43c1eb782bfb19ea9971e74a25590d764fcaef8fc",
+    "tables/table_01.csv": "e602738352e14d1af0c78aad85c7850284bb96d2de06b3201eae386103935ee2",
+    "tables/table_02.csv": "390ad7e1e8ca8d3e18fecca8c415a30d9a1279c743d83852b78302b8c2c2f744",
+    "tables/table_03.csv": "36343f59090933a5f3d59dcd3d9d50cfd06c9bb6cc34ab099ac9dd38a9581a36",
+    "tables/table_04.csv": "58c1900bb225f9138885d8f76b8c3431f4474ac66c4a860eca659e42a66201d1",
+    "tables/table_05.csv": "6776b24ae51df73e6e84be40c5a4e20ab4d0d64a78977af13660a0310cd806d4",
+    "tables/table_06.csv": "006087f4183c3242faf4a6660f3f0363283f2cc9e7bbd2fdf27038897c05ef18",
+    "tables/table_07.csv": "60cfbbbde9be4771213ecc65b912f35d7358ae1f99b53fc56929262d1534b17f",
+    "tables/table_08.csv": "0b695868bad253d8576eddef0aec9ba965da13885b7d239030083cf311e3ebc0",
+    "tables/table_09.csv": "ce585650e3db96736c377b96ff64217745406883bf9ff07d0ec931e259c6cf3d",
+    "tables/table_10.csv": "88f22795962b04304d0fdd83645a05de14f14e11fd62821ac5ec708d06b0095a",
+    "tables/table_11.csv": "8f2b48e9e5f133d1d2ddb3c5d3c9b60ca1191fb7d570cdd25ab78fcb3e771f92",
+    "tables/table_12.csv": "65fa7816bc76d2c9632f09c0a961063eb96bd9e8f05c76001044af6935d02474",
+    "tables/table_13.csv": "c3e9f5a22549c624a83ed32667a00203a902ea1abf8f83465ba1fe1076a0fc2c",
+    "tables/table_14.csv": "c4b7b0d923d3e40defd1ff7f2e0ed4ea34cc170ed730dc0a3d993e39cea9dd5a",
+    "tables/table_15.csv": "4d348313e5dcf85da3a00428ed82a683f5b861ae33d7b357b3c7644985363c24",
+    "tables/table_16.csv": "83caa6e260f21f4e7a492534a169c0e488c9baa96d9683838cb46256cd3136fe",
+    "tables/table_17.csv": "49f3b6fb37b79300f6b4ef41fbf799e4ef22440b1459427d54f212da1afddf1b",
+    "tables/table_18.csv": "5447f221f4f34934b94ecac3e36ce3f6adb3659e484acdc7a9e1939fe222f6c0",
+    "tables/table_19.csv": "1683bcdb27dda475968d4b32e075db471f380301ffa1c2913d3833811cbd7dc9",
+    "tables/TABLE_SOURCE_MAP.csv": "8d4d886bb4cb61ac6f7b71985d297779a7405e9f869b1af611c5bc14eeae44f1",
+    "tables/tables_manifest.json": "81a9f57189a652306dca5f649a8bcc9891431513a84a27779bf1b379679a0f7c"
+  }
+}

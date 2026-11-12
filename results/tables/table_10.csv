@@ -1,0 +1,16 @@
+Model,MeanF1 (%),MeanSe@Sp95 (%),MeanSp@Se95 (%),F1firsts,Se@Sp95firsts,Sp@Se95firsts
+LeDRA-PC-Linear(Proposed; benchmark),69.04,73.90,66.52,9,6,3
+LeDRA-Base(matched),69.01,73.45,67.59,3,1,0
+LeDRA-Base(historical),68.77,73.52,67.59,0,0,0
+LeDRA-Base-r46,69.19,73.66,67.57,1,1,1
+LeDRA-PC-Single(variant),68.83,73.16,67.61,2,1,4
+LeDRA-PC-Bi(variant),68.68,73.13,67.64,1,4,2
+PC-Single-Shuffled(alignment control),69.10,73.39,67.33,1,0,3
+LeDRA-Base-Early,62.01,63.58,54.21,0,0,0
+LeDRA-Base-Mid,66.21,71.30,64.11,2,3,1
+LeDRA-Base-AllTokens,69.42,73.65,67.68,2,4,7
+Linear probing,64.69,67.16,60.22,5,8,7
+Houlsby-type adapter,64.37,67.16,59.60,2,1,1
+AdaptFormer,69.19,73.83,67.77,9,11,12
+Adapter+,66.73,70.05,62.12,0,1,0
+AdapterDrop,65.50,66.76,59.20,5,0,1

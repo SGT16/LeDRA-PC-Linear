@@ -1,0 +1,20 @@
+table,content,released_numerical_sources,selection_or_scope
+1,Cohort accounting,tables/table_01.csv,Original scoring-unit and dependency-group population counts; not patient-level records
+2,Registered configurations,tables/table_02.csv,Configuration names and trainable parameter counts; scientific implementation is in code/
+3,Benchmark internal F1,benchmark15/internal_summary.csv,DEVELOPMENT_OUTER; F1_source_INNER_F1_mean and seed_SD
+4,Benchmark internal accuracy,benchmark15/internal_summary.csv,DEVELOPMENT_OUTER; accuracy_source_INNER_F1_mean and seed_SD
+5,Benchmark internal Se@Sp95,benchmark15/internal_summary.csv,DEVELOPMENT_OUTER; Se_at_Sp95_mean and seed_SD
+6,Benchmark internal Sp@Se95,benchmark15/internal_summary.csv,DEVELOPMENT_OUTER; Sp_at_Se95_mean and seed_SD
+7,Benchmark internal AUROC/AP,benchmark15/internal_summary.csv,DEVELOPMENT_OUTER; AUROC/AP means and seed_SD
+8,Matched training duration,computational_cost/prior_matched_five_arm_training_timing.csv; computational_cost/exact_base_training_timing.csv,Observed training/INNER duration; cache/final-score/wait excluded
+9,Benchmark full-forward cost,computational_cost/benchmark_full_forward_profiles.json; benchmark15/training_timing_summary.csv,Dense arithmetic partial counts; measured synthetic resident full-forward latency and allocator memory
+10,All42 external benchmark overview,benchmark15/external_summary.csv,Equal-direction descriptive means and metric-specific first-place counts; not independent-direction inference
+11,Matched DeepDRiD source all6 targets,matched6/external_summary.csv,source_dataset=deepdrid; six models; all target scoring units retained
+12,Matched internal F1/accuracy,matched6/internal_summary.csv,DEVELOPMENT_OUTER; six models across all seven cohorts
+13,Matched internal ROC95,matched6/internal_summary.csv,DEVELOPMENT_OUTER; six models; retrospective operating points
+14,Matched internal paired contrasts,conditional_intervals/paired_intervals.csv,test=Internal; five controls; differences and pointwise percentile intervals
+15,Same-checkpoint linear-time profile,computational_cost/same_checkpoint_linear_time_profile.json,Original versus optimized implementation; batch1 and8; synthetic inference only
+16,Matched internal calibration,conditional_intervals/model_intervals.csv; conditional_intervals/calibration_runs.csv,test=Internal; Brier and ECE10; six models; lower is better
+17,External conditional interval directions,conditional_intervals/paired_intervals.csv,test=External; classify positive/zero-crossing/negative per metric/control; pointwise unadjusted intervals
+18,Benchmark F1-leading profiles,benchmark15/external_summary.csv,Nine post-hoc F1-leading directions; six jointly exceed metric-specific strongest published comparator on F1/SeSp/SpSe
+19,All42 PC-Linear minus Base contrasts,exact_base_comparison/comparison_all49.csv,test=External; four metrics; delta_pp and stored conditional CI endpoints

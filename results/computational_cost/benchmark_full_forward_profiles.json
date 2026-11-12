@@ -1,0 +1,4380 @@
+{
+  "state": "completed",
+  "hardware": {
+    "python": "3.12.11",
+    "software_versions": {
+      "torch": "2.9.1+cu128",
+      "timm": "1.0.27",
+      "numpy": "2.3.4",
+      "scipy": "1.17.1",
+      "scikit-learn": "1.9.0"
+    },
+    "os": "Linux",
+    "kernel_release": "6.6.87.2-microsoft-standard-WSL2",
+    "os_release": {
+      "NAME": "Ubuntu",
+      "ID": "ubuntu",
+      "PRETTY_NAME": "Ubuntu 24.04.3 LTS",
+      "VERSION_ID": "24.04",
+      "VERSION": "24.04.3 LTS (Noble Numbat)",
+      "VERSION_CODENAME": "noble",
+      "ID_LIKE": "debian",
+      "HOME_URL": "https://www.ubuntu.com/",
+      "SUPPORT_URL": "https://help.ubuntu.com/",
+      "BUG_REPORT_URL": "https://bugs.launchpad.net/ubuntu/",
+      "PRIVACY_POLICY_URL": "https://www.ubuntu.com/legal/terms-and-policies/privacy-policy",
+      "UBUNTU_CODENAME": "noble",
+      "LOGO": "ubuntu-logo"
+    },
+    "cpu_models": [
+      "Intel(R) Xeon(R) w7-2495X"
+    ],
+    "wsl_logical_cpu_count": 48,
+    "wsl_memory": {
+      "MemTotal_bytes": 67016314880,
+      "MemAvailable_bytes": 65024147456
+    },
+    "torch_cuda_runtime": "12.8",
+    "cudnn_version": 91002,
+    "gpu": {
+      "name": "NVIDIA RTX A5500",
+      "total_memory_bytes": 25756696576,
+      "compute_capability": [
+        8,
+        6
+      ],
+      "multiprocessor_count": 80
+    },
+    "nvidia_smi": "NVIDIA RTX A5500, 24564 MiB, 596.71",
+    "precision": "FP32 parameter/residual storage with CUDA BF16 autocast; PC branch FP32",
+    "tf32_matmul": false,
+    "cudnn_benchmark": false,
+    "deterministic_algorithms": false
+  },
+  "protocol": {
+    "variants": [
+      "B0",
+      "GENERIC_R46",
+      "GLOBAL_RECT",
+      "GLOBAL_LINEAR",
+      "ALIGN_SHUFFLE",
+      "BIDIR_PAIR",
+      "LP",
+      "HOULSBY",
+      "ADAPTFORMER",
+      "B0_MATCHED",
+      "ADAPTERDROP",
+      "ADAPTERPLUS",
+      "B0_EARLY",
+      "B0_MIDDLE",
+      "B0_ALLTOKENS"
+    ],
+    "input_shape": [
+      1,
+      3,
+      392,
+      392
+    ],
+    "input": "fixed seed823 synthetic FP32 standard-normal image, all 784 patches in FOV",
+    "checkpoint_selection": "predeclared BRSET seed823 fold1, selected own-INNER checkpoint; no best-result selection",
+    "weights_sha256": "431de5dbc1bebbb32f60e2c0bcf8daa4f8bcbf06f7cb1e1dc97ec589713942e1",
+    "operation_tool": "torch.utils.flop_counter.FlopCounterMode with terminal operator inventory",
+    "flop_convention": "one multiplication-accumulation = two FLOPs; theoretical dense arithmetic only",
+    "scope": "image patch embed plus all 12 frozen encoder blocks plus actual task decision; training teacher excluded",
+    "comparison": "single fixed architecture/input inference benchmark, not five-seed accuracy assessment",
+    "fov": "synthetic full-FOV structural cost; real RGB-FOV extraction excluded",
+    "checkpoint_caches": "not used; no FP16 feature-cache quantization in these common full forwards",
+    "ordering": "fixed displayed variant order, single process, no parallel GPU work requested; not randomized",
+    "warmup": 10,
+    "repetitions": 40,
+    "curve_or_training_repeated": false
+  },
+  "items": [
+    {
+      "variant": "B0",
+      "label": "LeDRA-Base (hist.)",
+      "state": "completed",
+      "checkpoint_sha256": "1331018ea99bfddf248c0c3ae3458e78c086db898d8a174fef28d0997298455c",
+      "trainable_parameters": 25377,
+      "total_registered_parameters": 21858081,
+      "frozen_registered_parameters": 21832704,
+      "flops": {
+        "dense_arithmetic_flops": 45373606656,
+        "dense_arithmetic_gflops_per_image": 45.373606656,
+        "analytic_check": {
+          "patch_embedding_convolution": 354041856,
+          "transformer_linear_projections": 33506721792,
+          "transformer_attention_matmuls": 11474307072,
+          "backbone_dense_total": 45335070720,
+          "task_classifier": 768,
+          "adapter_linear_projections": 38535168,
+          "reader_and_evidence_projection": 0,
+          "pair_einsums": 0,
+          "total_dense_flops": 45373606656,
+          "excluded_pair_difference_elements": 0,
+          "excluded_pair_relu_elements": 0
+        },
+        "measured_minus_analytic_flops": 0,
+        "dense_count_validated": true,
+        "complete_all_operator_total": false,
+        "all_12_attention_projections_verified": true,
+        "flops_by_operator": {
+          "aten.convolution": 354041856,
+          "aten.addmm": 33545257728,
+          "aten._scaled_dot_product_flash_attention": 11474307072
+        },
+        "operator_call_counts": {
+          "aten._scaled_dot_product_flash_attention": 12,
+          "aten._to_copy": 132,
+          "aten.add": 26,
+          "aten.addmm": 51,
+          "aten.cat": 2,
+          "aten.clone": 38,
+          "aten.convolution": 1,
+          "aten.expand": 2,
+          "aten.gelu": 13,
+          "aten.mean": 1,
+          "aten.mul": 24,
+          "aten.native_layer_norm": 25,
+          "aten.permute": 12,
+          "aten.slice": 3,
+          "aten.squeeze": 1,
+          "aten.t": 51,
+          "aten.transpose": 13,
+          "aten.unbind": 12,
+          "aten.view": 125
+        },
+        "uncounted_terminal_operator_inventory": {
+          "aten._to_copy": {
+            "calls": 132,
+            "output_elements": 29560546
+          },
+          "aten.add": {
+            "calls": 26,
+            "output_elements": 7873536
+          },
+          "aten.cat": {
+            "calls": 2,
+            "output_elements": 605952
+          },
+          "aten.clone": {
+            "calls": 38,
+            "output_elements": 22117632
+          },
+          "aten.expand": {
+            "calls": 2,
+            "output_elements": 1920
+          },
+          "aten.gelu": {
+            "calls": 13,
+            "output_elements": 14567936
+          },
+          "aten.mean": {
+            "calls": 1,
+            "output_elements": 384
+          },
+          "aten.mul": {
+            "calls": 24,
+            "output_elements": 7271424
+          },
+          "aten.native_layer_norm": {
+            "calls": 25,
+            "output_elements": 7613850
+          },
+          "aten.permute": {
+            "calls": 12,
+            "output_elements": 10907136
+          },
+          "aten.slice": {
+            "calls": 3,
+            "output_elements": 604032
+          },
+          "aten.squeeze": {
+            "calls": 1,
+            "output_elements": 1
+          },
+          "aten.t": {
+            "calls": 51,
+            "output_elements": 21258624
+          },
+          "aten.transpose": {
+            "calls": 13,
+            "output_elements": 3936768
+          },
+          "aten.unbind": {
+            "calls": 12,
+            "output_elements": 10907136
+          },
+          "aten.view": {
+            "calls": 125,
+            "output_elements": 73667584
+          }
+        },
+        "attention_counting": "QK^T and AV counted by native SDPA rules or decomposed BMM, once only",
+        "excluded": [
+          "linear/conv bias additions",
+          "LayerNorm",
+          "GELU/ReLU",
+          "attention softmax and score scaling",
+          "residual/LayerScale and other elementwise arithmetic",
+          "lesion probability sigmoid and reference/query normalization",
+          "pair differences, rectification and weighted readout elementwise reductions",
+          "boolean checks, indexing, permutation, shape/cast/copy and memory movement"
+        ]
+      },
+      "inference": {
+        "warmup": 10,
+        "repetitions": 40,
+        "cuda_stream_elapsed": {
+          "mean_ms": 10.778828048706055,
+          "sample_sd_ms": 0.432009814667518,
+          "median_ms": 10.830384254455566,
+          "p95_ms": 11.412793827056884,
+          "min_ms": 9.956607818603516,
+          "max_ms": 11.742176055908203
+        },
+        "synchronized_wall_elapsed": {
+          "mean_ms": 10.853172624999807,
+          "sample_sd_ms": 0.45055543996174624,
+          "median_ms": 10.884609999997963,
+          "p95_ms": 11.620668749995033,
+          "min_ms": 9.996645000001081,
+          "max_ms": 11.809889000005569
+        },
+        "cuda_stream_samples_ms": [
+          10.79196834564209,
+          10.51750373840332,
+          10.833984375,
+          10.282912254333496,
+          10.023872375488281,
+          10.541055679321289,
+          10.830944061279297,
+          10.537983894348145,
+          10.603520393371582,
+          10.621952056884766,
+          10.33011245727539,
+          10.04032039642334,
+          10.46729564666748,
+          9.956607818603516,
+          10.730303764343262,
+          11.015168190002441,
+          10.505215644836426,
+          11.266048431396484,
+          10.902527809143066,
+          10.972160339355469,
+          10.93836784362793,
+          11.395903587341309,
+          10.991616249084473,
+          10.148863792419434,
+          10.24937629699707,
+          10.943327903747559,
+          10.873855590820312,
+          11.742176055908203,
+          11.192383766174316,
+          10.890048027038574,
+          11.730048179626465,
+          10.910719871520996,
+          10.896384239196777,
+          10.408960342407227,
+          10.604543685913086,
+          10.829824447631836,
+          10.688511848449707,
+          11.396096229553223,
+          11.35103988647461,
+          11.199616432189941
+        ],
+        "synchronized_wall_samples_ms": [
+          11.612072999994894,
+          10.571732999999028,
+          10.880917999998019,
+          10.335302000001434,
+          10.069036000004417,
+          10.593157999998937,
+          10.888301999997907,
+          10.604614999998319,
+          10.677443000005837,
+          10.672663000001137,
+          10.384182999999325,
+          10.10214899999795,
+          10.512356999996086,
+          9.996645000001081,
+          10.799176999995552,
+          11.072980000001564,
+          10.559219999997538,
+          11.307074999997724,
+          10.968294000001322,
+          11.01918399999846,
+          10.98426100000438,
+          11.443278999998086,
+          11.035925999998142,
+          10.192181000000744,
+          10.336226000006832,
+          11.00786199999959,
+          10.920421000001568,
+          11.809889000005569,
+          11.243606000000739,
+          10.949230000001364,
+          11.783987999997692,
+          10.96049499999907,
+          10.951984000001858,
+          10.46437099999764,
+          10.648836999997968,
+          10.877648999993994,
+          10.739106999999137,
+          11.45603999999878,
+          11.421257999998602,
+          11.273788000004004
+        ],
+        "images_per_second_from_mean_wall_latency": 92.13895646481691,
+        "memory": {
+          "baseline_allocated_bytes": 124243456,
+          "baseline_reserved_bytes": 153092096,
+          "peak_allocated_bytes": 134824960,
+          "peak_reserved_bytes": 153092096,
+          "incremental_peak_allocated_bytes": 10581504
+        },
+        "memory_scope": "PyTorch allocator; includes this registered model, input/FOV/permutation buffers and forward temporaries; excludes CUDA context/driver, external allocations and training gradients/optimizer",
+        "timing_scope": "resident synthetic image plus resident full-FOV metadata to logit; full uncached encoder; original Python validation/check overhead retained; excludes image IO, resize/normalization, FOV extraction, transfers and patient aggregation"
+      }
+    },
+    {
+      "variant": "GENERIC_R46",
+      "label": "LeDRA-Base-r46",
+      "state": "completed",
+      "checkpoint_sha256": "52a5c48c69b22ecfc84a51248f1ad2b87aa606b429c3b202ea5cad5e50a09eee",
+      "trainable_parameters": 36143,
+      "total_registered_parameters": 21868847,
+      "frozen_registered_parameters": 21832704,
+      "flops": {
+        "dense_arithmetic_flops": 45390465792,
+        "dense_arithmetic_gflops_per_image": 45.390465792,
+        "analytic_check": {
+          "patch_embedding_convolution": 354041856,
+          "transformer_linear_projections": 33506721792,
+          "transformer_attention_matmuls": 11474307072,
+          "backbone_dense_total": 45335070720,
+          "task_classifier": 768,
+          "adapter_linear_projections": 55394304,
+          "reader_and_evidence_projection": 0,
+          "pair_einsums": 0,
+          "total_dense_flops": 45390465792,
+          "excluded_pair_difference_elements": 0,
+          "excluded_pair_relu_elements": 0
+        },
+        "measured_minus_analytic_flops": 0,
+        "dense_count_validated": true,
+        "complete_all_operator_total": false,
+        "all_12_attention_projections_verified": true,
+        "flops_by_operator": {
+          "aten.convolution": 354041856,
+          "aten.addmm": 33562116864,
+          "aten._scaled_dot_product_flash_attention": 11474307072
+        },
+        "operator_call_counts": {
+          "aten._scaled_dot_product_flash_attention": 12,
+          "aten._to_copy": 132,
+          "aten.add": 26,
+          "aten.addmm": 51,
+          "aten.cat": 2,
+          "aten.clone": 38,
+          "aten.convolution": 1,
+          "aten.expand": 2,
+          "aten.gelu": 13,
+          "aten.mean": 1,
+          "aten.mul": 24,
+          "aten.native_layer_norm": 25,
+          "aten.permute": 12,
+          "aten.slice": 3,
+          "aten.squeeze": 1,
+          "aten.t": 51,
+          "aten.transpose": 13,
+          "aten.unbind": 12,
+          "aten.view": 125
+        },
+        "uncounted_terminal_operator_inventory": {
+          "aten._to_copy": {
+            "calls": 132,
+            "output_elements": 29571312
+          },
+          "aten.add": {
+            "calls": 26,
+            "output_elements": 7873536
+          },
+          "aten.cat": {
+            "calls": 2,
+            "output_elements": 605952
+          },
+          "aten.clone": {
+            "calls": 38,
+            "output_elements": 22117632
+          },
+          "aten.expand": {
+            "calls": 2,
+            "output_elements": 1920
+          },
+          "aten.gelu": {
+            "calls": 13,
+            "output_elements": 14578912
+          },
+          "aten.mean": {
+            "calls": 1,
+            "output_elements": 384
+          },
+          "aten.mul": {
+            "calls": 24,
+            "output_elements": 7271424
+          },
+          "aten.native_layer_norm": {
+            "calls": 25,
+            "output_elements": 7613850
+          },
+          "aten.permute": {
+            "calls": 12,
+            "output_elements": 10907136
+          },
+          "aten.slice": {
+            "calls": 3,
+            "output_elements": 604032
+          },
+          "aten.squeeze": {
+            "calls": 1,
+            "output_elements": 1
+          },
+          "aten.t": {
+            "calls": 51,
+            "output_elements": 21269376
+          },
+          "aten.transpose": {
+            "calls": 13,
+            "output_elements": 3936768
+          },
+          "aten.unbind": {
+            "calls": 12,
+            "output_elements": 10907136
+          },
+          "aten.view": {
+            "calls": 125,
+            "output_elements": 73689536
+          }
+        },
+        "attention_counting": "QK^T and AV counted by native SDPA rules or decomposed BMM, once only",
+        "excluded": [
+          "linear/conv bias additions",
+          "LayerNorm",
+          "GELU/ReLU",
+          "attention softmax and score scaling",
+          "residual/LayerScale and other elementwise arithmetic",
+          "lesion probability sigmoid and reference/query normalization",
+          "pair differences, rectification and weighted readout elementwise reductions",
+          "boolean checks, indexing, permutation, shape/cast/copy and memory movement"
+        ]
+      },
+      "inference": {
+        "warmup": 10,
+        "repetitions": 40,
+        "cuda_stream_elapsed": {
+          "mean_ms": 10.350383996963501,
+          "sample_sd_ms": 1.1308544106039178,
+          "median_ms": 10.477695941925049,
+          "p95_ms": 11.602535772323607,
+          "min_ms": 7.442431926727295,
+          "max_ms": 12.65459156036377
+        },
+        "synchronized_wall_elapsed": {
+          "mean_ms": 10.412596524999529,
+          "sample_sd_ms": 1.1318603015951285,
+          "median_ms": 10.54272349999863,
+          "p95_ms": 11.663329050004377,
+          "min_ms": 7.502267999996093,
+          "max_ms": 12.733222000001376
+        },
+        "cuda_stream_samples_ms": [
+          10.826751708984375,
+          10.416128158569336,
+          10.222368240356445,
+          10.46451187133789,
+          10.781696319580078,
+          10.44275188446045,
+          9.217151641845703,
+          7.822559833526611,
+          7.712863922119141,
+          7.442431926727295,
+          11.421695709228516,
+          11.25273609161377,
+          12.006400108337402,
+          11.581279754638672,
+          10.921759605407715,
+          11.294719696044922,
+          11.2609281539917,
+          10.736639976501465,
+          10.707967758178711,
+          10.84108829498291,
+          8.838144302368164,
+          9.241600036621094,
+          8.8340482711792,
+          9.58572769165039,
+          9.524224281311035,
+          11.067392349243164,
+          10.402815818786621,
+          10.761088371276855,
+          10.904576301574707,
+          10.380288124084473,
+          10.403008460998535,
+          10.490880012512207,
+          10.454015731811523,
+          11.22815990447998,
+          11.120384216308594,
+          11.461631774902344,
+          12.65459156036377,
+          9.502847671508789,
+          9.449248313903809,
+          10.33625602722168
+        ],
+        "synchronized_wall_samples_ms": [
+          10.916998999995542,
+          10.492577000000836,
+          10.289718999999309,
+          10.534872999997447,
+          10.84250199999559,
+          10.510429999996518,
+          9.295340000001318,
+          7.875847000001102,
+          7.773663999998348,
+          7.502267999996093,
+          11.484160999998494,
+          11.320382999997491,
+          12.07610499999845,
+          11.64160400000469,
+          10.975395999999193,
+          11.350609000004397,
+          11.31937699999952,
+          10.79770099999422,
+          10.768733999995561,
+          10.895570999998938,
+          8.925313000005985,
+          9.300709000001461,
+          8.885517999999593,
+          9.64087700000249,
+          9.577028999999015,
+          11.126353000001643,
+          10.454194999994115,
+          10.81860200000051,
+          10.96318600000501,
+          10.435026000003234,
+          10.456943000001218,
+          10.550573999999813,
+          10.522386000005213,
+          11.284488000001147,
+          11.182051999995224,
+          11.517882999996232,
+          12.733222000001376,
+          9.559248999998715,
+          9.513282000000345,
+          10.393113999995762
+        ],
+        "images_per_second_from_mean_wall_latency": 96.03752508791703,
+        "memory": {
+          "baseline_allocated_bytes": 124307968,
+          "baseline_reserved_bytes": 153092096,
+          "peak_allocated_bytes": 134889472,
+          "peak_reserved_bytes": 153092096,
+          "incremental_peak_allocated_bytes": 10581504
+        },
+        "memory_scope": "PyTorch allocator; includes this registered model, input/FOV/permutation buffers and forward temporaries; excludes CUDA context/driver, external allocations and training gradients/optimizer",
+        "timing_scope": "resident synthetic image plus resident full-FOV metadata to logit; full uncached encoder; original Python validation/check overhead retained; excludes image IO, resize/normalization, FOV extraction, transfers and patient aggregation"
+      }
+    },
+    {
+      "variant": "GLOBAL_RECT",
+      "label": "Proposed LeDRA-PC-Single",
+      "state": "completed",
+      "checkpoint_sha256": "ec742a2a54c672912c52d234e6077b8ad40a4328c8174da8865a2c440a2ac558",
+      "trainable_parameters": 36229,
+      "total_registered_parameters": 21868933,
+      "frozen_registered_parameters": 21832704,
+      "flops": {
+        "dense_arithmetic_flops": 45508630272,
+        "dense_arithmetic_gflops_per_image": 45.508630272,
+        "analytic_check": {
+          "patch_embedding_convolution": 354041856,
+          "transformer_linear_projections": 33506721792,
+          "transformer_attention_matmuls": 11474307072,
+          "backbone_dense_total": 45335070720,
+          "task_classifier": 768,
+          "adapter_linear_projections": 38535168,
+          "reader_and_evidence_projection": 16859136,
+          "pair_einsums": 118164480,
+          "total_dense_flops": 45508630272,
+          "excluded_pair_difference_elements": 14751744,
+          "excluded_pair_relu_elements": 14751744
+        },
+        "measured_minus_analytic_flops": 0,
+        "dense_count_validated": true,
+        "complete_all_operator_total": false,
+        "all_12_attention_projections_verified": true,
+        "flops_by_operator": {
+          "aten.convolution": 354041856,
+          "aten.addmm": 33547666176,
+          "aten._scaled_dot_product_flash_attention": 11474307072,
+          "aten.mm": 14450688,
+          "aten.bmm": 118164480
+        },
+        "operator_call_counts": {
+          "aten._local_scalar_dense": 5,
+          "aten._scaled_dot_product_flash_attention": 12,
+          "aten._to_copy": 135,
+          "aten._unsafe_view": 1,
+          "aten.abs": 2,
+          "aten.add": 52,
+          "aten.addmm": 52,
+          "aten.all": 5,
+          "aten.any": 2,
+          "aten.arange": 100,
+          "aten.bitwise_and": 101,
+          "aten.bmm": 50,
+          "aten.cat": 3,
+          "aten.clone": 38,
+          "aten.convolution": 1,
+          "aten.detach": 104,
+          "aten.div": 51,
+          "aten.eq": 2,
+          "aten.expand": 2,
+          "aten.ge": 1,
+          "aten.gelu": 13,
+          "aten.gt": 51,
+          "aten.index_select": 100,
+          "aten.le": 1,
+          "aten.mean": 1,
+          "aten.mm": 1,
+          "aten.mul": 128,
+          "aten.native_layer_norm": 25,
+          "aten.ne": 52,
+          "aten.new_zeros": 1,
+          "aten.ones": 50,
+          "aten.ones_like": 51,
+          "aten.permute": 262,
+          "aten.relu": 25,
+          "aten.rsub": 50,
+          "aten.sigmoid": 1,
+          "aten.slice": 5,
+          "aten.squeeze": 51,
+          "aten.sub": 25,
+          "aten.sum": 52,
+          "aten.t": 53,
+          "aten.transpose": 13,
+          "aten.unbind": 12,
+          "aten.unsqueeze": 476,
+          "aten.view": 328,
+          "aten.where": 51
+        },
+        "uncounted_terminal_operator_inventory": {
+          "aten._local_scalar_dense": {
+            "calls": 5,
+            "output_elements": 0
+          },
+          "aten._to_copy": {
+            "calls": 135,
+            "output_elements": 29560549
+          },
+          "aten._unsafe_view": {
+            "calls": 1,
+            "output_elements": 18816
+          },
+          "aten.abs": {
+            "calls": 2,
+            "output_elements": 21952
+          },
+          "aten.add": {
+            "calls": 52,
+            "output_elements": 7875937
+          },
+          "aten.all": {
+            "calls": 5,
+            "output_elements": 5
+          },
+          "aten.any": {
+            "calls": 2,
+            "output_elements": 2
+          },
+          "aten.arange": {
+            "calls": 100,
+            "output_elements": 40768
+          },
+          "aten.bitwise_and": {
+            "calls": 101,
+            "output_elements": 2461760
+          },
+          "aten.cat": {
+            "calls": 3,
+            "output_elements": 609088
+          },
+          "aten.clone": {
+            "calls": 38,
+            "output_elements": 22117632
+          },
+          "aten.detach": {
+            "calls": 104,
+            "output_elements": 4931360
+          },
+          "aten.div": {
+            "calls": 51,
+            "output_elements": 4920384
+          },
+          "aten.eq": {
+            "calls": 2,
+            "output_elements": 21952
+          },
+          "aten.expand": {
+            "calls": 2,
+            "output_elements": 1920
+          },
+          "aten.ge": {
+            "calls": 1,
+            "output_elements": 3136
+          },
+          "aten.gelu": {
+            "calls": 13,
+            "output_elements": 14567936
+          },
+          "aten.gt": {
+            "calls": 51,
+            "output_elements": 6276
+          },
+          "aten.index_select": {
+            "calls": 100,
+            "output_elements": 23520
+          },
+          "aten.le": {
+            "calls": 1,
+            "output_elements": 3136
+          },
+          "aten.mean": {
+            "calls": 1,
+            "output_elements": 384
+          },
+          "aten.mul": {
+            "calls": 128,
+            "output_elements": 17131104
+          },
+          "aten.native_layer_norm": {
+            "calls": 25,
+            "output_elements": 7613850
+          },
+          "aten.ne": {
+            "calls": 52,
+            "output_elements": 1251264
+          },
+          "aten.new_zeros": {
+            "calls": 1,
+            "output_elements": 96
+          },
+          "aten.ones": {
+            "calls": 50,
+            "output_elements": 1229312
+          },
+          "aten.ones_like": {
+            "calls": 51,
+            "output_elements": 6276
+          },
+          "aten.permute": {
+            "calls": 262,
+            "output_elements": 45562336
+          },
+          "aten.relu": {
+            "calls": 25,
+            "output_elements": 14751744
+          },
+          "aten.rsub": {
+            "calls": 50,
+            "output_elements": 156800
+          },
+          "aten.sigmoid": {
+            "calls": 1,
+            "output_elements": 3136
+          },
+          "aten.slice": {
+            "calls": 5,
+            "output_elements": 1206144
+          },
+          "aten.squeeze": {
+            "calls": 51,
+            "output_elements": 6273
+          },
+          "aten.sub": {
+            "calls": 25,
+            "output_elements": 14751744
+          },
+          "aten.sum": {
+            "calls": 52,
+            "output_elements": 6277
+          },
+          "aten.t": {
+            "calls": 53,
+            "output_elements": 21269376
+          },
+          "aten.transpose": {
+            "calls": 13,
+            "output_elements": 3936768
+          },
+          "aten.unbind": {
+            "calls": 12,
+            "output_elements": 10907136
+          },
+          "aten.unsqueeze": {
+            "calls": 476,
+            "output_elements": 20399776
+          },
+          "aten.view": {
+            "calls": 328,
+            "output_elements": 91716928
+          },
+          "aten.where": {
+            "calls": 51,
+            "output_elements": 6276
+          }
+        },
+        "attention_counting": "QK^T and AV counted by native SDPA rules or decomposed BMM, once only",
+        "excluded": [
+          "linear/conv bias additions",
+          "LayerNorm",
+          "GELU/ReLU",
+          "attention softmax and score scaling",
+          "residual/LayerScale and other elementwise arithmetic",
+          "lesion probability sigmoid and reference/query normalization",
+          "pair differences, rectification and weighted readout elementwise reductions",
+          "boolean checks, indexing, permutation, shape/cast/copy and memory movement"
+        ]
+      },
+      "inference": {
+        "warmup": 10,
+        "repetitions": 40,
+        "cuda_stream_elapsed": {
+          "mean_ms": 35.8242091178894,
+          "sample_sd_ms": 3.721621835502973,
+          "median_ms": 34.96820831298828,
+          "p95_ms": 45.09926128387451,
+          "min_ms": 29.040639877319336,
+          "max_ms": 46.04947280883789
+        },
+        "synchronized_wall_elapsed": {
+          "mean_ms": 35.65853160000021,
+          "sample_sd_ms": 3.7022748328243464,
+          "median_ms": 34.81058799999559,
+          "p95_ms": 44.88760634999949,
+          "min_ms": 28.909803000004786,
+          "max_ms": 45.84324200000367
+        },
+        "cuda_stream_samples_ms": [
+          34.84467315673828,
+          32.81711959838867,
+          36.596736907958984,
+          37.69446563720703,
+          37.731231689453125,
+          35.636192321777344,
+          32.51216125488281,
+          32.43315124511719,
+          34.97398376464844,
+          34.962432861328125,
+          34.435264587402344,
+          34.84659194946289,
+          35.654815673828125,
+          34.06028747558594,
+          33.41721725463867,
+          40.20342254638672,
+          45.05923080444336,
+          45.859840393066406,
+          36.62547302246094,
+          32.47331237792969,
+          36.3581428527832,
+          29.040639877319336,
+          29.282304763793945,
+          37.55110549926758,
+          36.28220748901367,
+          36.49638366699219,
+          39.70969772338867,
+          32.165889739990234,
+          34.32038497924805,
+          34.74339294433594,
+          34.65523147583008,
+          40.469505310058594,
+          35.210208892822266,
+          32.29897689819336,
+          35.66592025756836,
+          46.04947280883789,
+          34.38489532470703,
+          36.03353500366211,
+          34.73612976074219,
+          34.676734924316406
+        ],
+        "synchronized_wall_samples_ms": [
+          34.65756300000322,
+          32.629192000001694,
+          36.3946619999993,
+          37.50517600000336,
+          37.53635000000344,
+          35.45237600000206,
+          32.345931000001826,
+          32.27879300000325,
+          34.82782599999723,
+          34.79334999999395,
+          34.29926999999822,
+          34.66994200000073,
+          35.47058600000241,
+          33.91268800000091,
+          33.286499999995556,
+          39.99923100000302,
+          44.848100999999474,
+          45.638207999999736,
+          36.45932399999907,
+          32.30645400000043,
+          36.201007999999035,
+          28.909803000004786,
+          29.151858999995284,
+          37.36521199999743,
+          36.11609500000412,
+          36.311695999998506,
+          39.53053400000073,
+          32.03805599999754,
+          34.16266999999351,
+          34.57992000000587,
+          34.49613699999787,
+          40.29631299999892,
+          35.076473000003716,
+          32.17813199999853,
+          35.50837899999948,
+          45.84324200000367,
+          34.23425100000088,
+          35.88670300000274,
+          34.61424099999988,
+          34.529016999997
+        ],
+        "images_per_second_from_mean_wall_latency": 28.043779570552875,
+        "memory": {
+          "baseline_allocated_bytes": 124287488,
+          "baseline_reserved_bytes": 153092096,
+          "peak_allocated_bytes": 135291392,
+          "peak_reserved_bytes": 153092096,
+          "incremental_peak_allocated_bytes": 11003904
+        },
+        "memory_scope": "PyTorch allocator; includes this registered model, input/FOV/permutation buffers and forward temporaries; excludes CUDA context/driver, external allocations and training gradients/optimizer",
+        "timing_scope": "resident synthetic image plus resident full-FOV metadata to logit; full uncached encoder; original Python validation/check overhead retained; excludes image IO, resize/normalization, FOV extraction, transfers and patient aggregation"
+      }
+    },
+    {
+      "variant": "GLOBAL_LINEAR",
+      "label": "Proposed LeDRA-PC-Linear",
+      "state": "completed",
+      "checkpoint_sha256": "1bf7c0063604121a1c23161eacc8ae5c00331700c3cbf6faeb7c193760cf03ab",
+      "trainable_parameters": 36229,
+      "total_registered_parameters": 21868933,
+      "frozen_registered_parameters": 21832704,
+      "flops": {
+        "dense_arithmetic_flops": 45508630272,
+        "dense_arithmetic_gflops_per_image": 45.508630272,
+        "analytic_check": {
+          "patch_embedding_convolution": 354041856,
+          "transformer_linear_projections": 33506721792,
+          "transformer_attention_matmuls": 11474307072,
+          "backbone_dense_total": 45335070720,
+          "task_classifier": 768,
+          "adapter_linear_projections": 38535168,
+          "reader_and_evidence_projection": 16859136,
+          "pair_einsums": 118164480,
+          "total_dense_flops": 45508630272,
+          "excluded_pair_difference_elements": 14751744,
+          "excluded_pair_relu_elements": 0
+        },
+        "measured_minus_analytic_flops": 0,
+        "dense_count_validated": true,
+        "complete_all_operator_total": false,
+        "all_12_attention_projections_verified": true,
+        "flops_by_operator": {
+          "aten.convolution": 354041856,
+          "aten.addmm": 33547666176,
+          "aten._scaled_dot_product_flash_attention": 11474307072,
+          "aten.mm": 14450688,
+          "aten.bmm": 118164480
+        },
+        "operator_call_counts": {
+          "aten._local_scalar_dense": 5,
+          "aten._scaled_dot_product_flash_attention": 12,
+          "aten._to_copy": 135,
+          "aten._unsafe_view": 1,
+          "aten.abs": 2,
+          "aten.add": 52,
+          "aten.addmm": 52,
+          "aten.all": 5,
+          "aten.any": 2,
+          "aten.arange": 100,
+          "aten.bitwise_and": 101,
+          "aten.bmm": 50,
+          "aten.cat": 3,
+          "aten.clone": 38,
+          "aten.convolution": 1,
+          "aten.detach": 104,
+          "aten.div": 51,
+          "aten.eq": 2,
+          "aten.expand": 2,
+          "aten.ge": 1,
+          "aten.gelu": 13,
+          "aten.gt": 51,
+          "aten.index_select": 100,
+          "aten.le": 1,
+          "aten.mean": 1,
+          "aten.mm": 1,
+          "aten.mul": 128,
+          "aten.native_layer_norm": 25,
+          "aten.ne": 52,
+          "aten.new_zeros": 1,
+          "aten.ones": 50,
+          "aten.ones_like": 51,
+          "aten.permute": 262,
+          "aten.rsub": 50,
+          "aten.sigmoid": 1,
+          "aten.slice": 5,
+          "aten.squeeze": 51,
+          "aten.sub": 25,
+          "aten.sum": 52,
+          "aten.t": 53,
+          "aten.transpose": 13,
+          "aten.unbind": 12,
+          "aten.unsqueeze": 476,
+          "aten.view": 328,
+          "aten.where": 51
+        },
+        "uncounted_terminal_operator_inventory": {
+          "aten._local_scalar_dense": {
+            "calls": 5,
+            "output_elements": 0
+          },
+          "aten._to_copy": {
+            "calls": 135,
+            "output_elements": 29560549
+          },
+          "aten._unsafe_view": {
+            "calls": 1,
+            "output_elements": 18816
+          },
+          "aten.abs": {
+            "calls": 2,
+            "output_elements": 21952
+          },
+          "aten.add": {
+            "calls": 52,
+            "output_elements": 7875937
+          },
+          "aten.all": {
+            "calls": 5,
+            "output_elements": 5
+          },
+          "aten.any": {
+            "calls": 2,
+            "output_elements": 2
+          },
+          "aten.arange": {
+            "calls": 100,
+            "output_elements": 40768
+          },
+          "aten.bitwise_and": {
+            "calls": 101,
+            "output_elements": 2461760
+          },
+          "aten.cat": {
+            "calls": 3,
+            "output_elements": 609088
+          },
+          "aten.clone": {
+            "calls": 38,
+            "output_elements": 22117632
+          },
+          "aten.detach": {
+            "calls": 104,
+            "output_elements": 4931360
+          },
+          "aten.div": {
+            "calls": 51,
+            "output_elements": 4920384
+          },
+          "aten.eq": {
+            "calls": 2,
+            "output_elements": 21952
+          },
+          "aten.expand": {
+            "calls": 2,
+            "output_elements": 1920
+          },
+          "aten.ge": {
+            "calls": 1,
+            "output_elements": 3136
+          },
+          "aten.gelu": {
+            "calls": 13,
+            "output_elements": 14567936
+          },
+          "aten.gt": {
+            "calls": 51,
+            "output_elements": 6276
+          },
+          "aten.index_select": {
+            "calls": 100,
+            "output_elements": 23520
+          },
+          "aten.le": {
+            "calls": 1,
+            "output_elements": 3136
+          },
+          "aten.mean": {
+            "calls": 1,
+            "output_elements": 384
+          },
+          "aten.mul": {
+            "calls": 128,
+            "output_elements": 17131104
+          },
+          "aten.native_layer_norm": {
+            "calls": 25,
+            "output_elements": 7613850
+          },
+          "aten.ne": {
+            "calls": 52,
+            "output_elements": 1251264
+          },
+          "aten.new_zeros": {
+            "calls": 1,
+            "output_elements": 96
+          },
+          "aten.ones": {
+            "calls": 50,
+            "output_elements": 1229312
+          },
+          "aten.ones_like": {
+            "calls": 51,
+            "output_elements": 6276
+          },
+          "aten.permute": {
+            "calls": 262,
+            "output_elements": 45562336
+          },
+          "aten.rsub": {
+            "calls": 50,
+            "output_elements": 156800
+          },
+          "aten.sigmoid": {
+            "calls": 1,
+            "output_elements": 3136
+          },
+          "aten.slice": {
+            "calls": 5,
+            "output_elements": 1206144
+          },
+          "aten.squeeze": {
+            "calls": 51,
+            "output_elements": 6273
+          },
+          "aten.sub": {
+            "calls": 25,
+            "output_elements": 14751744
+          },
+          "aten.sum": {
+            "calls": 52,
+            "output_elements": 6277
+          },
+          "aten.t": {
+            "calls": 53,
+            "output_elements": 21269376
+          },
+          "aten.transpose": {
+            "calls": 13,
+            "output_elements": 3936768
+          },
+          "aten.unbind": {
+            "calls": 12,
+            "output_elements": 10907136
+          },
+          "aten.unsqueeze": {
+            "calls": 476,
+            "output_elements": 20399776
+          },
+          "aten.view": {
+            "calls": 328,
+            "output_elements": 91716928
+          },
+          "aten.where": {
+            "calls": 51,
+            "output_elements": 6276
+          }
+        },
+        "attention_counting": "QK^T and AV counted by native SDPA rules or decomposed BMM, once only",
+        "excluded": [
+          "linear/conv bias additions",
+          "LayerNorm",
+          "GELU/ReLU",
+          "attention softmax and score scaling",
+          "residual/LayerScale and other elementwise arithmetic",
+          "lesion probability sigmoid and reference/query normalization",
+          "pair differences, rectification and weighted readout elementwise reductions",
+          "boolean checks, indexing, permutation, shape/cast/copy and memory movement"
+        ]
+      },
+      "inference": {
+        "warmup": 10,
+        "repetitions": 40,
+        "cuda_stream_elapsed": {
+          "mean_ms": 35.38917875289917,
+          "sample_sd_ms": 3.251800070007496,
+          "median_ms": 34.902015686035156,
+          "p95_ms": 40.83937740325927,
+          "min_ms": 29.37228775024414,
+          "max_ms": 47.616031646728516
+        },
+        "synchronized_wall_elapsed": {
+          "mean_ms": 35.282172600000195,
+          "sample_sd_ms": 3.2387351384389116,
+          "median_ms": 34.786279999998726,
+          "p95_ms": 40.72093334999706,
+          "min_ms": 29.29914699999614,
+          "max_ms": 47.47550999999817
+        },
+        "cuda_stream_samples_ms": [
+          34.87539291381836,
+          33.75513458251953,
+          36.61939239501953,
+          37.56953430175781,
+          36.49446487426758,
+          34.144222259521484,
+          33.490943908691406,
+          35.502079010009766,
+          34.497535705566406,
+          32.62364959716797,
+          34.92863845825195,
+          36.64896011352539,
+          35.87587356567383,
+          34.304927825927734,
+          37.506046295166016,
+          37.01536178588867,
+          37.1960334777832,
+          36.5682258605957,
+          36.68377685546875,
+          34.64908981323242,
+          33.802433013916016,
+          37.328895568847656,
+          37.28076934814453,
+          47.616031646728516,
+          31.1942081451416,
+          31.890432357788086,
+          34.988033294677734,
+          32.88371276855469,
+          36.25779342651367,
+          32.531455993652344,
+          34.543617248535156,
+          33.4068489074707,
+          32.09843063354492,
+          42.28307342529297,
+          38.92736053466797,
+          32.85299301147461,
+          32.77107238769531,
+          40.76339340209961,
+          31.825023651123047,
+          29.37228775024414
+        ],
+        "synchronized_wall_samples_ms": [
+          34.77199599999636,
+          33.63814600000126,
+          36.533276000000114,
+          37.43531100000297,
+          36.3657150000023,
+          34.01820999999927,
+          33.37304200000091,
+          35.37929800000228,
+          34.38641999999703,
+          32.55158300000005,
+          34.80056400000109,
+          36.529726000004814,
+          35.74956100000293,
+          34.204127000002416,
+          37.366364000000374,
+          36.88268700000208,
+          37.06163100000026,
+          36.43205099999847,
+          36.56571599999836,
+          34.54626799999971,
+          33.68610999999788,
+          37.19254700000363,
+          37.170957000000726,
+          47.47550999999817,
+          31.092020999999193,
+          31.803108999994834,
+          34.88141500000097,
+          32.78925400000077,
+          36.17724299999736,
+          32.45632299999812,
+          34.494123000001764,
+          33.32036500000157,
+          32.0065220000032,
+          42.154908000000546,
+          38.84243299999923,
+          32.78084600000142,
+          32.6926310000033,
+          40.645460999996885,
+          31.73428699999903,
+          29.29914699999614
+        ],
+        "images_per_second_from_mean_wall_latency": 28.342925798169087,
+        "memory": {
+          "baseline_allocated_bytes": 124287488,
+          "baseline_reserved_bytes": 153092096,
+          "peak_allocated_bytes": 134868992,
+          "peak_reserved_bytes": 153092096,
+          "incremental_peak_allocated_bytes": 10581504
+        },
+        "memory_scope": "PyTorch allocator; includes this registered model, input/FOV/permutation buffers and forward temporaries; excludes CUDA context/driver, external allocations and training gradients/optimizer",
+        "timing_scope": "resident synthetic image plus resident full-FOV metadata to logit; full uncached encoder; original Python validation/check overhead retained; excludes image IO, resize/normalization, FOV extraction, transfers and patient aggregation"
+      }
+    },
+    {
+      "variant": "ALIGN_SHUFFLE",
+      "label": "LeDRA-PC-Shuffled (ctrl)",
+      "state": "completed",
+      "checkpoint_sha256": "c0212ef1bbaa66863af65c85c5525a1deb92e4ad9fdd2bd29ed38745be51780c",
+      "trainable_parameters": 36229,
+      "total_registered_parameters": 21868933,
+      "frozen_registered_parameters": 21832704,
+      "flops": {
+        "dense_arithmetic_flops": 45508630272,
+        "dense_arithmetic_gflops_per_image": 45.508630272,
+        "analytic_check": {
+          "patch_embedding_convolution": 354041856,
+          "transformer_linear_projections": 33506721792,
+          "transformer_attention_matmuls": 11474307072,
+          "backbone_dense_total": 45335070720,
+          "task_classifier": 768,
+          "adapter_linear_projections": 38535168,
+          "reader_and_evidence_projection": 16859136,
+          "pair_einsums": 118164480,
+          "total_dense_flops": 45508630272,
+          "excluded_pair_difference_elements": 14751744,
+          "excluded_pair_relu_elements": 14751744
+        },
+        "measured_minus_analytic_flops": 0,
+        "dense_count_validated": true,
+        "complete_all_operator_total": false,
+        "all_12_attention_projections_verified": true,
+        "flops_by_operator": {
+          "aten.convolution": 354041856,
+          "aten.addmm": 33547666176,
+          "aten._scaled_dot_product_flash_attention": 11474307072,
+          "aten.mm": 14450688,
+          "aten.bmm": 118164480
+        },
+        "operator_call_counts": {
+          "aten._local_scalar_dense": 9,
+          "aten._scaled_dot_product_flash_attention": 12,
+          "aten._to_copy": 135,
+          "aten._unsafe_view": 1,
+          "aten.abs": 3,
+          "aten.add": 52,
+          "aten.addmm": 52,
+          "aten.all": 9,
+          "aten.any": 3,
+          "aten.arange": 101,
+          "aten.bitwise_and": 103,
+          "aten.bitwise_not": 2,
+          "aten.bmm": 50,
+          "aten.cat": 3,
+          "aten.clone": 38,
+          "aten.convolution": 1,
+          "aten.detach": 108,
+          "aten.div": 51,
+          "aten.eq": 3,
+          "aten.equal": 3,
+          "aten.expand": 4,
+          "aten.gather": 2,
+          "aten.ge": 3,
+          "aten.gelu": 13,
+          "aten.gt": 51,
+          "aten.index": 2,
+          "aten.index_select": 100,
+          "aten.le": 2,
+          "aten.lt": 1,
+          "aten.mean": 1,
+          "aten.mm": 1,
+          "aten.mul": 129,
+          "aten.native_layer_norm": 25,
+          "aten.ne": 53,
+          "aten.new_zeros": 1,
+          "aten.ones": 50,
+          "aten.ones_like": 51,
+          "aten.permute": 262,
+          "aten.relu": 25,
+          "aten.rsub": 50,
+          "aten.sigmoid": 1,
+          "aten.slice": 5,
+          "aten.sort": 1,
+          "aten.squeeze": 51,
+          "aten.sub": 25,
+          "aten.sum": 52,
+          "aten.t": 53,
+          "aten.transpose": 13,
+          "aten.unbind": 12,
+          "aten.unsqueeze": 477,
+          "aten.view": 328,
+          "aten.where": 51
+        },
+        "uncounted_terminal_operator_inventory": {
+          "aten._local_scalar_dense": {
+            "calls": 9,
+            "output_elements": 0
+          },
+          "aten._to_copy": {
+            "calls": 135,
+            "output_elements": 29560549
+          },
+          "aten._unsafe_view": {
+            "calls": 1,
+            "output_elements": 18816
+          },
+          "aten.abs": {
+            "calls": 3,
+            "output_elements": 25088
+          },
+          "aten.add": {
+            "calls": 52,
+            "output_elements": 7875937
+          },
+          "aten.all": {
+            "calls": 9,
+            "output_elements": 9
+          },
+          "aten.any": {
+            "calls": 3,
+            "output_elements": 3
+          },
+          "aten.arange": {
+            "calls": 101,
+            "output_elements": 41552
+          },
+          "aten.bitwise_and": {
+            "calls": 103,
+            "output_elements": 2465680
+          },
+          "aten.bitwise_not": {
+            "calls": 2,
+            "output_elements": 1568
+          },
+          "aten.cat": {
+            "calls": 3,
+            "output_elements": 609088
+          },
+          "aten.clone": {
+            "calls": 38,
+            "output_elements": 22117632
+          },
+          "aten.detach": {
+            "calls": 108,
+            "output_elements": 4939200
+          },
+          "aten.div": {
+            "calls": 51,
+            "output_elements": 4920384
+          },
+          "aten.eq": {
+            "calls": 3,
+            "output_elements": 25088
+          },
+          "aten.equal": {
+            "calls": 3,
+            "output_elements": 0
+          },
+          "aten.expand": {
+            "calls": 4,
+            "output_elements": 5840
+          },
+          "aten.gather": {
+            "calls": 2,
+            "output_elements": 3920
+          },
+          "aten.ge": {
+            "calls": 3,
+            "output_elements": 7056
+          },
+          "aten.gelu": {
+            "calls": 13,
+            "output_elements": 14567936
+          },
+          "aten.gt": {
+            "calls": 51,
+            "output_elements": 6276
+          },
+          "aten.index": {
+            "calls": 2,
+            "output_elements": 0
+          },
+          "aten.index_select": {
+            "calls": 100,
+            "output_elements": 23520
+          },
+          "aten.le": {
+            "calls": 2,
+            "output_elements": 6272
+          },
+          "aten.lt": {
+            "calls": 1,
+            "output_elements": 784
+          },
+          "aten.mean": {
+            "calls": 1,
+            "output_elements": 384
+          },
+          "aten.mul": {
+            "calls": 129,
+            "output_elements": 17134240
+          },
+          "aten.native_layer_norm": {
+            "calls": 25,
+            "output_elements": 7613850
+          },
+          "aten.ne": {
+            "calls": 53,
+            "output_elements": 1254400
+          },
+          "aten.new_zeros": {
+            "calls": 1,
+            "output_elements": 96
+          },
+          "aten.ones": {
+            "calls": 50,
+            "output_elements": 1229312
+          },
+          "aten.ones_like": {
+            "calls": 51,
+            "output_elements": 6276
+          },
+          "aten.permute": {
+            "calls": 262,
+            "output_elements": 45562336
+          },
+          "aten.relu": {
+            "calls": 25,
+            "output_elements": 14751744
+          },
+          "aten.rsub": {
+            "calls": 50,
+            "output_elements": 156800
+          },
+          "aten.sigmoid": {
+            "calls": 1,
+            "output_elements": 3136
+          },
+          "aten.slice": {
+            "calls": 5,
+            "output_elements": 1206144
+          },
+          "aten.sort": {
+            "calls": 1,
+            "output_elements": 1568
+          },
+          "aten.squeeze": {
+            "calls": 51,
+            "output_elements": 6273
+          },
+          "aten.sub": {
+            "calls": 25,
+            "output_elements": 14751744
+          },
+          "aten.sum": {
+            "calls": 52,
+            "output_elements": 6277
+          },
+          "aten.t": {
+            "calls": 53,
+            "output_elements": 21269376
+          },
+          "aten.transpose": {
+            "calls": 13,
+            "output_elements": 3936768
+          },
+          "aten.unbind": {
+            "calls": 12,
+            "output_elements": 10907136
+          },
+          "aten.unsqueeze": {
+            "calls": 477,
+            "output_elements": 20400560
+          },
+          "aten.view": {
+            "calls": 328,
+            "output_elements": 91716928
+          },
+          "aten.where": {
+            "calls": 51,
+            "output_elements": 6276
+          }
+        },
+        "attention_counting": "QK^T and AV counted by native SDPA rules or decomposed BMM, once only",
+        "excluded": [
+          "linear/conv bias additions",
+          "LayerNorm",
+          "GELU/ReLU",
+          "attention softmax and score scaling",
+          "residual/LayerScale and other elementwise arithmetic",
+          "lesion probability sigmoid and reference/query normalization",
+          "pair differences, rectification and weighted readout elementwise reductions",
+          "boolean checks, indexing, permutation, shape/cast/copy and memory movement"
+        ]
+      },
+      "inference": {
+        "warmup": 10,
+        "repetitions": 40,
+        "cuda_stream_elapsed": {
+          "mean_ms": 35.63998241424561,
+          "sample_sd_ms": 3.2541603163293944,
+          "median_ms": 35.57431983947754,
+          "p95_ms": 39.72394943237304,
+          "min_ms": 29.37241554260254,
+          "max_ms": 45.61203384399414
+        },
+        "synchronized_wall_elapsed": {
+          "mean_ms": 36.58863997499999,
+          "sample_sd_ms": 3.334690030253625,
+          "median_ms": 36.515833500004646,
+          "p95_ms": 40.774367199999155,
+          "min_ms": 30.149247999993634,
+          "max_ms": 46.81283800000102
+        },
+        "cuda_stream_samples_ms": [
+          37.389183044433594,
+          33.65184020996094,
+          29.37241554260254,
+          29.72979164123535,
+          30.637056350708008,
+          37.05958557128906,
+          36.06524658203125,
+          41.56825637817383,
+          45.61203384399414,
+          36.66012954711914,
+          30.822399139404297,
+          35.095550537109375,
+          34.080894470214844,
+          39.17091369628906,
+          35.548255920410156,
+          35.52137756347656,
+          34.5928955078125,
+          36.913150787353516,
+          35.178497314453125,
+          34.48134231567383,
+          35.891265869140625,
+          35.09247970581055,
+          35.004417419433594,
+          35.2808952331543,
+          30.593984603881836,
+          35.38636779785156,
+          37.299198150634766,
+          36.861759185791016,
+          31.032320022583008,
+          35.804161071777344,
+          35.84406280517578,
+          36.2690544128418,
+          35.60038375854492,
+          31.514623641967773,
+          39.62688064575195,
+          38.1080322265625,
+          38.94784164428711,
+          38.870975494384766,
+          39.07379150390625,
+          34.345985412597656
+        ],
+        "synchronized_wall_samples_ms": [
+          38.38262500000411,
+          34.58336700000331,
+          30.149247999993634,
+          30.5359449999969,
+          31.467171999999266,
+          38.03860500000411,
+          37.005373000006614,
+          42.64708699999886,
+          46.81283800000102,
+          37.64266399999627,
+          31.65023900000108,
+          36.03473700000137,
+          34.97549800000144,
+          40.18987200000623,
+          36.48212100000592,
+          36.449841999996124,
+          35.48982699999925,
+          37.88584600000178,
+          36.10541999999839,
+          35.3945019999955,
+          36.84855599999537,
+          36.072734999997635,
+          35.952271999995844,
+          36.21570700000376,
+          31.43505700000304,
+          36.32883999999592,
+          38.28902000000056,
+          37.864255000002345,
+          31.854837000004466,
+          36.75928599999878,
+          36.805532999999,
+          37.23386499999748,
+          36.549546000003375,
+          32.35408399999784,
+          40.67580299999918,
+          39.12379199999805,
+          39.979473000002486,
+          39.89580900000078,
+          40.119531999998514,
+          35.26476899999409
+        ],
+        "images_per_second_from_mean_wall_latency": 27.33088741979129,
+        "memory": {
+          "baseline_allocated_bytes": 124287488,
+          "baseline_reserved_bytes": 153092096,
+          "peak_allocated_bytes": 135304192,
+          "peak_reserved_bytes": 153092096,
+          "incremental_peak_allocated_bytes": 11016704
+        },
+        "memory_scope": "PyTorch allocator; includes this registered model, input/FOV/permutation buffers and forward temporaries; excludes CUDA context/driver, external allocations and training gradients/optimizer",
+        "timing_scope": "resident synthetic image plus resident full-FOV metadata to logit; full uncached encoder; original Python validation/check overhead retained; excludes image IO, resize/normalization, FOV extraction, transfers and patient aggregation"
+      }
+    },
+    {
+      "variant": "BIDIR_PAIR",
+      "label": "Proposed LeDRA-PC-Bi",
+      "state": "completed",
+      "checkpoint_sha256": "9ce7db502b341a606842e00319b5c3d10443a03c5e178aed14738a73fe2602aa",
+      "trainable_parameters": 36325,
+      "total_registered_parameters": 21869029,
+      "frozen_registered_parameters": 21832704,
+      "flops": {
+        "dense_arithmetic_flops": 45626794752,
+        "dense_arithmetic_gflops_per_image": 45.626794752,
+        "analytic_check": {
+          "patch_embedding_convolution": 354041856,
+          "transformer_linear_projections": 33506721792,
+          "transformer_attention_matmuls": 11474307072,
+          "backbone_dense_total": 45335070720,
+          "task_classifier": 768,
+          "adapter_linear_projections": 38535168,
+          "reader_and_evidence_projection": 16859136,
+          "pair_einsums": 236328960,
+          "total_dense_flops": 45626794752,
+          "excluded_pair_difference_elements": 29503488,
+          "excluded_pair_relu_elements": 29503488
+        },
+        "measured_minus_analytic_flops": 0,
+        "dense_count_validated": true,
+        "complete_all_operator_total": false,
+        "all_12_attention_projections_verified": true,
+        "flops_by_operator": {
+          "aten.convolution": 354041856,
+          "aten.addmm": 33547666176,
+          "aten._scaled_dot_product_flash_attention": 11474307072,
+          "aten.mm": 14450688,
+          "aten.bmm": 236328960
+        },
+        "operator_call_counts": {
+          "aten._local_scalar_dense": 13,
+          "aten._scaled_dot_product_flash_attention": 12,
+          "aten._to_copy": 135,
+          "aten._unsafe_view": 1,
+          "aten.abs": 8,
+          "aten.add": 78,
+          "aten.addmm": 52,
+          "aten.all": 13,
+          "aten.any": 3,
+          "aten.arange": 200,
+          "aten.bitwise_and": 202,
+          "aten.bmm": 100,
+          "aten.cat": 4,
+          "aten.clone": 38,
+          "aten.convolution": 1,
+          "aten.detach": 207,
+          "aten.div": 102,
+          "aten.eq": 8,
+          "aten.expand": 2,
+          "aten.ge": 2,
+          "aten.gelu": 13,
+          "aten.gt": 102,
+          "aten.index_select": 200,
+          "aten.le": 2,
+          "aten.mean": 1,
+          "aten.mm": 1,
+          "aten.mul": 236,
+          "aten.native_layer_norm": 25,
+          "aten.ne": 108,
+          "aten.neg": 1,
+          "aten.new_zeros": 2,
+          "aten.ones": 100,
+          "aten.ones_like": 102,
+          "aten.permute": 512,
+          "aten.relu": 50,
+          "aten.rsub": 100,
+          "aten.sigmoid": 1,
+          "aten.slice": 5,
+          "aten.squeeze": 101,
+          "aten.sub": 50,
+          "aten.sum": 104,
+          "aten.t": 53,
+          "aten.transpose": 13,
+          "aten.unbind": 12,
+          "aten.unsqueeze": 952,
+          "aten.view": 528,
+          "aten.where": 102
+        },
+        "uncounted_terminal_operator_inventory": {
+          "aten._local_scalar_dense": {
+            "calls": 13,
+            "output_elements": 0
+          },
+          "aten._to_copy": {
+            "calls": 135,
+            "output_elements": 29560549
+          },
+          "aten._unsafe_view": {
+            "calls": 1,
+            "output_elements": 18816
+          },
+          "aten.abs": {
+            "calls": 8,
+            "output_elements": 44288
+          },
+          "aten.add": {
+            "calls": 78,
+            "output_elements": 7878338
+          },
+          "aten.all": {
+            "calls": 13,
+            "output_elements": 13
+          },
+          "aten.any": {
+            "calls": 3,
+            "output_elements": 3
+          },
+          "aten.arange": {
+            "calls": 200,
+            "output_elements": 81536
+          },
+          "aten.bitwise_and": {
+            "calls": 202,
+            "output_elements": 4923520
+          },
+          "aten.cat": {
+            "calls": 4,
+            "output_elements": 612224
+          },
+          "aten.clone": {
+            "calls": 38,
+            "output_elements": 22117632
+          },
+          "aten.detach": {
+            "calls": 207,
+            "output_elements": 9859584
+          },
+          "aten.div": {
+            "calls": 102,
+            "output_elements": 9840768
+          },
+          "aten.eq": {
+            "calls": 8,
+            "output_elements": 44288
+          },
+          "aten.expand": {
+            "calls": 2,
+            "output_elements": 1920
+          },
+          "aten.ge": {
+            "calls": 2,
+            "output_elements": 6272
+          },
+          "aten.gelu": {
+            "calls": 13,
+            "output_elements": 14567936
+          },
+          "aten.gt": {
+            "calls": 102,
+            "output_elements": 12552
+          },
+          "aten.index_select": {
+            "calls": 200,
+            "output_elements": 47040
+          },
+          "aten.le": {
+            "calls": 2,
+            "output_elements": 6272
+          },
+          "aten.mean": {
+            "calls": 1,
+            "output_elements": 384
+          },
+          "aten.mul": {
+            "calls": 236,
+            "output_elements": 26991168
+          },
+          "aten.native_layer_norm": {
+            "calls": 25,
+            "output_elements": 7613850
+          },
+          "aten.ne": {
+            "calls": 108,
+            "output_elements": 2502912
+          },
+          "aten.neg": {
+            "calls": 1,
+            "output_elements": 18816
+          },
+          "aten.new_zeros": {
+            "calls": 2,
+            "output_elements": 192
+          },
+          "aten.ones": {
+            "calls": 100,
+            "output_elements": 2458624
+          },
+          "aten.ones_like": {
+            "calls": 102,
+            "output_elements": 12552
+          },
+          "aten.permute": {
+            "calls": 512,
+            "output_elements": 80217536
+          },
+          "aten.relu": {
+            "calls": 50,
+            "output_elements": 29503488
+          },
+          "aten.rsub": {
+            "calls": 100,
+            "output_elements": 313600
+          },
+          "aten.sigmoid": {
+            "calls": 1,
+            "output_elements": 3136
+          },
+          "aten.slice": {
+            "calls": 5,
+            "output_elements": 1206144
+          },
+          "aten.squeeze": {
+            "calls": 101,
+            "output_elements": 12545
+          },
+          "aten.sub": {
+            "calls": 50,
+            "output_elements": 29503488
+          },
+          "aten.sum": {
+            "calls": 104,
+            "output_elements": 12554
+          },
+          "aten.t": {
+            "calls": 53,
+            "output_elements": 21269376
+          },
+          "aten.transpose": {
+            "calls": 13,
+            "output_elements": 3936768
+          },
+          "aten.unbind": {
+            "calls": 12,
+            "output_elements": 10907136
+          },
+          "aten.unsqueeze": {
+            "calls": 952,
+            "output_elements": 40799552
+          },
+          "aten.view": {
+            "calls": 528,
+            "output_elements": 109161024
+          },
+          "aten.where": {
+            "calls": 102,
+            "output_elements": 12552
+          }
+        },
+        "attention_counting": "QK^T and AV counted by native SDPA rules or decomposed BMM, once only",
+        "excluded": [
+          "linear/conv bias additions",
+          "LayerNorm",
+          "GELU/ReLU",
+          "attention softmax and score scaling",
+          "residual/LayerScale and other elementwise arithmetic",
+          "lesion probability sigmoid and reference/query normalization",
+          "pair differences, rectification and weighted readout elementwise reductions",
+          "boolean checks, indexing, permutation, shape/cast/copy and memory movement"
+        ]
+      },
+      "inference": {
+        "warmup": 10,
+        "repetitions": 40,
+        "cuda_stream_elapsed": {
+          "mean_ms": 60.0641209602356,
+          "sample_sd_ms": 7.169127992550974,
+          "median_ms": 60.9884147644043,
+          "p95_ms": 71.00180244445801,
+          "min_ms": 44.0351676940918,
+          "max_ms": 72.22271728515625
+        },
+        "synchronized_wall_elapsed": {
+          "mean_ms": 59.9812426499998,
+          "sample_sd_ms": 7.151478695008234,
+          "median_ms": 60.90116449999883,
+          "p95_ms": 70.89806024999739,
+          "min_ms": 44.00409000000138,
+          "max_ms": 72.14380399999953
+        },
+        "cuda_stream_samples_ms": [
+          66.01420593261719,
+          64.86937713623047,
+          57.14329528808594,
+          56.61366271972656,
+          58.287166595458984,
+          55.44550323486328,
+          54.06719970703125,
+          52.26700973510742,
+          62.138465881347656,
+          64.09712219238281,
+          54.74099349975586,
+          61.042686462402344,
+          63.4859504699707,
+          61.98259353637695,
+          59.20460891723633,
+          71.77417755126953,
+          65.2072982788086,
+          59.71558380126953,
+          63.87200164794922,
+          60.93414306640625,
+          70.29248046875,
+          69.47122955322266,
+          69.12608337402344,
+          70.96115112304688,
+          53.986305236816406,
+          62.56639862060547,
+          63.597599029541016,
+          67.51129913330078,
+          44.0351676940918,
+          52.71449661254883,
+          48.503807067871094,
+          62.8592643737793,
+          58.19289779663086,
+          72.22271728515625,
+          55.306270599365234,
+          63.41632080078125,
+          50.08281707763672,
+          44.75699234008789,
+          51.03104019165039,
+          59.0274543762207
+        ],
+        "synchronized_wall_samples_ms": [
+          65.8942320000051,
+          64.7376079999944,
+          57.04874999999987,
+          56.51371600000488,
+          58.18576100000428,
+          55.35091600000186,
+          53.97377100000256,
+          52.18143799999808,
+          62.028428000004965,
+          63.981404000003295,
+          54.6549879999958,
+          60.952741000001254,
+          63.36963199999701,
+          61.878771000003496,
+          59.11090499999716,
+          71.685329999994,
+          65.09649199999501,
+          59.63557799999819,
+          63.79466199999939,
+          60.8495879999964,
+          70.18156699999878,
+          69.37170099999435,
+          69.03150200000141,
+          70.85662499999756,
+          53.926931999995986,
+          62.4742449999971,
+          63.512469999999155,
+          67.43486300000257,
+          44.00409000000138,
+          52.670549999994876,
+          48.458463999999424,
+          62.7763090000002,
+          58.11244400000248,
+          72.14380399999953,
+          55.27861500000597,
+          63.35930800000256,
+          50.06178400000039,
+          44.72177799999599,
+          50.9773930000037,
+          58.97055100000159
+        ],
+        "images_per_second_from_mean_wall_latency": 16.671878671056565,
+        "memory": {
+          "baseline_allocated_bytes": 124288000,
+          "baseline_reserved_bytes": 153092096,
+          "peak_allocated_bytes": 135367680,
+          "peak_reserved_bytes": 153092096,
+          "incremental_peak_allocated_bytes": 11079680
+        },
+        "memory_scope": "PyTorch allocator; includes this registered model, input/FOV/permutation buffers and forward temporaries; excludes CUDA context/driver, external allocations and training gradients/optimizer",
+        "timing_scope": "resident synthetic image plus resident full-FOV metadata to logit; full uncached encoder; original Python validation/check overhead retained; excludes image IO, resize/normalization, FOV extraction, transfers and patient aggregation"
+      }
+    },
+    {
+      "variant": "LP",
+      "label": "RETFound-Green + LP",
+      "state": "completed",
+      "checkpoint_sha256": "da00a3642f07d1f797f2acb1dce12f8fa686dd880f2127a9ce945640489fe0ac",
+      "trainable_parameters": 385,
+      "total_registered_parameters": 21833089,
+      "frozen_registered_parameters": 21832704,
+      "flops": {
+        "dense_arithmetic_flops": 45335071488,
+        "dense_arithmetic_gflops_per_image": 45.335071488,
+        "analytic_check": {
+          "patch_embedding_convolution": 354041856,
+          "transformer_linear_projections": 33506721792,
+          "transformer_attention_matmuls": 11474307072,
+          "backbone_dense_total": 45335070720,
+          "task_classifier": 768,
+          "adapter_linear_projections": 0,
+          "reader_and_evidence_projection": 0,
+          "pair_einsums": 0,
+          "total_dense_flops": 45335071488,
+          "excluded_pair_difference_elements": 0,
+          "excluded_pair_relu_elements": 0
+        },
+        "measured_minus_analytic_flops": 0,
+        "dense_count_validated": true,
+        "complete_all_operator_total": false,
+        "all_12_attention_projections_verified": true,
+        "flops_by_operator": {
+          "aten.convolution": 354041856,
+          "aten.addmm": 33506722560,
+          "aten._scaled_dot_product_flash_attention": 11474307072
+        },
+        "operator_call_counts": {
+          "aten._scaled_dot_product_flash_attention": 12,
+          "aten._to_copy": 127,
+          "aten.add": 25,
+          "aten.addmm": 49,
+          "aten.cat": 1,
+          "aten.clone": 38,
+          "aten.convolution": 1,
+          "aten.expand": 2,
+          "aten.gelu": 12,
+          "aten.mean": 1,
+          "aten.mul": 24,
+          "aten.native_layer_norm": 25,
+          "aten.permute": 12,
+          "aten.slice": 1,
+          "aten.squeeze": 1,
+          "aten.t": 49,
+          "aten.transpose": 13,
+          "aten.unbind": 12,
+          "aten.view": 121
+        },
+        "uncounted_terminal_operator_inventory": {
+          "aten._to_copy": {
+            "calls": 127,
+            "output_elements": 29234498
+          },
+          "aten.add": {
+            "calls": 25,
+            "output_elements": 7572480
+          },
+          "aten.cat": {
+            "calls": 1,
+            "output_elements": 302976
+          },
+          "aten.clone": {
+            "calls": 38,
+            "output_elements": 22117632
+          },
+          "aten.expand": {
+            "calls": 2,
+            "output_elements": 1920
+          },
+          "aten.gelu": {
+            "calls": 12,
+            "output_elements": 14542848
+          },
+          "aten.mean": {
+            "calls": 1,
+            "output_elements": 384
+          },
+          "aten.mul": {
+            "calls": 24,
+            "output_elements": 7271424
+          },
+          "aten.native_layer_norm": {
+            "calls": 25,
+            "output_elements": 7613850
+          },
+          "aten.permute": {
+            "calls": 12,
+            "output_elements": 10907136
+          },
+          "aten.slice": {
+            "calls": 1,
+            "output_elements": 301056
+          },
+          "aten.squeeze": {
+            "calls": 1,
+            "output_elements": 1
+          },
+          "aten.t": {
+            "calls": 49,
+            "output_elements": 21234048
+          },
+          "aten.transpose": {
+            "calls": 13,
+            "output_elements": 3936768
+          },
+          "aten.unbind": {
+            "calls": 12,
+            "output_elements": 10907136
+          },
+          "aten.view": {
+            "calls": 121,
+            "output_elements": 73015296
+          }
+        },
+        "attention_counting": "QK^T and AV counted by native SDPA rules or decomposed BMM, once only",
+        "excluded": [
+          "linear/conv bias additions",
+          "LayerNorm",
+          "GELU/ReLU",
+          "attention softmax and score scaling",
+          "residual/LayerScale and other elementwise arithmetic",
+          "lesion probability sigmoid and reference/query normalization",
+          "pair differences, rectification and weighted readout elementwise reductions",
+          "boolean checks, indexing, permutation, shape/cast/copy and memory movement"
+        ]
+      },
+      "inference": {
+        "warmup": 10,
+        "repetitions": 40,
+        "cuda_stream_elapsed": {
+          "mean_ms": 10.256866371631622,
+          "sample_sd_ms": 0.8928385411831707,
+          "median_ms": 10.432079792022705,
+          "p95_ms": 11.279257822036742,
+          "min_ms": 7.7506561279296875,
+          "max_ms": 12.399616241455078
+        },
+        "synchronized_wall_elapsed": {
+          "mean_ms": 10.288554024999996,
+          "sample_sd_ms": 0.892200507818842,
+          "median_ms": 10.46200650000273,
+          "p95_ms": 11.331030750000437,
+          "min_ms": 7.77203699999518,
+          "max_ms": 12.41874299999779
+        },
+        "cuda_stream_samples_ms": [
+          10.842111587524414,
+          10.810367584228516,
+          11.263999938964844,
+          9.478272438049316,
+          10.178400039672852,
+          9.423871994018555,
+          10.550271987915039,
+          10.317919731140137,
+          10.589311599731445,
+          10.371071815490723,
+          11.394047737121582,
+          10.180607795715332,
+          10.638336181640625,
+          10.301535606384277,
+          10.991616249084473,
+          10.814432144165039,
+          10.421407699584961,
+          10.584192276000977,
+          10.34444808959961,
+          10.24614429473877,
+          10.155008316040039,
+          10.443807601928711,
+          10.56060791015625,
+          10.479616165161133,
+          12.399616241455078,
+          11.273216247558594,
+          10.596384048461914,
+          10.93734359741211,
+          10.44275188446045,
+          10.637439727783203,
+          10.035200119018555,
+          10.283007621765137,
+          10.662912368774414,
+          9.94918441772461,
+          9.623583793640137,
+          8.944640159606934,
+          8.80128002166748,
+          7.935904026031494,
+          7.7506561279296875,
+          8.62012767791748
+        ],
+        "synchronized_wall_samples_ms": [
+          10.87888100000356,
+          10.849663999998427,
+          11.325318000004359,
+          9.505304000001047,
+          10.19883200000038,
+          9.465835999996841,
+          10.57490499999858,
+          10.335329000000115,
+          10.616905999995652,
+          10.39395500000495,
+          11.415157999998371,
+          10.228055000006009,
+          10.661775000002649,
+          10.329878000000292,
+          11.014267000000189,
+          10.836335000000474,
+          10.461800000001631,
+          10.615839000003291,
+          10.373678000000552,
+          10.268309000004194,
+          10.179042000004301,
+          10.462213000003828,
+          10.578806999994583,
+          10.501230999999223,
+          12.41874299999779,
+          11.326603000000546,
+          10.631791999998086,
+          10.950819999997918,
+          10.480197999996221,
+          10.663824999994631,
+          10.067493000001093,
+          10.331944000000703,
+          10.708994999994559,
+          9.998484000000474,
+          9.681569999997919,
+          8.987540999996213,
+          8.837920000004829,
+          7.966289999998821,
+          7.77203699999518,
+          8.64658900000137
+        ],
+        "images_per_second_from_mean_wall_latency": 97.19538795929104,
+        "memory": {
+          "baseline_allocated_bytes": 124092416,
+          "baseline_reserved_bytes": 153092096,
+          "peak_allocated_bytes": 134673920,
+          "peak_reserved_bytes": 153092096,
+          "incremental_peak_allocated_bytes": 10581504
+        },
+        "memory_scope": "PyTorch allocator; includes this registered model, input/FOV/permutation buffers and forward temporaries; excludes CUDA context/driver, external allocations and training gradients/optimizer",
+        "timing_scope": "resident synthetic image plus resident full-FOV metadata to logit; full uncached encoder; original Python validation/check overhead retained; excludes image IO, resize/normalization, FOV extraction, transfers and patient aggregation"
+      }
+    },
+    {
+      "variant": "HOULSBY",
+      "label": "Houlsby adapter",
+      "state": "completed",
+      "checkpoint_sha256": "bc5bd62dfe18755c91dd240028f390e4dfa43562307e338a56e48e700cb70c09",
+      "trainable_parameters": 1209985,
+      "total_registered_parameters": 23042689,
+      "frozen_registered_parameters": 21832704,
+      "flops": {
+        "dense_arithmetic_flops": 47196556032,
+        "dense_arithmetic_gflops_per_image": 47.196556032,
+        "analytic_check": {
+          "patch_embedding_convolution": 354041856,
+          "transformer_linear_projections": 33506721792,
+          "transformer_attention_matmuls": 11474307072,
+          "backbone_dense_total": 45335070720,
+          "task_classifier": 768,
+          "adapter_linear_projections": 1861484544,
+          "reader_and_evidence_projection": 0,
+          "pair_einsums": 0,
+          "total_dense_flops": 47196556032,
+          "excluded_pair_difference_elements": 0,
+          "excluded_pair_relu_elements": 0
+        },
+        "measured_minus_analytic_flops": 0,
+        "dense_count_validated": true,
+        "complete_all_operator_total": false,
+        "all_12_attention_projections_verified": true,
+        "flops_by_operator": {
+          "aten.convolution": 354041856,
+          "aten.addmm": 35368207104,
+          "aten._scaled_dot_product_flash_attention": 11474307072
+        },
+        "operator_call_counts": {
+          "aten._scaled_dot_product_flash_attention": 12,
+          "aten._to_copy": 223,
+          "aten.add": 49,
+          "aten.addmm": 97,
+          "aten.cat": 1,
+          "aten.clone": 38,
+          "aten.convolution": 1,
+          "aten.expand": 2,
+          "aten.gelu": 36,
+          "aten.mean": 1,
+          "aten.mul": 24,
+          "aten.native_layer_norm": 25,
+          "aten.permute": 12,
+          "aten.slice": 1,
+          "aten.squeeze": 1,
+          "aten.t": 97,
+          "aten.transpose": 13,
+          "aten.unbind": 12,
+          "aten.view": 217
+        },
+        "uncounted_terminal_operator_inventory": {
+          "aten._to_copy": {
+            "calls": 223,
+            "output_elements": 30424898
+          },
+          "aten.add": {
+            "calls": 49,
+            "output_elements": 14843904
+          },
+          "aten.cat": {
+            "calls": 1,
+            "output_elements": 302976
+          },
+          "aten.clone": {
+            "calls": 38,
+            "output_elements": 22117632
+          },
+          "aten.expand": {
+            "calls": 2,
+            "output_elements": 1920
+          },
+          "aten.gelu": {
+            "calls": 36,
+            "output_elements": 15754752
+          },
+          "aten.mean": {
+            "calls": 1,
+            "output_elements": 384
+          },
+          "aten.mul": {
+            "calls": 24,
+            "output_elements": 7271424
+          },
+          "aten.native_layer_norm": {
+            "calls": 25,
+            "output_elements": 7613850
+          },
+          "aten.permute": {
+            "calls": 12,
+            "output_elements": 10907136
+          },
+          "aten.slice": {
+            "calls": 1,
+            "output_elements": 301056
+          },
+          "aten.squeeze": {
+            "calls": 1,
+            "output_elements": 1
+          },
+          "aten.t": {
+            "calls": 97,
+            "output_elements": 22413696
+          },
+          "aten.transpose": {
+            "calls": 13,
+            "output_elements": 3936768
+          },
+          "aten.unbind": {
+            "calls": 12,
+            "output_elements": 10907136
+          },
+          "aten.view": {
+            "calls": 217,
+            "output_elements": 89981952
+          }
+        },
+        "attention_counting": "QK^T and AV counted by native SDPA rules or decomposed BMM, once only",
+        "excluded": [
+          "linear/conv bias additions",
+          "LayerNorm",
+          "GELU/ReLU",
+          "attention softmax and score scaling",
+          "residual/LayerScale and other elementwise arithmetic",
+          "lesion probability sigmoid and reference/query normalization",
+          "pair differences, rectification and weighted readout elementwise reductions",
+          "boolean checks, indexing, permutation, shape/cast/copy and memory movement"
+        ]
+      },
+      "inference": {
+        "warmup": 10,
+        "repetitions": 40,
+        "cuda_stream_elapsed": {
+          "mean_ms": 16.36626799106598,
+          "sample_sd_ms": 1.238111622686804,
+          "median_ms": 16.119808197021484,
+          "p95_ms": 17.96125659942626,
+          "min_ms": 15.086591720581055,
+          "max_ms": 21.192703247070312
+        },
+        "synchronized_wall_elapsed": {
+          "mean_ms": 16.39706792500064,
+          "sample_sd_ms": 1.2402626220140753,
+          "median_ms": 16.147558499998382,
+          "p95_ms": 18.013677299995116,
+          "min_ms": 15.10372900000334,
+          "max_ms": 21.222446000003004
+        },
+        "cuda_stream_samples_ms": [
+          16.65433692932129,
+          16.470016479492188,
+          17.138687133789062,
+          16.053184509277344,
+          16.503904342651367,
+          16.331775665283203,
+          15.369215965270996,
+          16.0133113861084,
+          16.373855590820312,
+          15.718400001525879,
+          15.467519760131836,
+          15.756287574768066,
+          16.253952026367188,
+          17.821792602539062,
+          16.139360427856445,
+          15.086591720581055,
+          16.20684814453125,
+          16.244735717773438,
+          17.613727569580078,
+          15.464447975158691,
+          15.813632011413574,
+          16.028671264648438,
+          16.101375579833984,
+          15.889408111572266,
+          16.928735733032227,
+          15.400959968566895,
+          16.384000778198242,
+          16.138240814208984,
+          16.349184036254883,
+          15.566847801208496,
+          15.24835205078125,
+          15.540224075317383,
+          15.769632339477539,
+          16.252927780151367,
+          15.830016136169434,
+          15.661055564880371,
+          15.440959930419922,
+          20.611072540283203,
+          17.820768356323242,
+          21.192703247070312
+        ],
+        "synchronized_wall_samples_ms": [
+          16.686804999999083,
+          16.507728000000554,
+          17.16437900000045,
+          16.06987500000656,
+          16.543790000000058,
+          16.372161999996138,
+          15.397180000000787,
+          16.025466999998628,
+          16.393804000003342,
+          15.752881000004493,
+          15.499902000001953,
+          15.785925999999506,
+          16.28774000000277,
+          17.853821999999298,
+          16.16052499999654,
+          15.10372900000334,
+          16.2489800000003,
+          16.267612000000042,
+          17.647950000004187,
+          15.491303000004564,
+          15.834382999997842,
+          16.134592000000225,
+          16.116288000006307,
+          15.90909499999782,
+          16.951980000001754,
+          15.433934000000704,
+          16.407428999997364,
+          16.162860000001444,
+          16.36925400000422,
+          15.58663800000204,
+          15.315749999999184,
+          15.559101999997438,
+          15.78662100000372,
+          16.279038000000412,
+          15.854224000001693,
+          15.71113299999638,
+          15.456327999999075,
+          20.655423999997424,
+          17.874637999995002,
+          21.222446000003004
+        ],
+        "images_per_second_from_mean_wall_latency": 60.98651323358233,
+        "memory": {
+          "baseline_allocated_bytes": 131333120,
+          "baseline_reserved_bytes": 159383552,
+          "peak_allocated_bytes": 142520832,
+          "peak_reserved_bytes": 159383552,
+          "incremental_peak_allocated_bytes": 11187712
+        },
+        "memory_scope": "PyTorch allocator; includes this registered model, input/FOV/permutation buffers and forward temporaries; excludes CUDA context/driver, external allocations and training gradients/optimizer",
+        "timing_scope": "resident synthetic image plus resident full-FOV metadata to logit; full uncached encoder; original Python validation/check overhead retained; excludes image IO, resize/normalization, FOV extraction, transfers and patient aggregation"
+      }
+    },
+    {
+      "variant": "ADAPTFORMER",
+      "label": "AdaptFormer",
+      "state": "completed",
+      "checkpoint_sha256": "1ba44b4977b7322161b634f6a596c03ac75dbac0dde2e62cecce61cf59f6342c",
+      "trainable_parameters": 595585,
+      "total_registered_parameters": 22428289,
+      "frozen_registered_parameters": 21832704,
+      "flops": {
+        "dense_arithmetic_flops": 46265813760,
+        "dense_arithmetic_gflops_per_image": 46.26581376,
+        "analytic_check": {
+          "patch_embedding_convolution": 354041856,
+          "transformer_linear_projections": 33506721792,
+          "transformer_attention_matmuls": 11474307072,
+          "backbone_dense_total": 45335070720,
+          "task_classifier": 768,
+          "adapter_linear_projections": 930742272,
+          "reader_and_evidence_projection": 0,
+          "pair_einsums": 0,
+          "total_dense_flops": 46265813760,
+          "excluded_pair_difference_elements": 0,
+          "excluded_pair_relu_elements": 0
+        },
+        "measured_minus_analytic_flops": 0,
+        "dense_count_validated": true,
+        "complete_all_operator_total": false,
+        "all_12_attention_projections_verified": true,
+        "flops_by_operator": {
+          "aten.convolution": 354041856,
+          "aten.addmm": 34437464832,
+          "aten._scaled_dot_product_flash_attention": 11474307072
+        },
+        "operator_call_counts": {
+          "aten._scaled_dot_product_flash_attention": 12,
+          "aten._to_copy": 187,
+          "aten.add": 37,
+          "aten.addmm": 73,
+          "aten.cat": 1,
+          "aten.clone": 50,
+          "aten.convolution": 1,
+          "aten.expand": 2,
+          "aten.gelu": 12,
+          "aten.mean": 1,
+          "aten.mul": 36,
+          "aten.native_layer_norm": 25,
+          "aten.permute": 12,
+          "aten.relu": 12,
+          "aten.slice": 1,
+          "aten.squeeze": 1,
+          "aten.t": 73,
+          "aten.transpose": 13,
+          "aten.unbind": 12,
+          "aten.view": 169
+        },
+        "uncounted_terminal_operator_inventory": {
+          "aten._to_copy": {
+            "calls": 187,
+            "output_elements": 33465410
+          },
+          "aten.add": {
+            "calls": 37,
+            "output_elements": 11208192
+          },
+          "aten.cat": {
+            "calls": 1,
+            "output_elements": 302976
+          },
+          "aten.clone": {
+            "calls": 50,
+            "output_elements": 22723584
+          },
+          "aten.expand": {
+            "calls": 2,
+            "output_elements": 1920
+          },
+          "aten.gelu": {
+            "calls": 12,
+            "output_elements": 14542848
+          },
+          "aten.mean": {
+            "calls": 1,
+            "output_elements": 384
+          },
+          "aten.mul": {
+            "calls": 36,
+            "output_elements": 10907136
+          },
+          "aten.native_layer_norm": {
+            "calls": 25,
+            "output_elements": 7613850
+          },
+          "aten.permute": {
+            "calls": 12,
+            "output_elements": 10907136
+          },
+          "aten.relu": {
+            "calls": 12,
+            "output_elements": 605952
+          },
+          "aten.slice": {
+            "calls": 1,
+            "output_elements": 301056
+          },
+          "aten.squeeze": {
+            "calls": 1,
+            "output_elements": 1
+          },
+          "aten.t": {
+            "calls": 73,
+            "output_elements": 21823872
+          },
+          "aten.transpose": {
+            "calls": 13,
+            "output_elements": 3936768
+          },
+          "aten.unbind": {
+            "calls": 12,
+            "output_elements": 10907136
+          },
+          "aten.view": {
+            "calls": 169,
+            "output_elements": 81498624
+          }
+        },
+        "attention_counting": "QK^T and AV counted by native SDPA rules or decomposed BMM, once only",
+        "excluded": [
+          "linear/conv bias additions",
+          "LayerNorm",
+          "GELU/ReLU",
+          "attention softmax and score scaling",
+          "residual/LayerScale and other elementwise arithmetic",
+          "lesion probability sigmoid and reference/query normalization",
+          "pair differences, rectification and weighted readout elementwise reductions",
+          "boolean checks, indexing, permutation, shape/cast/copy and memory movement"
+        ]
+      },
+      "inference": {
+        "warmup": 10,
+        "repetitions": 40,
+        "cuda_stream_elapsed": {
+          "mean_ms": 12.365642404556274,
+          "sample_sd_ms": 1.6765102390396085,
+          "median_ms": 12.006911754608154,
+          "p95_ms": 14.547522974014282,
+          "min_ms": 9.964544296264648,
+          "max_ms": 15.282303810119629
+        },
+        "synchronized_wall_elapsed": {
+          "mean_ms": 12.478554324999358,
+          "sample_sd_ms": 1.7515057280515018,
+          "median_ms": 12.036988500003787,
+          "p95_ms": 14.816743349998161,
+          "min_ms": 10.094391999999175,
+          "max_ms": 15.58655799999542
+        },
+        "cuda_stream_samples_ms": [
+          12.08620834350586,
+          10.299391746520996,
+          10.54310417175293,
+          10.646559715270996,
+          10.249216079711914,
+          10.637311935424805,
+          9.964544296264648,
+          10.376192092895508,
+          10.049535751342773,
+          10.599424362182617,
+          11.409407615661621,
+          11.186176300048828,
+          12.03711986541748,
+          11.933695793151855,
+          11.976703643798828,
+          13.26591968536377,
+          14.414848327636719,
+          14.461952209472656,
+          11.841535568237305,
+          12.290047645568848,
+          12.379136085510254,
+          10.639360427856445,
+          11.164671897888184,
+          10.455039978027344,
+          11.220992088317871,
+          11.366592407226562,
+          11.681792259216309,
+          14.4137601852417,
+          14.387935638427734,
+          14.928192138671875,
+          14.50979232788086,
+          14.20691204071045,
+          13.884384155273438,
+          13.919424057006836,
+          13.350912094116211,
+          14.116640090942383,
+          14.25107192993164,
+          14.527487754821777,
+          15.282303810119629,
+          13.67039966583252
+        ],
+        "synchronized_wall_samples_ms": [
+          12.137712999994221,
+          10.320365000005438,
+          10.563629000003516,
+          10.6731209999964,
+          10.285037999999247,
+          10.682336999998654,
+          10.318723999994006,
+          10.406807999999046,
+          10.094391999999175,
+          10.628115000002936,
+          11.441609999998548,
+          11.218112999998198,
+          12.070420000000581,
+          11.98674999999838,
+          12.003557000006992,
+          13.295074999994938,
+          14.440337999999997,
+          14.500259000001847,
+          11.873966999999652,
+          12.31855599999676,
+          12.40703999999937,
+          10.66842499999865,
+          11.195653999998001,
+          10.499879000001044,
+          11.249669000001461,
+          11.399230999998622,
+          11.704913999999178,
+          14.584802999998203,
+          14.641052000001764,
+          15.193443999997669,
+          14.796916999998189,
+          14.456223999999906,
+          14.12335100000206,
+          14.194203000002403,
+          13.60061099999399,
+          14.382397000005653,
+          14.507326999996906,
+          14.782164999999736,
+          15.58655799999542,
+          13.909421999997562
+        ],
+        "images_per_second_from_mean_wall_latency": 80.13748820218815,
+        "memory": {
+          "baseline_allocated_bytes": 127674368,
+          "baseline_reserved_bytes": 155189248,
+          "peak_allocated_bytes": 138255872,
+          "peak_reserved_bytes": 155189248,
+          "incremental_peak_allocated_bytes": 10581504
+        },
+        "memory_scope": "PyTorch allocator; includes this registered model, input/FOV/permutation buffers and forward temporaries; excludes CUDA context/driver, external allocations and training gradients/optimizer",
+        "timing_scope": "resident synthetic image plus resident full-FOV metadata to logit; full uncached encoder; original Python validation/check overhead retained; excludes image IO, resize/normalization, FOV extraction, transfers and patient aggregation"
+      }
+    },
+    {
+      "variant": "B0_MATCHED",
+      "label": "LeDRA-Base (matched)",
+      "state": "completed",
+      "checkpoint_sha256": "0879c85e06f19f1dad157ffa4bc8e6c24c08db5b2ecb5cc3ffcc9b727e49b2ec",
+      "trainable_parameters": 25377,
+      "total_registered_parameters": 21858081,
+      "frozen_registered_parameters": 21832704,
+      "flops": {
+        "dense_arithmetic_flops": 45373606656,
+        "dense_arithmetic_gflops_per_image": 45.373606656,
+        "analytic_check": {
+          "patch_embedding_convolution": 354041856,
+          "transformer_linear_projections": 33506721792,
+          "transformer_attention_matmuls": 11474307072,
+          "backbone_dense_total": 45335070720,
+          "task_classifier": 768,
+          "adapter_linear_projections": 38535168,
+          "reader_and_evidence_projection": 0,
+          "pair_einsums": 0,
+          "total_dense_flops": 45373606656,
+          "excluded_pair_difference_elements": 0,
+          "excluded_pair_relu_elements": 0
+        },
+        "measured_minus_analytic_flops": 0,
+        "dense_count_validated": true,
+        "complete_all_operator_total": false,
+        "all_12_attention_projections_verified": true,
+        "flops_by_operator": {
+          "aten.convolution": 354041856,
+          "aten.addmm": 33545257728,
+          "aten._scaled_dot_product_flash_attention": 11474307072
+        },
+        "operator_call_counts": {
+          "aten._scaled_dot_product_flash_attention": 12,
+          "aten._to_copy": 132,
+          "aten.add": 26,
+          "aten.addmm": 51,
+          "aten.cat": 2,
+          "aten.clone": 38,
+          "aten.convolution": 1,
+          "aten.detach": 1,
+          "aten.expand": 2,
+          "aten.gelu": 13,
+          "aten.mean": 1,
+          "aten.mul": 24,
+          "aten.native_layer_norm": 25,
+          "aten.permute": 12,
+          "aten.slice": 3,
+          "aten.squeeze": 1,
+          "aten.t": 51,
+          "aten.transpose": 13,
+          "aten.unbind": 12,
+          "aten.view": 125
+        },
+        "uncounted_terminal_operator_inventory": {
+          "aten._to_copy": {
+            "calls": 132,
+            "output_elements": 29560546
+          },
+          "aten.add": {
+            "calls": 26,
+            "output_elements": 7873536
+          },
+          "aten.cat": {
+            "calls": 2,
+            "output_elements": 605952
+          },
+          "aten.clone": {
+            "calls": 38,
+            "output_elements": 22117632
+          },
+          "aten.detach": {
+            "calls": 1,
+            "output_elements": 302976
+          },
+          "aten.expand": {
+            "calls": 2,
+            "output_elements": 1920
+          },
+          "aten.gelu": {
+            "calls": 13,
+            "output_elements": 14567936
+          },
+          "aten.mean": {
+            "calls": 1,
+            "output_elements": 384
+          },
+          "aten.mul": {
+            "calls": 24,
+            "output_elements": 7271424
+          },
+          "aten.native_layer_norm": {
+            "calls": 25,
+            "output_elements": 7613850
+          },
+          "aten.permute": {
+            "calls": 12,
+            "output_elements": 10907136
+          },
+          "aten.slice": {
+            "calls": 3,
+            "output_elements": 604032
+          },
+          "aten.squeeze": {
+            "calls": 1,
+            "output_elements": 1
+          },
+          "aten.t": {
+            "calls": 51,
+            "output_elements": 21258624
+          },
+          "aten.transpose": {
+            "calls": 13,
+            "output_elements": 3936768
+          },
+          "aten.unbind": {
+            "calls": 12,
+            "output_elements": 10907136
+          },
+          "aten.view": {
+            "calls": 125,
+            "output_elements": 73667584
+          }
+        },
+        "attention_counting": "QK^T and AV counted by native SDPA rules or decomposed BMM, once only",
+        "excluded": [
+          "linear/conv bias additions",
+          "LayerNorm",
+          "GELU/ReLU",
+          "attention softmax and score scaling",
+          "residual/LayerScale and other elementwise arithmetic",
+          "lesion probability sigmoid and reference/query normalization",
+          "pair differences, rectification and weighted readout elementwise reductions",
+          "boolean checks, indexing, permutation, shape/cast/copy and memory movement"
+        ]
+      },
+      "inference": {
+        "warmup": 10,
+        "repetitions": 40,
+        "cuda_stream_elapsed": {
+          "mean_ms": 11.005082321166991,
+          "sample_sd_ms": 1.3835053008340057,
+          "median_ms": 10.985471725463867,
+          "p95_ms": 13.12873907089233,
+          "min_ms": 8.335552215576172,
+          "max_ms": 15.58240032196045
+        },
+        "synchronized_wall_elapsed": {
+          "mean_ms": 11.218208450000766,
+          "sample_sd_ms": 1.4091646889768663,
+          "median_ms": 11.189492000003298,
+          "p95_ms": 13.452433499999469,
+          "min_ms": 8.514271000002793,
+          "max_ms": 15.855858000001888
+        },
+        "cuda_stream_samples_ms": [
+          8.335552215576172,
+          9.913215637207031,
+          11.244671821594238,
+          15.58240032196045,
+          13.06828784942627,
+          12.167167663574219,
+          12.831839561462402,
+          11.478015899658203,
+          14.277312278747559,
+          10.473471641540527,
+          9.956480026245117,
+          9.477120399475098,
+          9.819456100463867,
+          9.675775527954102,
+          11.010047912597656,
+          11.806464195251465,
+          11.191231727600098,
+          11.367679595947266,
+          11.312447547912598,
+          11.567935943603516,
+          12.274656295776367,
+          11.33465576171875,
+          9.972736358642578,
+          9.58579158782959,
+          9.247743606567383,
+          11.85257625579834,
+          9.577471733093262,
+          9.33785629272461,
+          9.630720138549805,
+          10.11683177947998,
+          11.053055763244629,
+          10.864895820617676,
+          10.960895538330078,
+          11.700223922729492,
+          11.521920204162598,
+          10.833760261535645,
+          10.94041633605957,
+          11.457599639892578,
+          10.5797119140625,
+          10.803199768066406
+        ],
+        "synchronized_wall_samples_ms": [
+          8.514271000002793,
+          10.118015999999841,
+          11.462776999998425,
+          15.855858000001888,
+          13.39448899999951,
+          12.40732000000122,
+          13.085472000000209,
+          11.686280000006377,
+          14.553378999998756,
+          10.684481999994944,
+          10.14227299999959,
+          9.658854000001327,
+          10.006230000001892,
+          9.859501999997633,
+          11.211555000002704,
+          12.01971200000429,
+          11.401015000004122,
+          11.573735000006025,
+          11.521451000000127,
+          11.797111999996446,
+          12.510046999999247,
+          11.5572580000034,
+          10.182943000003775,
+          9.774108000002002,
+          9.420977999994307,
+          12.085037000005627,
+          9.765082999997787,
+          9.523711999996465,
+          9.814753000000564,
+          10.32422100000474,
+          11.28184599999571,
+          11.063075000002698,
+          11.167429000003892,
+          11.911687000001336,
+          11.756523000002517,
+          11.038968999997678,
+          11.142792000001123,
+          11.6717049999977,
+          10.781511000004684,
+          11.000877999997272
+        ],
+        "images_per_second_from_mean_wall_latency": 89.14079324314318,
+        "memory": {
+          "baseline_allocated_bytes": 124243456,
+          "baseline_reserved_bytes": 153092096,
+          "peak_allocated_bytes": 134824960,
+          "peak_reserved_bytes": 153092096,
+          "incremental_peak_allocated_bytes": 10581504
+        },
+        "memory_scope": "PyTorch allocator; includes this registered model, input/FOV/permutation buffers and forward temporaries; excludes CUDA context/driver, external allocations and training gradients/optimizer",
+        "timing_scope": "resident synthetic image plus resident full-FOV metadata to logit; full uncached encoder; original Python validation/check overhead retained; excludes image IO, resize/normalization, FOV extraction, transfers and patient aggregation"
+      }
+    },
+    {
+      "variant": "ADAPTERDROP",
+      "label": "AdapterDrop",
+      "state": "completed",
+      "checkpoint_sha256": "7725a186e4b9f19edbab846e5189de94d4cfe9beae3429a63c03cff16e130210",
+      "trainable_parameters": 28065,
+      "total_registered_parameters": 21860769,
+      "frozen_registered_parameters": 21832704,
+      "flops": {
+        "dense_arithmetic_flops": 45373852416,
+        "dense_arithmetic_gflops_per_image": 45.373852416,
+        "analytic_check": {
+          "patch_embedding_convolution": 354041856,
+          "transformer_linear_projections": 33506721792,
+          "transformer_attention_matmuls": 11474307072,
+          "backbone_dense_total": 45335070720,
+          "task_classifier": 768,
+          "adapter_linear_projections": 38780928,
+          "reader_and_evidence_projection": 0,
+          "pair_einsums": 0,
+          "total_dense_flops": 45373852416,
+          "excluded_pair_difference_elements": 0,
+          "excluded_pair_relu_elements": 0
+        },
+        "measured_minus_analytic_flops": 0,
+        "dense_count_validated": true,
+        "complete_all_operator_total": false,
+        "all_12_attention_projections_verified": true,
+        "flops_by_operator": {
+          "aten.convolution": 354041856,
+          "aten.addmm": 33545503488,
+          "aten._scaled_dot_product_flash_attention": 11474307072
+        },
+        "operator_call_counts": {
+          "aten._scaled_dot_product_flash_attention": 12,
+          "aten._to_copy": 135,
+          "aten.add": 27,
+          "aten.addmm": 53,
+          "aten.cat": 1,
+          "aten.clone": 38,
+          "aten.convolution": 1,
+          "aten.detach": 1,
+          "aten.expand": 2,
+          "aten.gelu": 14,
+          "aten.mean": 1,
+          "aten.mul": 24,
+          "aten.native_layer_norm": 25,
+          "aten.permute": 12,
+          "aten.slice": 1,
+          "aten.squeeze": 1,
+          "aten.t": 53,
+          "aten.transpose": 13,
+          "aten.unbind": 12,
+          "aten.view": 129
+        },
+        "uncounted_terminal_operator_inventory": {
+          "aten._to_copy": {
+            "calls": 135,
+            "output_elements": 29259874
+          },
+          "aten.add": {
+            "calls": 27,
+            "output_elements": 8178432
+          },
+          "aten.cat": {
+            "calls": 1,
+            "output_elements": 302976
+          },
+          "aten.clone": {
+            "calls": 38,
+            "output_elements": 22117632
+          },
+          "aten.detach": {
+            "calls": 1,
+            "output_elements": 302976
+          },
+          "aten.expand": {
+            "calls": 2,
+            "output_elements": 1920
+          },
+          "aten.gelu": {
+            "calls": 14,
+            "output_elements": 14568096
+          },
+          "aten.mean": {
+            "calls": 1,
+            "output_elements": 384
+          },
+          "aten.mul": {
+            "calls": 24,
+            "output_elements": 7271424
+          },
+          "aten.native_layer_norm": {
+            "calls": 25,
+            "output_elements": 7613850
+          },
+          "aten.permute": {
+            "calls": 12,
+            "output_elements": 10907136
+          },
+          "aten.slice": {
+            "calls": 1,
+            "output_elements": 301056
+          },
+          "aten.squeeze": {
+            "calls": 1,
+            "output_elements": 1
+          },
+          "aten.t": {
+            "calls": 53,
+            "output_elements": 21258624
+          },
+          "aten.transpose": {
+            "calls": 13,
+            "output_elements": 3936768
+          },
+          "aten.unbind": {
+            "calls": 12,
+            "output_elements": 10907136
+          },
+          "aten.view": {
+            "calls": 129,
+            "output_elements": 74277696
+          }
+        },
+        "attention_counting": "QK^T and AV counted by native SDPA rules or decomposed BMM, once only",
+        "excluded": [
+          "linear/conv bias additions",
+          "LayerNorm",
+          "GELU/ReLU",
+          "attention softmax and score scaling",
+          "residual/LayerScale and other elementwise arithmetic",
+          "lesion probability sigmoid and reference/query normalization",
+          "pair differences, rectification and weighted readout elementwise reductions",
+          "boolean checks, indexing, permutation, shape/cast/copy and memory movement"
+        ]
+      },
+      "inference": {
+        "warmup": 10,
+        "repetitions": 40,
+        "cuda_stream_elapsed": {
+          "mean_ms": 10.698919248580932,
+          "sample_sd_ms": 1.8995967029112517,
+          "median_ms": 10.274800300598145,
+          "p95_ms": 13.313689661025995,
+          "min_ms": 8.07759952545166,
+          "max_ms": 15.135744094848633
+        },
+        "synchronized_wall_elapsed": {
+          "mean_ms": 10.906761249998986,
+          "sample_sd_ms": 1.9301972019753153,
+          "median_ms": 10.46856099999971,
+          "p95_ms": 13.562165299995849,
+          "min_ms": 8.241624999996588,
+          "max_ms": 15.4184980000025
+        },
+        "cuda_stream_samples_ms": [
+          9.062527656555176,
+          9.033727645874023,
+          8.650464057922363,
+          9.395999908447266,
+          8.750304222106934,
+          8.853504180908203,
+          9.277440071105957,
+          9.4717435836792,
+          9.905376434326172,
+          11.111359596252441,
+          11.44598388671875,
+          11.609087944030762,
+          11.269120216369629,
+          11.927552223205566,
+          13.018112182617188,
+          13.219840049743652,
+          15.096832275390625,
+          13.072671890258789,
+          11.914239883422852,
+          13.202719688415527,
+          11.233152389526367,
+          10.389280319213867,
+          12.314623832702637,
+          11.382944107055664,
+          15.135744094848633,
+          9.228416442871094,
+          8.766559600830078,
+          9.681920051574707,
+          10.160320281982422,
+          8.379551887512207,
+          8.161279678344727,
+          8.07759952545166,
+          8.530752182006836,
+          9.948160171508789,
+          8.540160179138184,
+          9.932703971862793,
+          12.098560333251953,
+          13.058208465576172,
+          12.350432395935059,
+          11.297792434692383
+        ],
+        "synchronized_wall_samples_ms": [
+          9.259052999993855,
+          9.206723999994892,
+          8.81797800000328,
+          9.597823000000005,
+          8.918755000003387,
+          9.021623999998951,
+          9.457910000001846,
+          9.664711999995745,
+          10.080481999999336,
+          11.317685999998162,
+          11.653772999999035,
+          11.827025000002322,
+          11.486525999998776,
+          12.150133999995205,
+          13.260410999997418,
+          13.457416000001388,
+          15.375853999998412,
+          13.318026000000316,
+          12.154316000000165,
+          13.46670799999572,
+          11.432678999995005,
+          10.581797999996922,
+          12.568156999996916,
+          11.589589999999816,
+          15.4184980000025,
+          9.46591299999966,
+          8.93805799999825,
+          9.880318000000443,
+          10.355324000002497,
+          8.565947000001017,
+          8.323046000001,
+          8.241624999996588,
+          8.701225999999451,
+          10.142381999997951,
+          8.711768999994263,
+          10.118789999999933,
+          12.324610000000291,
+          13.302371000001756,
+          12.592844999993247,
+          11.52256800000373
+        ],
+        "images_per_second_from_mean_wall_latency": 91.6862464556188,
+        "memory": {
+          "baseline_allocated_bytes": 124256256,
+          "baseline_reserved_bytes": 153092096,
+          "peak_allocated_bytes": 135443968,
+          "peak_reserved_bytes": 153092096,
+          "incremental_peak_allocated_bytes": 11187712
+        },
+        "memory_scope": "PyTorch allocator; includes this registered model, input/FOV/permutation buffers and forward temporaries; excludes CUDA context/driver, external allocations and training gradients/optimizer",
+        "timing_scope": "resident synthetic image plus resident full-FOV metadata to logit; full uncached encoder; original Python validation/check overhead retained; excludes image IO, resize/normalization, FOV extraction, transfers and patient aggregation"
+      }
+    },
+    {
+      "variant": "ADAPTERPLUS",
+      "label": "Adapter+",
+      "state": "completed",
+      "checkpoint_sha256": "bb197ddafd4d9a40682f97def2786a911781fadf0e81236403ecd8753191a103",
+      "trainable_parameters": 304897,
+      "total_registered_parameters": 22137601,
+      "frozen_registered_parameters": 21832704,
+      "flops": {
+        "dense_arithmetic_flops": 45800442624,
+        "dense_arithmetic_gflops_per_image": 45.800442624,
+        "analytic_check": {
+          "patch_embedding_convolution": 354041856,
+          "transformer_linear_projections": 33506721792,
+          "transformer_attention_matmuls": 11474307072,
+          "backbone_dense_total": 45335070720,
+          "task_classifier": 768,
+          "adapter_linear_projections": 465371136,
+          "reader_and_evidence_projection": 0,
+          "pair_einsums": 0,
+          "total_dense_flops": 45800442624,
+          "excluded_pair_difference_elements": 0,
+          "excluded_pair_relu_elements": 0
+        },
+        "measured_minus_analytic_flops": 0,
+        "dense_count_validated": true,
+        "complete_all_operator_total": false,
+        "all_12_attention_projections_verified": true,
+        "flops_by_operator": {
+          "aten.convolution": 354041856,
+          "aten.addmm": 33972093696,
+          "aten._scaled_dot_product_flash_attention": 11474307072
+        },
+        "operator_call_counts": {
+          "aten._scaled_dot_product_flash_attention": 12,
+          "aten._to_copy": 187,
+          "aten.add": 37,
+          "aten.addmm": 73,
+          "aten.cat": 1,
+          "aten.clone": 38,
+          "aten.convolution": 1,
+          "aten.detach": 1,
+          "aten.expand": 2,
+          "aten.gelu": 24,
+          "aten.mean": 1,
+          "aten.mul": 36,
+          "aten.native_layer_norm": 25,
+          "aten.permute": 12,
+          "aten.slice": 1,
+          "aten.squeeze": 1,
+          "aten.t": 73,
+          "aten.transpose": 13,
+          "aten.unbind": 12,
+          "aten.view": 169
+        },
+        "uncounted_terminal_operator_inventory": {
+          "aten._to_copy": {
+            "calls": 187,
+            "output_elements": 33170114
+          },
+          "aten.add": {
+            "calls": 37,
+            "output_elements": 11208192
+          },
+          "aten.cat": {
+            "calls": 1,
+            "output_elements": 302976
+          },
+          "aten.clone": {
+            "calls": 38,
+            "output_elements": 22117632
+          },
+          "aten.detach": {
+            "calls": 1,
+            "output_elements": 302976
+          },
+          "aten.expand": {
+            "calls": 2,
+            "output_elements": 1920
+          },
+          "aten.gelu": {
+            "calls": 24,
+            "output_elements": 14845824
+          },
+          "aten.mean": {
+            "calls": 1,
+            "output_elements": 384
+          },
+          "aten.mul": {
+            "calls": 36,
+            "output_elements": 10907136
+          },
+          "aten.native_layer_norm": {
+            "calls": 25,
+            "output_elements": 7613850
+          },
+          "aten.permute": {
+            "calls": 12,
+            "output_elements": 10907136
+          },
+          "aten.slice": {
+            "calls": 1,
+            "output_elements": 301056
+          },
+          "aten.squeeze": {
+            "calls": 1,
+            "output_elements": 1
+          },
+          "aten.t": {
+            "calls": 73,
+            "output_elements": 21528960
+          },
+          "aten.transpose": {
+            "calls": 13,
+            "output_elements": 3936768
+          },
+          "aten.unbind": {
+            "calls": 12,
+            "output_elements": 10907136
+          },
+          "aten.view": {
+            "calls": 169,
+            "output_elements": 80892672
+          }
+        },
+        "attention_counting": "QK^T and AV counted by native SDPA rules or decomposed BMM, once only",
+        "excluded": [
+          "linear/conv bias additions",
+          "LayerNorm",
+          "GELU/ReLU",
+          "attention softmax and score scaling",
+          "residual/LayerScale and other elementwise arithmetic",
+          "lesion probability sigmoid and reference/query normalization",
+          "pair differences, rectification and weighted readout elementwise reductions",
+          "boolean checks, indexing, permutation, shape/cast/copy and memory movement"
+        ]
+      },
+      "inference": {
+        "warmup": 10,
+        "repetitions": 40,
+        "cuda_stream_elapsed": {
+          "mean_ms": 13.716553664207458,
+          "sample_sd_ms": 2.102134383048426,
+          "median_ms": 13.879295825958252,
+          "p95_ms": 17.309298324584958,
+          "min_ms": 10.661888122558594,
+          "max_ms": 19.008512496948242
+        },
+        "synchronized_wall_elapsed": {
+          "mean_ms": 13.887560350001138,
+          "sample_sd_ms": 2.1442114658561846,
+          "median_ms": 14.056017000001475,
+          "p95_ms": 17.62957090000512,
+          "min_ms": 10.882446000003654,
+          "max_ms": 19.343960999997023
+        },
+        "cuda_stream_samples_ms": [
+          11.83027172088623,
+          12.439552307128906,
+          10.919872283935547,
+          10.661888122558594,
+          11.528191566467285,
+          11.168767929077148,
+          11.7391357421875,
+          14.108799934387207,
+          13.614080429077148,
+          13.98476791381836,
+          13.833215713500977,
+          15.106016159057617,
+          14.508031845092773,
+          15.377408027648926,
+          16.98201560974121,
+          19.008512496948242,
+          16.057344436645508,
+          14.046208381652832,
+          13.925375938415527,
+          17.269664764404297,
+          14.058496475219727,
+          14.706687927246094,
+          15.898719787597656,
+          14.329855918884277,
+          11.306976318359375,
+          11.150336265563965,
+          11.262975692749023,
+          11.475968360900879,
+          11.13907241821289,
+          12.021759986877441,
+          11.900896072387695,
+          13.502464294433594,
+          13.988863945007324,
+          15.229951858520508,
+          16.39619255065918,
+          18.062335968017578,
+          12.687359809875488,
+          13.4399995803833,
+          14.18342399597168,
+          13.810688018798828
+        ],
+        "synchronized_wall_samples_ms": [
+          12.078584000001058,
+          12.663299000003292,
+          11.128257999999391,
+          10.882446000003654,
+          11.738672999996425,
+          11.39049200000386,
+          11.952106999999046,
+          14.367271000004678,
+          13.880614000001401,
+          14.27677400000249,
+          14.084617000001742,
+          15.37197900000109,
+          14.788476999996192,
+          15.654449000003012,
+          17.27070799999808,
+          19.343960999997023,
+          16.346681999998225,
+          14.320228000002544,
+          14.20453000000066,
+          17.604555000005462,
+          14.31193100000172,
+          14.974520999999186,
+          16.176194000003363,
+          14.436446999994246,
+          11.341012999999123,
+          11.178823000001614,
+          11.346494000001428,
+          11.521764000001156,
+          11.164515000004371,
+          12.049946000004752,
+          11.931719999999757,
+          13.533792000004041,
+          14.027417000001208,
+          15.294859000000827,
+          16.44521200000071,
+          18.104872999998634,
+          12.76794200000353,
+          13.493179000001021,
+          14.21708700000579,
+          13.83598099999972
+        ],
+        "images_per_second_from_mean_wall_latency": 72.00688780444565,
+        "memory": {
+          "baseline_allocated_bytes": 125923328,
+          "baseline_reserved_bytes": 153092096,
+          "peak_allocated_bytes": 136504832,
+          "peak_reserved_bytes": 153092096,
+          "incremental_peak_allocated_bytes": 10581504
+        },
+        "memory_scope": "PyTorch allocator; includes this registered model, input/FOV/permutation buffers and forward temporaries; excludes CUDA context/driver, external allocations and training gradients/optimizer",
+        "timing_scope": "resident synthetic image plus resident full-FOV metadata to logit; full uncached encoder; original Python validation/check overhead retained; excludes image IO, resize/normalization, FOV extraction, transfers and patient aggregation"
+      }
+    },
+    {
+      "variant": "B0_EARLY",
+      "label": "LeDRA-Base-Early",
+      "state": "completed",
+      "checkpoint_sha256": "ab1a43a42fb67cb56c9e891cb4d50b69614339a8a507ecf47f2caa927fea7f14",
+      "trainable_parameters": 25377,
+      "total_registered_parameters": 21858081,
+      "frozen_registered_parameters": 21832704,
+      "flops": {
+        "dense_arithmetic_flops": 45373606656,
+        "dense_arithmetic_gflops_per_image": 45.373606656,
+        "analytic_check": {
+          "patch_embedding_convolution": 354041856,
+          "transformer_linear_projections": 33506721792,
+          "transformer_attention_matmuls": 11474307072,
+          "backbone_dense_total": 45335070720,
+          "task_classifier": 768,
+          "adapter_linear_projections": 38535168,
+          "reader_and_evidence_projection": 0,
+          "pair_einsums": 0,
+          "total_dense_flops": 45373606656,
+          "excluded_pair_difference_elements": 0,
+          "excluded_pair_relu_elements": 0
+        },
+        "measured_minus_analytic_flops": 0,
+        "dense_count_validated": true,
+        "complete_all_operator_total": false,
+        "all_12_attention_projections_verified": true,
+        "flops_by_operator": {
+          "aten.convolution": 354041856,
+          "aten.addmm": 33545257728,
+          "aten._scaled_dot_product_flash_attention": 11474307072
+        },
+        "operator_call_counts": {
+          "aten._scaled_dot_product_flash_attention": 12,
+          "aten._to_copy": 132,
+          "aten.add": 26,
+          "aten.addmm": 51,
+          "aten.cat": 2,
+          "aten.clone": 38,
+          "aten.convolution": 1,
+          "aten.detach": 1,
+          "aten.expand": 2,
+          "aten.gelu": 13,
+          "aten.mean": 1,
+          "aten.mul": 24,
+          "aten.native_layer_norm": 25,
+          "aten.permute": 12,
+          "aten.slice": 3,
+          "aten.squeeze": 1,
+          "aten.t": 51,
+          "aten.transpose": 13,
+          "aten.unbind": 12,
+          "aten.view": 125
+        },
+        "uncounted_terminal_operator_inventory": {
+          "aten._to_copy": {
+            "calls": 132,
+            "output_elements": 29560546
+          },
+          "aten.add": {
+            "calls": 26,
+            "output_elements": 7873536
+          },
+          "aten.cat": {
+            "calls": 2,
+            "output_elements": 605952
+          },
+          "aten.clone": {
+            "calls": 38,
+            "output_elements": 22117632
+          },
+          "aten.detach": {
+            "calls": 1,
+            "output_elements": 302976
+          },
+          "aten.expand": {
+            "calls": 2,
+            "output_elements": 1920
+          },
+          "aten.gelu": {
+            "calls": 13,
+            "output_elements": 14567936
+          },
+          "aten.mean": {
+            "calls": 1,
+            "output_elements": 384
+          },
+          "aten.mul": {
+            "calls": 24,
+            "output_elements": 7271424
+          },
+          "aten.native_layer_norm": {
+            "calls": 25,
+            "output_elements": 7613850
+          },
+          "aten.permute": {
+            "calls": 12,
+            "output_elements": 10907136
+          },
+          "aten.slice": {
+            "calls": 3,
+            "output_elements": 604032
+          },
+          "aten.squeeze": {
+            "calls": 1,
+            "output_elements": 1
+          },
+          "aten.t": {
+            "calls": 51,
+            "output_elements": 21258624
+          },
+          "aten.transpose": {
+            "calls": 13,
+            "output_elements": 3936768
+          },
+          "aten.unbind": {
+            "calls": 12,
+            "output_elements": 10907136
+          },
+          "aten.view": {
+            "calls": 125,
+            "output_elements": 73667584
+          }
+        },
+        "attention_counting": "QK^T and AV counted by native SDPA rules or decomposed BMM, once only",
+        "excluded": [
+          "linear/conv bias additions",
+          "LayerNorm",
+          "GELU/ReLU",
+          "attention softmax and score scaling",
+          "residual/LayerScale and other elementwise arithmetic",
+          "lesion probability sigmoid and reference/query normalization",
+          "pair differences, rectification and weighted readout elementwise reductions",
+          "boolean checks, indexing, permutation, shape/cast/copy and memory movement"
+        ]
+      },
+      "inference": {
+        "warmup": 10,
+        "repetitions": 40,
+        "cuda_stream_elapsed": {
+          "mean_ms": 10.939281630516053,
+          "sample_sd_ms": 0.8681578887254944,
+          "median_ms": 11.006528377532959,
+          "p95_ms": 12.26603536605835,
+          "min_ms": 8.81868839263916,
+          "max_ms": 12.621824264526367
+        },
+        "synchronized_wall_elapsed": {
+          "mean_ms": 10.983394650000022,
+          "sample_sd_ms": 0.8707364627893844,
+          "median_ms": 11.053194999998794,
+          "p95_ms": 12.297443899997518,
+          "min_ms": 8.850563999999395,
+          "max_ms": 12.670612000000858
+        },
+        "cuda_stream_samples_ms": [
+          11.27014446258545,
+          9.653183937072754,
+          8.81868839263916,
+          10.12326431274414,
+          10.93734359741211,
+          11.207679748535156,
+          11.365280151367188,
+          11.889663696289062,
+          11.84665584564209,
+          11.171744346618652,
+          11.008000373840332,
+          10.578975677490234,
+          10.497023582458496,
+          10.547200202941895,
+          10.115072250366211,
+          12.296192169189453,
+          12.264448165893555,
+          11.284480094909668,
+          11.12883186340332,
+          12.621824264526367,
+          11.273119926452637,
+          10.65062427520752,
+          11.118592262268066,
+          11.173888206481934,
+          10.583040237426758,
+          10.805248260498047,
+          11.004927635192871,
+          12.06169605255127,
+          11.86508846282959,
+          11.152383804321289,
+          10.597375869750977,
+          11.66431999206543,
+          10.12838363647461,
+          9.142271995544434,
+          9.644031524658203,
+          10.586112022399902,
+          12.127167701721191,
+          11.005056381225586,
+          10.954751968383789,
+          9.407487869262695
+        ],
+        "synchronized_wall_samples_ms": [
+          11.337490000002504,
+          9.692827999998599,
+          8.850563999999395,
+          10.154667000001893,
+          10.977986000000328,
+          11.380265999996197,
+          11.3979939999993,
+          11.923156999998241,
+          11.876579999999137,
+          11.226766000000055,
+          11.041409999997143,
+          10.616617000003714,
+          10.555113999998866,
+          10.602263999999195,
+          10.15582199999443,
+          12.32288300000306,
+          12.296104999997226,
+          11.313037999997277,
+          11.182581999996444,
+          12.670612000000858,
+          11.32670500000188,
+          10.710213000002966,
+          11.171939000000464,
+          11.206305000001748,
+          10.623131999999202,
+          10.862428999999452,
+          11.064980000000446,
+          12.092328000001373,
+          11.920148000001518,
+          11.18706900000177,
+          10.640829999999823,
+          11.701012999999705,
+          10.170601000005774,
+          9.169688000000065,
+          9.678316000005793,
+          10.620558999995922,
+          12.16684999999984,
+          11.03430099999514,
+          10.982918999999924,
+          9.430716000004224
+        ],
+        "images_per_second_from_mean_wall_latency": 91.04653268559352,
+        "memory": {
+          "baseline_allocated_bytes": 124243456,
+          "baseline_reserved_bytes": 153092096,
+          "peak_allocated_bytes": 134824960,
+          "peak_reserved_bytes": 153092096,
+          "incremental_peak_allocated_bytes": 10581504
+        },
+        "memory_scope": "PyTorch allocator; includes this registered model, input/FOV/permutation buffers and forward temporaries; excludes CUDA context/driver, external allocations and training gradients/optimizer",
+        "timing_scope": "resident synthetic image plus resident full-FOV metadata to logit; full uncached encoder; original Python validation/check overhead retained; excludes image IO, resize/normalization, FOV extraction, transfers and patient aggregation"
+      }
+    },
+    {
+      "variant": "B0_MIDDLE",
+      "label": "LeDRA-Base-Mid",
+      "state": "completed",
+      "checkpoint_sha256": "61f300b775ad959468158b3efc1355bcfe2d9fc485bc584d2dd34b4cd6c8162c",
+      "trainable_parameters": 25377,
+      "total_registered_parameters": 21858081,
+      "frozen_registered_parameters": 21832704,
+      "flops": {
+        "dense_arithmetic_flops": 45373606656,
+        "dense_arithmetic_gflops_per_image": 45.373606656,
+        "analytic_check": {
+          "patch_embedding_convolution": 354041856,
+          "transformer_linear_projections": 33506721792,
+          "transformer_attention_matmuls": 11474307072,
+          "backbone_dense_total": 45335070720,
+          "task_classifier": 768,
+          "adapter_linear_projections": 38535168,
+          "reader_and_evidence_projection": 0,
+          "pair_einsums": 0,
+          "total_dense_flops": 45373606656,
+          "excluded_pair_difference_elements": 0,
+          "excluded_pair_relu_elements": 0
+        },
+        "measured_minus_analytic_flops": 0,
+        "dense_count_validated": true,
+        "complete_all_operator_total": false,
+        "all_12_attention_projections_verified": true,
+        "flops_by_operator": {
+          "aten.convolution": 354041856,
+          "aten.addmm": 33545257728,
+          "aten._scaled_dot_product_flash_attention": 11474307072
+        },
+        "operator_call_counts": {
+          "aten._scaled_dot_product_flash_attention": 12,
+          "aten._to_copy": 132,
+          "aten.add": 26,
+          "aten.addmm": 51,
+          "aten.cat": 2,
+          "aten.clone": 38,
+          "aten.convolution": 1,
+          "aten.detach": 1,
+          "aten.expand": 2,
+          "aten.gelu": 13,
+          "aten.mean": 1,
+          "aten.mul": 24,
+          "aten.native_layer_norm": 25,
+          "aten.permute": 12,
+          "aten.slice": 3,
+          "aten.squeeze": 1,
+          "aten.t": 51,
+          "aten.transpose": 13,
+          "aten.unbind": 12,
+          "aten.view": 125
+        },
+        "uncounted_terminal_operator_inventory": {
+          "aten._to_copy": {
+            "calls": 132,
+            "output_elements": 29560546
+          },
+          "aten.add": {
+            "calls": 26,
+            "output_elements": 7873536
+          },
+          "aten.cat": {
+            "calls": 2,
+            "output_elements": 605952
+          },
+          "aten.clone": {
+            "calls": 38,
+            "output_elements": 22117632
+          },
+          "aten.detach": {
+            "calls": 1,
+            "output_elements": 302976
+          },
+          "aten.expand": {
+            "calls": 2,
+            "output_elements": 1920
+          },
+          "aten.gelu": {
+            "calls": 13,
+            "output_elements": 14567936
+          },
+          "aten.mean": {
+            "calls": 1,
+            "output_elements": 384
+          },
+          "aten.mul": {
+            "calls": 24,
+            "output_elements": 7271424
+          },
+          "aten.native_layer_norm": {
+            "calls": 25,
+            "output_elements": 7613850
+          },
+          "aten.permute": {
+            "calls": 12,
+            "output_elements": 10907136
+          },
+          "aten.slice": {
+            "calls": 3,
+            "output_elements": 604032
+          },
+          "aten.squeeze": {
+            "calls": 1,
+            "output_elements": 1
+          },
+          "aten.t": {
+            "calls": 51,
+            "output_elements": 21258624
+          },
+          "aten.transpose": {
+            "calls": 13,
+            "output_elements": 3936768
+          },
+          "aten.unbind": {
+            "calls": 12,
+            "output_elements": 10907136
+          },
+          "aten.view": {
+            "calls": 125,
+            "output_elements": 73667584
+          }
+        },
+        "attention_counting": "QK^T and AV counted by native SDPA rules or decomposed BMM, once only",
+        "excluded": [
+          "linear/conv bias additions",
+          "LayerNorm",
+          "GELU/ReLU",
+          "attention softmax and score scaling",
+          "residual/LayerScale and other elementwise arithmetic",
+          "lesion probability sigmoid and reference/query normalization",
+          "pair differences, rectification and weighted readout elementwise reductions",
+          "boolean checks, indexing, permutation, shape/cast/copy and memory movement"
+        ]
+      },
+      "inference": {
+        "warmup": 10,
+        "repetitions": 40,
+        "cuda_stream_elapsed": {
+          "mean_ms": 10.82482635974884,
+          "sample_sd_ms": 1.159337895945457,
+          "median_ms": 10.985472202301025,
+          "p95_ms": 12.519751739501952,
+          "min_ms": 8.659968376159668,
+          "max_ms": 13.86086368560791
+        },
+        "synchronized_wall_elapsed": {
+          "mean_ms": 10.869029125000296,
+          "sample_sd_ms": 1.1569137638143434,
+          "median_ms": 11.02415100000087,
+          "p95_ms": 12.557371199998357,
+          "min_ms": 8.71320199999559,
+          "max_ms": 13.898613999998588
+        },
+        "cuda_stream_samples_ms": [
+          8.89958381652832,
+          8.939488410949707,
+          8.853599548339844,
+          9.41158390045166,
+          9.791487693786621,
+          10.056703567504883,
+          9.423871994018555,
+          10.056703567504883,
+          11.418623924255371,
+          11.832320213317871,
+          11.504639625549316,
+          11.390975952148438,
+          11.594752311706543,
+          11.773951530456543,
+          11.379776000976562,
+          10.982399940490723,
+          11.020223617553711,
+          10.991616249084473,
+          10.638336181640625,
+          11.062272071838379,
+          10.567680358886719,
+          10.625951766967773,
+          11.646976470947266,
+          11.717632293701172,
+          9.720831871032715,
+          8.928256034851074,
+          8.659968376159668,
+          13.86086368560791,
+          10.177536010742188,
+          10.725279808044434,
+          11.531264305114746,
+          10.988544464111328,
+          10.821663856506348,
+          10.767359733581543,
+          10.594207763671875,
+          11.917375564575195,
+          12.165056228637695,
+          12.510175704956055,
+          12.701696395874023,
+          11.34182357788086
+        ],
+        "synchronized_wall_samples_ms": [
+          8.950161000001344,
+          8.979852999999594,
+          8.890176000001304,
+          9.451018000000033,
+          9.82830600000284,
+          10.109182999997302,
+          9.460416999999666,
+          10.10966399999802,
+          11.45572500000469,
+          11.866469000004543,
+          11.543019999997739,
+          11.428821999999172,
+          11.63232300000061,
+          11.826290999998434,
+          11.414844000000812,
+          11.029028000002938,
+          11.057609000005186,
+          11.019273999998802,
+          10.695290999997553,
+          11.109421000000452,
+          10.604804999999828,
+          10.666550999999913,
+          11.693649999998001,
+          11.751893999999652,
+          9.785023000006277,
+          8.965969999998435,
+          8.71320199999559,
+          13.898613999998588,
+          10.23615699999425,
+          10.782444000000169,
+          11.573015000003295,
+          11.050744000002055,
+          10.876711000001649,
+          10.821070000005761,
+          10.641255999999544,
+          11.971061000004113,
+          12.195708999996668,
+          12.548205999998174,
+          12.731510000001833,
+          11.396677999996996
+        ],
+        "images_per_second_from_mean_wall_latency": 92.0045377097996,
+        "memory": {
+          "baseline_allocated_bytes": 124243456,
+          "baseline_reserved_bytes": 153092096,
+          "peak_allocated_bytes": 134824960,
+          "peak_reserved_bytes": 153092096,
+          "incremental_peak_allocated_bytes": 10581504
+        },
+        "memory_scope": "PyTorch allocator; includes this registered model, input/FOV/permutation buffers and forward temporaries; excludes CUDA context/driver, external allocations and training gradients/optimizer",
+        "timing_scope": "resident synthetic image plus resident full-FOV metadata to logit; full uncached encoder; original Python validation/check overhead retained; excludes image IO, resize/normalization, FOV extraction, transfers and patient aggregation"
+      }
+    },
+    {
+      "variant": "B0_ALLTOKENS",
+      "label": "LeDRA-Base-AllTokens",
+      "state": "completed",
+      "checkpoint_sha256": "2804243e1cf82b3927c1b88b70da291f78b1d4cb690249f481dec86250ee965c",
+      "trainable_parameters": 25377,
+      "total_registered_parameters": 21858081,
+      "frozen_registered_parameters": 21832704,
+      "flops": {
+        "dense_arithmetic_flops": 45373852416,
+        "dense_arithmetic_gflops_per_image": 45.373852416,
+        "analytic_check": {
+          "patch_embedding_convolution": 354041856,
+          "transformer_linear_projections": 33506721792,
+          "transformer_attention_matmuls": 11474307072,
+          "backbone_dense_total": 45335070720,
+          "task_classifier": 768,
+          "adapter_linear_projections": 38780928,
+          "reader_and_evidence_projection": 0,
+          "pair_einsums": 0,
+          "total_dense_flops": 45373852416,
+          "excluded_pair_difference_elements": 0,
+          "excluded_pair_relu_elements": 0
+        },
+        "measured_minus_analytic_flops": 0,
+        "dense_count_validated": true,
+        "complete_all_operator_total": false,
+        "all_12_attention_projections_verified": true,
+        "flops_by_operator": {
+          "aten.convolution": 354041856,
+          "aten.addmm": 33545503488,
+          "aten._scaled_dot_product_flash_attention": 11474307072
+        },
+        "operator_call_counts": {
+          "aten._scaled_dot_product_flash_attention": 12,
+          "aten._to_copy": 132,
+          "aten.add": 26,
+          "aten.addmm": 51,
+          "aten.cat": 1,
+          "aten.clone": 38,
+          "aten.convolution": 1,
+          "aten.detach": 1,
+          "aten.expand": 2,
+          "aten.gelu": 13,
+          "aten.mean": 1,
+          "aten.mul": 24,
+          "aten.native_layer_norm": 25,
+          "aten.permute": 12,
+          "aten.slice": 1,
+          "aten.squeeze": 1,
+          "aten.t": 51,
+          "aten.transpose": 13,
+          "aten.unbind": 12,
+          "aten.view": 125
+        },
+        "uncounted_terminal_operator_inventory": {
+          "aten._to_copy": {
+            "calls": 132,
+            "output_elements": 29562466
+          },
+          "aten.add": {
+            "calls": 26,
+            "output_elements": 7875456
+          },
+          "aten.cat": {
+            "calls": 1,
+            "output_elements": 302976
+          },
+          "aten.clone": {
+            "calls": 38,
+            "output_elements": 22117632
+          },
+          "aten.detach": {
+            "calls": 1,
+            "output_elements": 302976
+          },
+          "aten.expand": {
+            "calls": 2,
+            "output_elements": 1920
+          },
+          "aten.gelu": {
+            "calls": 13,
+            "output_elements": 14568096
+          },
+          "aten.mean": {
+            "calls": 1,
+            "output_elements": 384
+          },
+          "aten.mul": {
+            "calls": 24,
+            "output_elements": 7271424
+          },
+          "aten.native_layer_norm": {
+            "calls": 25,
+            "output_elements": 7613850
+          },
+          "aten.permute": {
+            "calls": 12,
+            "output_elements": 10907136
+          },
+          "aten.slice": {
+            "calls": 1,
+            "output_elements": 301056
+          },
+          "aten.squeeze": {
+            "calls": 1,
+            "output_elements": 1
+          },
+          "aten.t": {
+            "calls": 51,
+            "output_elements": 21258624
+          },
+          "aten.transpose": {
+            "calls": 13,
+            "output_elements": 3936768
+          },
+          "aten.unbind": {
+            "calls": 12,
+            "output_elements": 10907136
+          },
+          "aten.view": {
+            "calls": 125,
+            "output_elements": 73671744
+          }
+        },
+        "attention_counting": "QK^T and AV counted by native SDPA rules or decomposed BMM, once only",
+        "excluded": [
+          "linear/conv bias additions",
+          "LayerNorm",
+          "GELU/ReLU",
+          "attention softmax and score scaling",
+          "residual/LayerScale and other elementwise arithmetic",
+          "lesion probability sigmoid and reference/query normalization",
+          "pair differences, rectification and weighted readout elementwise reductions",
+          "boolean checks, indexing, permutation, shape/cast/copy and memory movement"
+        ]
+      },
+      "inference": {
+        "warmup": 10,
+        "repetitions": 40,
+        "cuda_stream_elapsed": {
+          "mean_ms": 10.724399280548095,
+          "sample_sd_ms": 1.127655747870147,
+          "median_ms": 10.899456024169922,
+          "p95_ms": 12.23972930908203,
+          "min_ms": 8.472640037536621,
+          "max_ms": 13.215744018554688
+        },
+        "synchronized_wall_elapsed": {
+          "mean_ms": 10.767738675000338,
+          "sample_sd_ms": 1.1285199937231132,
+          "median_ms": 10.947265000002204,
+          "p95_ms": 12.278915450003323,
+          "min_ms": 8.533337999999446,
+          "max_ms": 13.279568000001518
+        },
+        "cuda_stream_samples_ms": [
+          11.672575950622559,
+          11.611136436462402,
+          10.885151863098145,
+          9.390080451965332,
+          8.539168357849121,
+          10.605567932128906,
+          10.92915153503418,
+          11.777024269104004,
+          11.257856369018555,
+          11.489279747009277,
+          12.212127685546875,
+          13.215744018554688,
+          10.262528419494629,
+          9.583616256713867,
+          10.52774429321289,
+          11.088895797729492,
+          10.9137601852417,
+          11.427840232849121,
+          11.22815990447998,
+          11.164671897888184,
+          11.427840232849121,
+          10.574848175048828,
+          10.867712020874023,
+          10.769503593444824,
+          10.480640411376953,
+          11.45958423614502,
+          11.327391624450684,
+          10.8154878616333,
+          10.384384155273438,
+          10.95680046081543,
+          10.789888381958008,
+          8.483839988708496,
+          8.472640037536621,
+          9.011103630065918,
+          8.786944389343262,
+          8.506367683410645,
+          12.76416015625,
+          10.764287948608398,
+          11.439040184020996,
+          11.111424446105957
+        ],
+        "synchronized_wall_samples_ms": [
+          11.72607899999889,
+          11.64198100000391,
+          10.927139000003194,
+          9.418710999995028,
+          8.589125999996838,
+          10.647265000002903,
+          10.973651999997003,
+          11.821097000002112,
+          11.30629200000044,
+          11.524642000004803,
+          12.251011000003587,
+          13.279568000001518,
+          10.29371400000656,
+          9.615987000003656,
+          10.571134999999288,
+          11.12423300000387,
+          10.967391000001214,
+          11.474071000002084,
+          11.265717000000564,
+          11.215845000002389,
+          11.467775999996377,
+          10.621978000003196,
+          10.901769999996702,
+          10.822268999994833,
+          10.512130999998703,
+          11.487572999996587,
+          11.363062000000923,
+          10.868716000004497,
+          10.422130000002028,
+          11.013374000000908,
+          10.826577999999643,
+          8.542701999999736,
+          8.533337999999446,
+          9.044375000001992,
+          8.826322999993863,
+          8.540138999997282,
+          12.809099999998352,
+          10.81883700000219,
+          11.482856000000652,
+          11.169863999995755
+        ],
+        "images_per_second_from_mean_wall_latency": 92.87001014630108,
+        "memory": {
+          "baseline_allocated_bytes": 124243456,
+          "baseline_reserved_bytes": 153092096,
+          "peak_allocated_bytes": 134824960,
+          "peak_reserved_bytes": 153092096,
+          "incremental_peak_allocated_bytes": 10581504
+        },
+        "memory_scope": "PyTorch allocator; includes this registered model, input/FOV/permutation buffers and forward temporaries; excludes CUDA context/driver, external allocations and training gradients/optimizer",
+        "timing_scope": "resident synthetic image plus resident full-FOV metadata to logit; full uncached encoder; original Python validation/check overhead retained; excludes image IO, resize/normalization, FOV extraction, transfers and patient aggregation"
+      }
+    }
+  ]
+}

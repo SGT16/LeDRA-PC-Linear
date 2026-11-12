@@ -1,0 +1,16 @@
+Model,Trainableparameters,Totalparameters(M),DenseGFLOPs/image,Inferencewall time(ms),Peakallocated(MiB),Recordedtraining(h)
+LeDRA-PC-Linear(Proposed; benchmark),"36,229",21.869,45.509,35.28± 3.24,128.6,12.12
+LeDRA-Base(matched),"25,377",21.858,45.374,11.22± 1.41,128.6,3.95
+LeDRA-Base(historical),"25,377",21.858,45.374,10.85± 0.45,128.6,1.25
+LeDRA-Base-r46,"36,143",21.869,45.390,10.41± 1.13,128.6,1.91
+LeDRA-PC-Single(variant),"36,229",21.869,45.509,35.66± 3.70,129.0,12.25
+LeDRA-PC-Bi(variant),"36,325",21.869,45.627,59.98± 7.15,129.1,21.39
+PC-Single-Shuffled(alignment control),"36,229",21.869,45.509,36.59± 3.33,129.0,12.37
+LeDRA-Base-Early,"25,377",21.858,45.374,10.98± 0.87,128.6,12.11
+LeDRA-Base-Mid,"25,377",21.858,45.374,10.87± 1.16,128.6,7.06
+LeDRA-Base-AllTokens,"25,377",21.858,45.374,10.77± 1.13,128.6,3.86
+Linear probing,385,21.833,45.335,10.29± 0.89,128.4,3.51
+Houlsby-type adapter,"1,209,985",23.043,47.197,16.40± 1.24,135.9,25.15
+AdaptFormer,"595,585",22.428,46.266,12.48± 1.75,131.9,15.71
+Adapter+,"304,897",22.138,45.800,13.89± 2.14,130.2,19.70
+AdapterDrop,"28,065",21.861,45.374,10.91± 1.93,129.2,7.35
