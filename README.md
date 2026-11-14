@@ -1,8 +1,8 @@
 # LeDRA PC Linear
 
-Experiment code and recorded results for lesion-conditioned retinal adaptation with **LeDRA-PC-Linear**. The completed study covers seven cohorts, five training seeds, three fixed source folds and every directed cross-cohort transfer.
+Experiment code and recorded results for lesion-conditioned retinal adaptation with **LeDRA-PC-Linear**. The development study covers seven cohorts, five training seeds, three fixed source folds and every directed cross-cohort transfer. A separate evaluation uses BRSET-trained models on the DRTiD two-field retinal image dataset.
 
-[GitHub](https://github.com/SGT16/LeDRA-PC-Linear) · [OSF](https://osf.io/4q5te/)
+[GitHub](https://github.com/SGT16/LeDRA-PC-Linear) · [OSF archive of the original seven-cohort release](https://osf.io/4q5te/)
 
 ## Method
 
@@ -19,6 +19,8 @@ The proposed model contains 36,229 trainable parameters. The independently train
 | Total | Two separate phases | **2,205** | **4,410** | **13,230** |
 
 Each source cohort is evaluated on the other six cohorts, giving **42 source–target directions**. Both phases preserve all seven cohorts and all directions.
+
+In the separate BRSET-to-DRTiD test, each of eight model configurations was evaluated on the same 1,550 eyes using its 15 saved BRSET checkpoints. The original assessment covered PC-Linear, its independently trained Base control and its pooling-only control (45 evaluations). The subsequent descriptive comparison added linear probing, a Houlsby-type adapter, AdaptFormer, Adapter+ and AdapterDrop (75 evaluations). Full numerical results, including all 120 conditions and paired differences, are available in [results/drtid](results/drtid).
 
 | Cohort | Retained images | Scoring unit |
 |---|---:|---|
@@ -43,6 +45,7 @@ From the repository root:
 ```console
 python reproduce/verify_files.py
 python reproduce/verify_aggregates.py
+python reproduce/verify_drtid.py
 ```
 
 To write newly calculated full-precision summaries to a separate directory:
@@ -51,7 +54,7 @@ To write newly calculated full-precision summaries to a separate directory:
 python reproduce/verify_aggregates.py --write-recomputed replayed_results
 ```
 
-The verifier checks file checksums, condition identities, seed/fold coverage, all source–target directions, means, sample standard deviations and exact-Base contrasts. The recorded release check passed **18,032 checks** at an absolute numerical tolerance of `1e-12`.
+The original seven-cohort release passed **18,032 checks** at an absolute numerical tolerance of `1e-12`. The DRTiD verifier checks the eight-model condition grid, confusion counts, fixed-threshold results, means, seed variability and paired differences.
 
 ## Training and external evaluation
 
@@ -105,6 +108,7 @@ The interval analysis uses 2,000 shared dependency-group bootstrap draws and con
 | `results/conditional_intervals/` | Conditional intervals and aggregate analysis records |
 | `results/computational_cost/` | Recorded training times, hardware and inference profiles |
 | `results/tables/` | Result tables and source map |
+| `results/drtid/` | Eye-level BRSET-to-DRTiD results aggregated by source checkpoint, seed and model |
 
 The comparison workbook is in `results/LeDRA_PCLinear_vs_ExactBase_AllResults_20261112.xlsx`. Results are provided as numerical CSV, JSON and Excel files. Images, graphics, patient-level records, credentials and model weights are not distributed.
 

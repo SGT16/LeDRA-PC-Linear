@@ -44,6 +44,8 @@ The intervals condition on fixed trained models, seeds and folds, and use 2,000 
 
 ## Numerical result scope
 
+The additional [BRSET-to-DRTiD results](../results/drtid) have a separate arithmetic replay. Run `python reproduce/verify_drtid.py` to verify all eight model configurations evaluated on the same 1,550 target eyes, their five seed means, summary metrics and paired differences. The original seven-cohort counts above exclude this additional transfer.
+
 `results/tables/TABLE_SOURCE_MAP.csv` maps each main-paper table to released numerical sources. All graphics and manuscript files are outside this numerical artifact.
 
 The reported cost profiles distinguish recorded training/INNER duration from resident-synthetic full-forward inference. The linear-time profile is an implementation comparison using the same trained checkpoint; it is not a new accuracy experiment. Dense arithmetic counts omit documented unsupported operations and are not exact all-operator FLOPs totals.

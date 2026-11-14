@@ -10,6 +10,7 @@ This directory contains the recorded numerical evidence for LeDRA-PC-Linear. The
 | `conditional_intervals/` | Six-model conditional interval summaries, five paired controls, aggregate calibration and confusion counts, analysis protocols |
 | `tables/` | Nineteen result tables in CSV format and a numerical-source map |
 | `computational_cost/` | Recorded training timing, hardware/protocol and resident-synthetic inference measurements |
+| [`drtid/`](drtid) | Additional BRSET-to-DRTiD evaluation on 1,550 eyes, with per-condition, per-seed and per-model metrics for eight configurations and paired PC-Linear differences |
 
 `LeDRA_PCLinear_vs_ExactBase_AllResults_20261112.xlsx` contains the complete PC-Linear versus exact-recipe Base comparison, including cohort summaries, seed variability, differences and conditional intervals.
 

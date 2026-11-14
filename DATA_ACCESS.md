@@ -5,6 +5,7 @@ The repository provides experiment code and aggregate results. Obtain source dat
 | Resource | Source | Preparation requirement |
 |---|---|---|
 | BRSET 1.0.2 | [PhysioNet](https://physionet.org/content/brset/1.0.2/) | Provider-authorized access; preserve the retained patient groups and source roles |
+| DRTiD two-field fundus images | [Provider project and application instructions](https://github.com/FDU-VTS/DRTiD) | Obtain the ophthalmologist-reviewed release under its academic-use agreement. Preserve the provider's macula–disc pairing and eye grade. |
 | mBRSET 1.0 | [PhysioNet](https://physionet.org/content/mbrset/1.0/) | Provider-authorized access; preserve exclusions and unknown-label handling |
 | DeepDRiD v1.1 regular fundus | [Provider record](https://doi.org/10.1016/j.patter.2022.100512) | Use the recorded regular-fundus version and patient mapping |
 | Messidor-2 images | [ADCIS](https://www.adcis.net/en/third-party/messidor2/) | Preserve the official examination pairing |

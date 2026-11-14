@@ -105,6 +105,24 @@ Apply each source fit unchanged to the other six datasets. Benchmark external in
 
 Aggregate the three source-fold metrics within each seed, then report the mean and sample SD over five seed means. Repeated seed predictions are not independent patients, and target probabilities are not pooled into an ensemble unless explicitly labeled as a different experiment.
 
+## BRSET to DRTiD
+
+The DRTiD module evaluates the five benchmark comparators on the ophthalmologist-reviewed two-field dataset. Supply your authorized photographs, the two provider grading tables and the original BRSET checkpoints. The grade files use columns `Macula`, `Optic disc` and `Grade`. Supply the original provider training table first and testing table second. The ordered field-pair/grade hash and the hash of the complete set of original photographs must match the study. All 1,550 eyes are external to the BRSET-trained models. No DRTiD split or teacher is required.
+
+Run the feature step once with the original prefix-extraction environment (PyTorch 2.9.1+cu128, torchvision 0.24.1+cu128, timm 1.0.27, Pillow 12.0.0). It reads each field at 392 × 392, caches the pre-block tokens in FP16 and derives the block-11 tokens for AdapterDrop in FP32 under BF16 autocast. Private caches require approximately 5.3 GiB.
+
+```bash
+python -m ledra_experiments.drtid encode --grades "Ground Truths/DR_grade/a. DR_grade_Training.csv" "Ground Truths/DR_grade/b. DR_grade_Testing.csv" --image-root "Original Images" --weights retfoundgreen_statedict.pth --cache local_data/drtid_prefix
+```
+
+Run the model scoring step in the recorded native BF16 evaluation environment (PyTorch 2.12.1+cu132, timm 1.0.27). Each model uses its saved BRSET task state. The source-lock table identifies the correct checkpoint by hash and supplies the original `source_INNER_F1`, `source_INNER_Se95` and `source_INNER_Sp95` cutoffs for the selected model, seed and source fold.
+
+```bash
+python -m ledra_experiments.drtid score --model LP --seed 823 --fold 1 --checkpoint selected_backbone.pt --source-locks results/drtid/benchmark_source_locks.csv --grades "Ground Truths/DR_grade/a. DR_grade_Training.csv" "Ground Truths/DR_grade/b. DR_grade_Testing.csv" --weights retfoundgreen_statedict.pth --cache local_data/drtid_prefix --output rerun/drtid/LP_seed823_fold1.json
+```
+
+The public identifiers of the five models are `LP`, `HOULSBY`, `ADAPTFORMER`, `ADAPTERPLUS` and `ADAPTERDROP`. The full comparison requires 75 evaluations using the five recorded seeds and three source folds. The result JSON contains eye-level summary metrics; field or eye records are not written. The previously evaluated three matched models are included in the downloadable numerical results and aggregate replay.
+
 ## Excluded prerequisites
 
 This release supplies scientific kernels and runnable commands, not an unrestricted redistribution of the seven providers' data. It does not include provider downloads, original retained image identities, original split/teacher assets, or source checkpoints. A user with only this public release can replay the released aggregate numeric results and run the CPU fixtures, but cannot regenerate the historical 2,205 learned task checkpoints without obtaining/restoring those prerequisites. No bit-for-bit guarantee across different hardware, numerical kernels or software versions is made.

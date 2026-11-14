@@ -1,15 +1,15 @@
 {
   "artifact": "LeDRA-PC-Linear experiments and numerical results",
-  "version": "0.1.0",
-  "release_date": "2026-11-12",
+  "version": "0.2.0",
+  "release_date": "2026-11-15",
   "repository": "https://github.com/SGT16/LeDRA-PC-Linear",
   "archive": "https://osf.io/4q5te/",
   "new_open_license": false,
   "training_conditions": 2205,
   "source_evaluation_records": 4410,
-  "external_conditions": 13230,
-  "cohorts": 7,
-  "directed_transfers": 42,
+  "external_conditions": 13350,
+  "cohorts": 8,
+  "directed_transfers": 43,
   "training_seeds": [
     823,
     289,
@@ -60,8 +60,8 @@
     },
     {
       "path": "code/RUNNING.md",
-      "bytes": 11338,
-      "sha256": "405b708c13ddc1fd25edf409719e21199a8968ecabd089622ff904b6b66fa5f2"
+      "bytes": 13710,
+      "sha256": "e508aafd667515a37cff6460ef9afb9deacbaef416654455f3eb005f48aff5b2"
     },
     {
       "path": "code/src/ledra_experiments/__init__.py",
@@ -77,6 +77,16 @@
       "path": "code/src/ledra_experiments/cli.py",
       "bytes": 4154,
       "sha256": "9917a7cd467c54b70c0d44e3576bd847828c2e902fb60bf5922c9d171077b7ac"
+    },
+    {
+      "path": "code/src/ledra_experiments/drtid.py",
+      "bytes": 8624,
+      "sha256": "0d4339d6a4f7cdc6377d0aeee44934400550ef6ef98fb8acf016694709229f07"
+    },
+    {
+      "path": "code/src/ledra_experiments/drtid_kernels.py",
+      "bytes": 2112,
+      "sha256": "453560adc992c86c44c9f954faa135db68032a8c8f8655f9b486c4881bb6f68b"
     },
     {
       "path": "code/src/ledra_experiments/factory.py",
@@ -390,23 +400,28 @@
     },
     {
       "path": "DATA_ACCESS.md",
-      "bytes": 3727,
-      "sha256": "c823c54330a5487f385c610dd3014d4ed27fab51447c493ba325c5467b4b72d7"
+      "bytes": 3986,
+      "sha256": "757346312db520231ef802b92d2a17fdab9579cb4a2cb5b7495889c5e620635f"
     },
     {
       "path": "README.md",
-      "bytes": 7084,
-      "sha256": "60725a63ce902295612dc9ca2d72d5e0a5ea50ab3965e8b6eda0aa8b9a903160"
+      "bytes": 7891,
+      "sha256": "28746363fca4a8852e09d42bc71657d517d7c0ffab0ef1c94a5add1c03c65362"
     },
     {
       "path": "reproduce/REPRODUCTION.md",
-      "bytes": 5291,
-      "sha256": "8042333919138c7261d91a4bd7168e8cf676805eb18435e829ddccf492543afa"
+      "bytes": 5642,
+      "sha256": "b1adc75cd6a220008068c7af4f6899a1adbbac84a473e6eeb9750cc0a9828178"
     },
     {
       "path": "reproduce/verify_aggregates.py",
       "bytes": 11275,
       "sha256": "551161762c6d63ab2ee7dde8faa1d0c1d96954c581c2707800480c5e928984a7"
+    },
+    {
+      "path": "reproduce/verify_drtid.py",
+      "bytes": 6124,
+      "sha256": "3aafbd4ab451baed4a8cba2799e81ca448a4c1c8bd114b7805be36aecedb6376"
     },
     {
       "path": "reproduce/verify_files.py",
@@ -450,8 +465,8 @@
     },
     {
       "path": "results/checksums.sha256",
-      "bytes": 5310,
-      "sha256": "b853cfbd3cfa5700e771a02e2ef64d92c80baa56c25ca2dc872766c643367eb5"
+      "bytes": 5785,
+      "sha256": "90355263fce0eadcce9db681e7d5ba4658117d14ac055e899b023495a5562d5c"
     },
     {
       "path": "results/computational_cost/benchmark_full_forward_profiles.json",
@@ -514,6 +529,36 @@
       "sha256": "6f7ba4dfc1f2007de6486172066e79076e8610f0c3d26804eed4b8d0252bd3eb"
     },
     {
+      "path": "results/drtid/benchmark_source_locks.csv",
+      "bytes": 10533,
+      "sha256": "e8475ad4064d7f1d285aee3fb4daa2f1466de7e3e52bb8b4e70289c1508b187b"
+    },
+    {
+      "path": "results/drtid/conditions.csv",
+      "bytes": 73024,
+      "sha256": "c91d2adeed698d07cd4b45483340fdfa57021dc4ac485b9c349bec6a39718184"
+    },
+    {
+      "path": "results/drtid/models.csv",
+      "bytes": 20577,
+      "sha256": "580907a7462d5ed72e40bc1f1b67f86f952d557090b271cb63b9f54bcad70753"
+    },
+    {
+      "path": "results/drtid/paired_differences.csv",
+      "bytes": 20189,
+      "sha256": "cae476512dbb85fa42eb15b6150e751e3002adafb4f354428588bb5b343e9009"
+    },
+    {
+      "path": "results/drtid/README.md",
+      "bytes": 3338,
+      "sha256": "5132106fe6cfdfcaf56b80fba9c9f5c770f01c1a32e187e91ab8d646e4c682e7"
+    },
+    {
+      "path": "results/drtid/seeds.csv",
+      "bytes": 27022,
+      "sha256": "25ea6b1cc1be109f2bae2440b2b62622492a00911bb5663803063d977c4cdf01"
+    },
+    {
       "path": "results/exact_base_comparison/comparison_all49.csv",
       "bytes": 87526,
       "sha256": "f9d8c5087e104fe1e506ba9efc98681ca28dd021d2b273ee9fe36379816aa136"
@@ -570,13 +615,13 @@
     },
     {
       "path": "results/README.md",
-      "bytes": 2715,
-      "sha256": "93accd997bc851d6f0dda9da93a18f1c72c0b1d9102bccc91461a92be4c3eac7"
+      "bytes": 2900,
+      "sha256": "3f6665063776fd1c615beb8d9f3621e4fbc4ddd6cf855b9093c83bc5cdec92f2"
     },
     {
       "path": "results/source_provenance.json",
-      "bytes": 26336,
-      "sha256": "937961f628446d72267c644088f9b17a6103a6fbabb20516a32190613b69fb1e"
+      "bytes": 28240,
+      "sha256": "a4f51657cf1ebee0c1d7e2401b6ed1eb2ff91e84579ad7ecc118a4b6bff43111"
     },
     {
       "path": "results/tables/table_01.csv",
@@ -683,5 +728,24 @@
       "bytes": 26428,
       "sha256": "81a9f57189a652306dca5f649a8bcc9891431513a84a27779bf1b379679a0f7c"
     }
-  ]
+  ],
+  "archive_scope": "OSF archive contains the original seven-cohort release v0.1.0.",
+  "seven_cohort_development_study": {
+    "cohorts": 7,
+    "directed_transfers": 42,
+    "external_conditions": 13230
+  },
+  "additional_drtid_external_evaluation": {
+    "source": "BRSET",
+    "target": "DRTiD",
+    "scoring_unit": "eye",
+    "eyes": 1550,
+    "positive_eyes": 663,
+    "training_conditions_added": 0,
+    "models": 8,
+    "original_conditions": 45,
+    "additional_comparator_conditions": 75,
+    "total_conditions": 120,
+    "additional_directed_transfers": 1
+  }
 }

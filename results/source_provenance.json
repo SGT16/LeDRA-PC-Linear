@@ -399,6 +399,47 @@
         "computational_cost/prior_matched_five_arm_training_timing.csv"
       ],
       "transformation": "Byte-for-byte observed training/INNER timing summaries; no causal architecture speed interpretation"
+    },
+    {
+      "source": "drtid-local/source_inventory.csv",
+      "source_sha256": "2077acb3479e47bd3f0b33cbf863af0d9a612f3896f333a2e665d6cb38471a97",
+      "released_artifacts": [
+        "drtid/benchmark_source_locks.csv"
+      ],
+      "transformation": "Five model names, training seeds, source folds, checkpoint checksum and three BRSET thresholds; filenames and local paths excluded."
+    },
+    {
+      "source": "drtid-local/comparison_plan.json",
+      "source_sha256": "ea0fd032a9e20962ddd65d888d1b4b970cd3febc1cafcb20bb43994b9fcbd391",
+      "released_artifacts": [
+        "drtid/conditions.csv",
+        "drtid/seeds.csv",
+        "drtid/models.csv",
+        "drtid/paired_differences.csv"
+      ],
+      "transformation": "Five additional BRSET comparators assessed after the three-model DRTiD results were known."
+    },
+    {
+      "source": "drtid-local/inference_completion.json",
+      "source_sha256": "0662b5862cf99451b28f83bb21ecfc664c3b441f08f1959206fcad9bbbf8c484",
+      "released_artifacts": [
+        "drtid/conditions.csv",
+        "drtid/seeds.csv",
+        "drtid/models.csv",
+        "drtid/paired_differences.csv"
+      ],
+      "transformation": "All 75 additional frozen BRSET comparator conditions completed DRTiD image inference."
+    },
+    {
+      "source": "drtid-local/aggregate_verification.json",
+      "source_sha256": "926a194015a78ffab1919b693ff4812e93a37d1caa2b5600e02f91356b1c1f71",
+      "released_artifacts": [
+        "drtid/conditions.csv",
+        "drtid/seeds.csv",
+        "drtid/models.csv",
+        "drtid/paired_differences.csv"
+      ],
+      "transformation": "Independent eye-level metric calculation and aggregate export for all 120 BRSET-to-DRTiD conditions."
     }
   ],
   "absolute_local_paths_removed": true,
@@ -435,7 +476,7 @@
     "matched6/internal_fit_metrics.csv": "296a2efbaba8c84d18f0dacfab208316a0b09a44a124654a908a9e6ad6030449",
     "matched6/internal_seed_means.csv": "f4bf83de4f123341ed14e9126f17adf732ea324cced39df2157dbaca86c67c0c",
     "matched6/internal_summary.csv": "54d6a7e380d5167981bbdd888aeebda9021c1a76b12d8b4d2d4d68c6811dcaa9",
-    "README.md": "b18d52f5624048c0d7a409e43c1eb782bfb19ea9971e74a25590d764fcaef8fc",
+    "README.md": "3f6665063776fd1c615beb8d9f3621e4fbc4ddd6cf855b9093c83bc5cdec92f2",
     "tables/table_01.csv": "e602738352e14d1af0c78aad85c7850284bb96d2de06b3201eae386103935ee2",
     "tables/table_02.csv": "390ad7e1e8ca8d3e18fecca8c415a30d9a1279c743d83852b78302b8c2c2f744",
     "tables/table_03.csv": "36343f59090933a5f3d59dcd3d9d50cfd06c9bb6cc34ab099ac9dd38a9581a36",
@@ -456,6 +497,13 @@
     "tables/table_18.csv": "5447f221f4f34934b94ecac3e36ce3f6adb3659e484acdc7a9e1939fe222f6c0",
     "tables/table_19.csv": "1683bcdb27dda475968d4b32e075db471f380301ffa1c2913d3833811cbd7dc9",
     "tables/TABLE_SOURCE_MAP.csv": "8d4d886bb4cb61ac6f7b71985d297779a7405e9f869b1af611c5bc14eeae44f1",
-    "tables/tables_manifest.json": "81a9f57189a652306dca5f649a8bcc9891431513a84a27779bf1b379679a0f7c"
-  }
+    "tables/tables_manifest.json": "81a9f57189a652306dca5f649a8bcc9891431513a84a27779bf1b379679a0f7c",
+    "drtid/conditions.csv": "c91d2adeed698d07cd4b45483340fdfa57021dc4ac485b9c349bec6a39718184",
+    "drtid/seeds.csv": "25ea6b1cc1be109f2bae2440b2b62622492a00911bb5663803063d977c4cdf01",
+    "drtid/models.csv": "580907a7462d5ed72e40bc1f1b67f86f952d557090b271cb63b9f54bcad70753",
+    "drtid/paired_differences.csv": "cae476512dbb85fa42eb15b6150e751e3002adafb4f354428588bb5b343e9009",
+    "drtid/README.md": "5132106fe6cfdfcaf56b80fba9c9f5c770f01c1a32e187e91ab8d646e4c682e7",
+    "drtid/benchmark_source_locks.csv": "e8475ad4064d7f1d285aee3fb4daa2f1466de7e3e52bb8b4e70289c1508b187b"
+  },
+  "updated_at_utc": "2026-11-14T21:06:33.673684+00:00"
 }
